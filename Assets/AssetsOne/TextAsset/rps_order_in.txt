@@ -1,0 +1,9 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+BG/PanelChooseOrder/WinRoot/ButtonGoFirst,rps_order_hide_element_pre_in,0,Single,0,1
+BG/PanelChooseOrder/WinRoot/ButtonGoFirst,rps_order_bottom_button_in,0,Single,0,1
+BG/PanelChooseOrder/WinRoot/ButtonGoSecond,rps_order_hide_element_pre_in,0,Single,0,1
+BG/PanelChooseOrder/WinRoot/ButtonGoSecond,rps_order_bottom_button_in,0,Single,0,1
+BG/PanelChooseOrder/WinRoot/ButtonNoPreference,rps_order_hide_element_pre_in,0,Single,0,1
+BG/PanelChooseOrder/WinRoot/ButtonNoPreference,rps_order_bottom_button_in,0,Single,0,1
+BG/LeftTeam,rps_order_team_left_in,0,Single,0,1
+BG/RightTeam,rps_order_team_right_in,0,Single,0,1

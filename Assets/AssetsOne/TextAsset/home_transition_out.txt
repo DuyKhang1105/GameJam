@@ -1,0 +1,6 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+UISafeArea/BottomLeftButtons,home_bottom_button_out,0,GroupAsc,0,1
+UISafeArea/TopRightButtons,home_top_right_button_out,0,Single,0,1
+UISafeArea/FriendSideTab,home_friend_out,0,Single,0,1
+UISafeArea/PlayerInfo,home_player_info_out,0,Single,0,1
+UISafeArea/HomeBanner,home_banner_out,0,Single,0,1

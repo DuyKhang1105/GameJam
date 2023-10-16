@@ -1,0 +1,7 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+BG/TitlteSign,myteam_top_title_in,0,Single,0,1
+SafeArea/Scroll View/Viewport/Content,myteam_team_detail_in,0,GroupAsc,0,1
+BottomButtons,myteam_bottom_button_in,0,Single,0,1
+ButtonAdd,myteam_top_button_in,0,Single,0,1
+SafeArea/ButtonClose,myteam_top_button_in,0,Single,0,1
+SafeArea/ButtonGuide,myteam_top_button_in,0,Single,0,1

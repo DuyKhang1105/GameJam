@@ -1,0 +1,10 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+Background/TitleSign,inventory_title_out,0,Single,0,1
+InputSearch,inventory_top_search_out,0,Single,0,1
+SafeAreaButtons/ButtonClose,inventory_top_button_out,0,Single,0,1
+SafeAreaButtons/ListCategory,inventory_top_tab_out,0,GroupAsc,0,1
+MainContentLayout/ListUserItems/Viewport/Content,inventory_item_out,0,GroupDesc,0,1
+MainContentLayout/DetailPnl/FlagBg,inventory_flag_out,0,Single,0,1
+MainContentLayout/DetailPnl/DetailContent,inventory_bottom_detail_out,0,Single,1
+MainContentLayout/DetailPnl/DetailContent/ItemDetailView,inventory_top_detail_icon_out,0,Single,0,1
+MainContentLayout/DetailPnl/LocationBtn,inventory_top_location_out,0,Single,0,1

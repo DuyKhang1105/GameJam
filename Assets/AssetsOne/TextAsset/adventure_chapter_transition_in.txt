@@ -1,0 +1,5 @@
+path,anim_name,start_time,type,delay_per_child,includeInactive
+Nodes,adventure_node_pre_in,0,GroupAsc,0,true
+Nodes,adventure_node_in,0.015,GroupAsc,0,true
+Milestones,adventure_milestone_in,0,Single,0,true
+Title,adventure_title_in,0,Single,0,true

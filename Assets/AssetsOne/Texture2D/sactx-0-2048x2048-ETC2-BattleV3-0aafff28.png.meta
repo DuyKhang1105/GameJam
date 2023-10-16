@@ -1,0 +1,1015 @@
+fileFormatVersion: 2
+guid: 0c72b64209c4deb478b58d4897b3df6d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 47
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1.5
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 0
+  flipbookColumns: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1682
+        width: 71
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859120f55b5381c47ba5bc72b73f6a56
+      internalID: 897591229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1738
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f6fb43315f8884388f819db8565bbc
+      internalID: 1217223040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1610
+        width: 211
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 542ca3eb4a4c1944ea4fd9e8b620e0ff
+      internalID: -1351282456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_3
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 1664
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45583160f28f3c4fb84edbe3c371665
+      internalID: 731942898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_4
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1664
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881e5817fcbbcd64c90f66cbf464aecd
+      internalID: 1392484468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1563
+        width: 351
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440390546c8e2d345827fb47b1d5b284
+      internalID: 507787736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_6
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1521
+        width: 71
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70372561f7b3d44b92556c9ff15a6a9
+      internalID: 654189157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_7
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 1448
+        width: 140
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a94d4fe50809c4096e4c2dab0c7fdf
+      internalID: 874925471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_8
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 1512
+        width: 103
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21685e8fa65c4643a0415a592b4648a
+      internalID: 470405803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1244
+        width: 224
+        height: 319
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc14c2567dd1afc45ad5f726c418b6c4
+      internalID: -1847619295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_10
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1336
+        width: 510
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809a71857f883bf4db1f24355ba81e04
+      internalID: -1544850461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_11
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1521
+        width: 61
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a123f8938fd174fa914cf59500772d
+      internalID: 1096609195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_12
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 1517
+        width: 197
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86029a6cb23ab174a9cdae5b434dddca
+      internalID: 83098573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_13
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 1435
+        width: 544
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6141cd4ba735727488be99927e40c83c
+      internalID: -2045106165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_14
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1324
+        width: 110
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac3d561cddd6de4e9e7ab427aac0d6a
+      internalID: -758818983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_15
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1116
+        width: 798
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd49ee8a7272bd24a8fe5b352d76c069
+      internalID: 1051681171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_16
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 1331
+        width: 197
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e6cb2a5e3cfdd4e96404ab2e5ca077
+      internalID: -2105773392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_17
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 1327
+        width: 79
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6855aac10bd345a4897149f9ccf1efc3
+      internalID: -711448790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_18
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1207
+        width: 96
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51df25192061e8a418ec305fb43f557f
+      internalID: -1912787531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_19
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 1300
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e85ac1100e9b244cbc5f4e63d02aad1
+      internalID: -538049615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 318
+        height: 1246
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5433fd3f98d1444b635df2331b5956
+      internalID: 292861630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_21
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 1207
+        width: 98
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bee07f6fa9f70745a5df6cf94521dda
+      internalID: -1375615222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_22
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 1140
+        width: 81
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71a8d45fae353845888ea39c4e8e310
+      internalID: 996162291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_23
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 874
+        width: 1786
+        height: 322
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7b385f822ff2843b145c97fa2fbcc5
+      internalID: -956275479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_24
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1126
+        width: 182
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18e9d10d1d302134588423f3ff7f69f7
+      internalID: -1987316758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_25
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 483
+        width: 406
+        height: 397
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ccb4c8ffef4ac468d8dcae78eb3c18
+      internalID: -928465555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_26
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 626
+        width: 1292
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beaa457383bd9aa43ad3658058b3f8be
+      internalID: -1310954963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_27
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 384
+        width: 356
+        height: 303
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef74fc6a8cf03647942b8a162fcc984
+      internalID: -2058371085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_28
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 305
+        width: 291
+        height: 317
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2250e4cf5796d1449527e17750992a1
+      internalID: 510258208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_29
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 616
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14969df1a60c94843bdcf7d8c686e7da
+      internalID: 139475396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_30
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 0
+        width: 396
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f7622d157ec1947bde69bb4ee85ca3
+      internalID: 35763499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_31
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 0
+        width: 375
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c887ea8bbdf2c644aa7b5729aab7cc1a
+      internalID: -1400746153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_32
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 454
+        width: 206
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b4735d3834a9046954eef532e10367
+      internalID: 1272635001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_33
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 454
+        width: 157
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f512e8112bfbc41805dbd530bbd8e4
+      internalID: 759288086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_34
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 1
+        width: 384
+        height: 383
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0555650298be943bbe47ce7fb708ed
+      internalID: 1816173672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_35
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 1
+        width: 342
+        height: 304
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32cc734043cdcfc45b57029378911386
+      internalID: -492761347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_36
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 128
+        width: 143
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417bd44369850be4b9935cad5802057e
+      internalID: -1753946568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_37
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 255
+        width: 56
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad99c8cc9fc1b34d94c38107fe7afa3
+      internalID: -63003578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_38
+      rect:
+        serializedVersion: 2
+        x: 1757
+        y: 0
+        width: 181
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41062b9fe06d35f42abda444e6d95725
+      internalID: -490030642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sactx-0-2048x2048-ETC2-BattleV3-0aafff28_39
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 128
+        width: 52
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 164f5c5dfbb442b42b6b9bf0391a9eec
+      internalID: -202463061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 933f40666911270468c2bed6721e2df1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_20: 292861630
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_12: 83098573
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_6: 654189157
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_8: 470405803
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_37: -63003578
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_7: 874925471
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_24: -1987316758
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_17: -711448790
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_39: -202463061
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_28: 510258208
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_10: -1544850461
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_9: -1847619295
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_2: -1351282456
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_22: 996162291
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_33: 759288086
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_13: -2045106165
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_16: -2105773392
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_30: 35763499
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_36: -1753946568
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_19: -538049615
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_29: 139475396
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_15: 1051681171
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_38: -490030642
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_14: -758818983
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_3: 731942898
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_21: -1375615222
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_25: -928465555
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_31: -1400746153
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_23: -956275479
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_0: 897591229
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_35: -492761347
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_11: 1096609195
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_34: 1816173672
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_27: -2058371085
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_4: 1392484468
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_26: -1310954963
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_1: 1217223040
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_5: 507787736
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_18: -1912787531
+      sactx-0-2048x2048-ETC2-BattleV3-0aafff28_32: 1272635001
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

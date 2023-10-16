@@ -1,0 +1,20 @@
+
+Collection_Button.png
+size: 128,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+main_button/main_button_d1
+  rotate: false
+  xy: 4, 83
+  size: 57, 70
+  orig: 57, 70
+  offset: 0, 0
+  index: -1
+main_button/main_button_d2
+  rotate: false
+  xy: 4, 4
+  size: 55, 75
+  orig: 55, 75
+  offset: 0, 0
+  index: -1

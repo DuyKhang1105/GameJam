@@ -1,0 +1,13 @@
+
+Inventory.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+main_button/main_button_c
+  rotate: false
+  xy: 4, 4
+  size: 77, 89
+  orig: 77, 89
+  offset: 0, 0
+  index: -1

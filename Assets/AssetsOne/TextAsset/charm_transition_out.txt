@@ -1,0 +1,15 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+MainContentLayout/ScrollViewCharm/ScrollView/_Viewport/Content,charm_item_out,0,DynamicScrollerDesc,0,1
+SafeAreaButtons/ChangeCollectionTab,charm_collection_tab_out,0,GroupDesc,0,1
+MainContentLayout/ScrollViewHolder/ScrollViewClasses,charm_class_toggle_out,0,GroupDesc,0,1
+Background/TitleSign,charm_top_title_out,0,Single,0,1
+SafeAreaButtons/ButtonClose,charm_top_button_out,0,Single,0,1
+SafeAreaButtons/ButtonFilter,charm_top_button_out,0,Single,0,1
+InputSearch,charm_top_button_out,0,Single,0,1
+SeasonDropDown,charm_top_button_out,0,Single,0,1
+SafeAreaButtons/PanelUnequip,charm_equip_out,0,Single,0,1
+WarningEndSeason,charm_top_warning_out,0,Single,0,1
+MainContentLayout/ScrollViewCharm/NoRuneTxt,charm_no_charm_txt_out,0,Single,0,1
+SafeAreaButtons/SelectTitleSign,charm_title_pick_for_axie_out,0,Single,0,1
+ExpiredRuneCharm,charm_top_warning_out,0,Single,0,1
+SeasonDropDown,charm_top_button_out,0,Single,0,1

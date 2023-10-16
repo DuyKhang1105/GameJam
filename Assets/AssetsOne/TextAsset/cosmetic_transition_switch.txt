@@ -1,0 +1,5 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+SafeArea/MainContentLayout/ScrollViewCosmetics/ScrollView/_Viewport/Content,cosmetic_item_pre_in,0,DynamicScrollerAsc,0,1
+SafeArea/MainContentLayout/ScrollViewCosmetics/ScrollView/_Viewport/Content,cosmetic_item_in,0.015,DynamicScrollerAsc,0,1
+SafeArea/MainContentLayout/ScrollViewHolder/ScrollViewClasses,cosmetic_class_toggle_pre_in,0,GroupAsc,0,1
+SafeArea/MainContentLayout/ScrollViewHolder/ScrollViewClasses,cosmetic_class_toggle_in,0.015,GroupAsc,0,1

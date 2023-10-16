@@ -1,0 +1,7 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+ButtonPrevious,adventure_button_prev_out,0,Single,0,1
+ButtonNext,adventure_button_next_out,0,Single,0,1
+ButtonReplayStory,adventure_button_afk_out,0,Single,0,1
+ButtonAfkRewards,adventure_button_afk_out,0,Single,0,1
+TeamAvatarView,adventure_team_out,0,Single,0,1
+SafeArea/ButtonClose,adventure_button_close_out,0,Single,0,1

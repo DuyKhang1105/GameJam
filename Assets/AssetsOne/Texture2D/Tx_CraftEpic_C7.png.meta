@@ -1,0 +1,1983 @@
+fileFormatVersion: 2
+guid: af28debf614cd424292555bb75ea2053
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 47
+  maxTextureSize: 4096
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 2
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 0
+  flipbookColumns: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3619
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ddc2b1c3fba76498c4a9c2862bc638
+      internalID: 12696784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_1
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 3619
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3158ffbf7f165344fa35f6cb9af8eaeb
+      internalID: -1334254262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_2
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 3619
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9671b96b1f20ba849aa78c3ed8c38e7f
+      internalID: -1056653996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_3
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 3619
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc87c412c0952b4da8159bb87b3aa31
+      internalID: -2085173220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_4
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 3619
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1121aa22f999847b198404d179fccf
+      internalID: 984723917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_5
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 3619
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946f98f8deabc014b8916a4020fbdba4
+      internalID: 105824085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_6
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 3619
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3382710a345f444a6d6670c5bffdc1
+      internalID: 954340514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3290
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e5bd71b8c4df1458a21a3883d45704
+      internalID: 1704596873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_8
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 3290
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa1aeb2128831e04ebf5fa290eeb4237
+      internalID: -767836841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_9
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 3290
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeede07ac95d9bb4abbf23d9b78c44cb
+      internalID: 1200817187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_10
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 3290
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb12e9883de8d084da1a10bc04785121
+      internalID: 1659979421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_11
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 3290
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490dbd75bdad09e49b765c1066995423
+      internalID: -49553788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_12
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 3290
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16be98fd4e4e65a40aff98c09db8457c
+      internalID: -711066744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_13
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 3290
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41c17f269c996984d8b76be9de0cfef9
+      internalID: 1492223993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2961
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9bfe809c340b3449f4da6e80fb40fa
+      internalID: 680575959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_15
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 2961
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b917b8068a2e0ed479e12ae613fed49f
+      internalID: 804270813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_16
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 2961
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a190823fa12a0dd41a60243e203e17e8
+      internalID: -1181515017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_17
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 2961
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d311211b187f7bf40a679c635a9f01b5
+      internalID: 1371377437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_18
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 2961
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c541b161018f28a43b1945f3a2eb6b3d
+      internalID: 230087577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_19
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 2961
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b90695e7f0eae41bd48003b79426f5
+      internalID: 2071098108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_20
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 2961
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9ab8ac1faa0534bbd374e6e7216a72
+      internalID: 2133405561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2632
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941b9747b0298e74faf215d093584829
+      internalID: -744391092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_22
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 2632
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1742c5562771f984b8db922ab8e18780
+      internalID: -613880349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_23
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 2632
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4791051b0c8ebf14eaf4467a16f86c7f
+      internalID: -380671405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_24
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 2632
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb498077564c27548a7413226ea3d558
+      internalID: 63640532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_25
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 2632
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5df2639133523c4db4b73f3b0791c57
+      internalID: -1082909862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_26
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 2632
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3146c77cfe6bf7547a1b3b48c66a8924
+      internalID: -1786995329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_27
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 2632
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c74b0615e022124fbe09439d7e9d43d
+      internalID: -1620926149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2303
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 449f5ed006b8b0f468fad160611fca1c
+      internalID: 457817484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_29
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 2303
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48bc795bb912ca049aeb025e7796b051
+      internalID: -1737764939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_30
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 2303
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcad60d1491000e4d9f3bd6ab21272c1
+      internalID: -488183787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_31
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 2303
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f1ef8471006d574683804ddbd8d5f4a
+      internalID: -304027716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_32
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 2303
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944a984d858b38a4297bae8df1adc5d7
+      internalID: 30931776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_33
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 2303
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1024228e29be97948939ee3508c504c6
+      internalID: 569258511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_34
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 2303
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45fe292622b58524b86a6474f64fb5e5
+      internalID: -1749496434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1974
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c9d719aee326f4fa9d0d44c7dd1ee3
+      internalID: 1087778938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_36
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 1974
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86454e312b3311b4693d5faa21362193
+      internalID: -1159781690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_37
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1974
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1c35d095a89a347b9f0ca8ced194de
+      internalID: -1353670617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_38
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 1974
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb2e6fefa41a714fb3f5f794dc3d691
+      internalID: -1093314059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_39
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 1974
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f142a14af29fedb4898bf87f4ca2df11
+      internalID: -587157184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_40
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 1974
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d010c8f26dfd3448d4a7d92f0c3ca1
+      internalID: -1896967282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_41
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 1974
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a131d51996cbde44f86b7e1e7ba98f18
+      internalID: 573760135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1645
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9fd5bf07f8a8a4ea6a900b153b21b7
+      internalID: 1196983878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_43
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 1645
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891c320a47edf9e488c353e59ec840b7
+      internalID: -1634358739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_44
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1645
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45783510dc4dd2c4f8d8a755a66e1f45
+      internalID: -678817320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_45
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 1645
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9508cf8b6d7d29b439413bb2734dd78c
+      internalID: 100914787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_46
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 1645
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0664e730c2ac00b4097a02c82c4ca15a
+      internalID: 1231341470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_47
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 1645
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b7827655a50e9a4a9e225c6922ce68e
+      internalID: -203449029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_48
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 1645
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fac98763491ea84c8f734fe1fc069be
+      internalID: 41793902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1316
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c42fff8679c2c724cb72c9080f5ff294
+      internalID: 1087545639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_50
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 1316
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78847242027041f42909d9814d4801c3
+      internalID: -1616253667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_51
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1316
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad6f315ef76cd94bb8afe4959bdb0bb
+      internalID: 1763968460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_52
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 1316
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a420c1a18ecd6d0418ef1da1227dfc29
+      internalID: -556824347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_53
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 1316
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55786905a4630d8408178864b7e07b7d
+      internalID: -1459158872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_54
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 1316
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece6d00c3dd60c34487f0bb35bf72925
+      internalID: -1041186028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_55
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 1316
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13b869005bc5564680f42da3b52780f
+      internalID: -1203025698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 987
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c613a7ca2e88d2e499ed390898e38ed9
+      internalID: 1635690266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_57
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 987
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edbaedccd4a833b40ba638a7cf996746
+      internalID: -2101108273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_58
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 987
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d452f7b40fec24296fa4dbb54fd2eb
+      internalID: -619510705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_59
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 987
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27fec18798b369a4fb5ec0b1f42f5279
+      internalID: -912213961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_60
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 987
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f1b6a5f46c50ba48a1f8abd340b02f0
+      internalID: 1076424639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_61
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 987
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86ab22830fedc274b9e3d509faca2704
+      internalID: -1905153336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_62
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 987
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac536fc25ca0b45408947dd5cbc5924f
+      internalID: 878229283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 658
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb33c0527e8ee674690fdb26cafb4903
+      internalID: 279828870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_64
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 658
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bb22cc2705c33428b0c9c2a9a55115
+      internalID: 1496579854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_65
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 658
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4981ac431e7c664697872328f5d6986
+      internalID: -516773366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_66
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 658
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc689c9ba5b8d245913ce6803d79cf4
+      internalID: 1429852334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_67
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 658
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b99d42d2fd3b074492a281a8911b03f
+      internalID: -251814619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_68
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 658
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b5be049ee69a440b166d90c67ccbbe
+      internalID: -656898960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_69
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 658
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9f4f6bf93760648b0b3418aea12784
+      internalID: 1518590647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c9e3c54f065bd47bad28fe4f5f5661
+      internalID: 2141179066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_71
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 329
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7ab56969069d345a8946b85f123f65
+      internalID: 116977468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_72
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 329
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3780582877eda3d4788fb4f6edd91870
+      internalID: 1042835621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_73
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 329
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24834244d274414783f9538eea1341c
+      internalID: 1226985138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_74
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 329
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e09d33ae6c20149908701a4e9b2e8d
+      internalID: 1195922135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_75
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 329
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f059dd5320a2744b199a0d8ac2c73e
+      internalID: 1606440346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_76
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 329
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3077ef84c72dc254293464a0bbcf5718
+      internalID: -376444014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5460673aea87ef4499c23564156bf7f
+      internalID: -1909840429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_78
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 0
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ebb22537d8e1624795afed987050da6
+      internalID: 1890205145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_79
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 0
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a594162d4322ab4abf0327e656dc6c7
+      internalID: -26143932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_80
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 0
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262d6af668119ed44a5094a93c3c2cda
+      internalID: 1339390731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_81
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 0
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 937e4e3a3e09d474895ac3266b00accb
+      internalID: 445234408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_82
+      rect:
+        serializedVersion: 2
+        x: 2925
+        y: 0
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c037a9f9e9a9a024eb821605b95da67e
+      internalID: -871260721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tx_CraftEpic_C7_83
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 0
+        width: 585.1429
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72d6788217a91349b2c489f0dbe442a
+      internalID: 1152513827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2f4fbd7eb56f56649b8704b671b21639
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Tx_CraftEpic_C7_40: -1896967282
+      Tx_CraftEpic_C7_49: 1087545639
+      Tx_CraftEpic_C7_65: -516773366
+      Tx_CraftEpic_C7_32: 30931776
+      Tx_CraftEpic_C7_0: 12696784
+      Tx_CraftEpic_C7_30: -488183787
+      Tx_CraftEpic_C7_36: -1159781690
+      Tx_CraftEpic_C7_13: 1492223993
+      Tx_CraftEpic_C7_8: -767836841
+      Tx_CraftEpic_C7_7: 1704596873
+      Tx_CraftEpic_C7_61: -1905153336
+      Tx_CraftEpic_C7_83: 1152513827
+      Tx_CraftEpic_C7_24: 63640532
+      Tx_CraftEpic_C7_60: 1076424639
+      Tx_CraftEpic_C7_69: 1518590647
+      Tx_CraftEpic_C7_17: 1371377437
+      Tx_CraftEpic_C7_15: 804270813
+      Tx_CraftEpic_C7_28: 457817484
+      Tx_CraftEpic_C7_22: -613880349
+      Tx_CraftEpic_C7_52: -556824347
+      Tx_CraftEpic_C7_37: -1353670617
+      Tx_CraftEpic_C7_44: -678817320
+      Tx_CraftEpic_C7_55: -1203025698
+      Tx_CraftEpic_C7_56: 1635690266
+      Tx_CraftEpic_C7_63: 279828870
+      Tx_CraftEpic_C7_12: -711066744
+      Tx_CraftEpic_C7_35: 1087778938
+      Tx_CraftEpic_C7_53: -1459158872
+      Tx_CraftEpic_C7_58: -619510705
+      Tx_CraftEpic_C7_31: -304027716
+      Tx_CraftEpic_C7_34: -1749496434
+      Tx_CraftEpic_C7_51: 1763968460
+      Tx_CraftEpic_C7_70: 2141179066
+      Tx_CraftEpic_C7_71: 116977468
+      Tx_CraftEpic_C7_19: 2071098108
+      Tx_CraftEpic_C7_20: 2133405561
+      Tx_CraftEpic_C7_66: 1429852334
+      Tx_CraftEpic_C7_11: -49553788
+      Tx_CraftEpic_C7_3: -2085173220
+      Tx_CraftEpic_C7_41: 573760135
+      Tx_CraftEpic_C7_68: -656898960
+      Tx_CraftEpic_C7_23: -380671405
+      Tx_CraftEpic_C7_74: 1195922135
+      Tx_CraftEpic_C7_72: 1042835621
+      Tx_CraftEpic_C7_75: 1606440346
+      Tx_CraftEpic_C7_25: -1082909862
+      Tx_CraftEpic_C7_1: -1334254262
+      Tx_CraftEpic_C7_6: 954340514
+      Tx_CraftEpic_C7_9: 1200817187
+      Tx_CraftEpic_C7_27: -1620926149
+      Tx_CraftEpic_C7_47: -203449029
+      Tx_CraftEpic_C7_29: -1737764939
+      Tx_CraftEpic_C7_18: 230087577
+      Tx_CraftEpic_C7_5: 105824085
+      Tx_CraftEpic_C7_39: -587157184
+      Tx_CraftEpic_C7_62: 878229283
+      Tx_CraftEpic_C7_78: 1890205145
+      Tx_CraftEpic_C7_42: 1196983878
+      Tx_CraftEpic_C7_16: -1181515017
+      Tx_CraftEpic_C7_81: 445234408
+      Tx_CraftEpic_C7_76: -376444014
+      Tx_CraftEpic_C7_77: -1909840429
+      Tx_CraftEpic_C7_2: -1056653996
+      Tx_CraftEpic_C7_43: -1634358739
+      Tx_CraftEpic_C7_14: 680575959
+      Tx_CraftEpic_C7_26: -1786995329
+      Tx_CraftEpic_C7_67: -251814619
+      Tx_CraftEpic_C7_73: 1226985138
+      Tx_CraftEpic_C7_48: 41793902
+      Tx_CraftEpic_C7_38: -1093314059
+      Tx_CraftEpic_C7_10: 1659979421
+      Tx_CraftEpic_C7_46: 1231341470
+      Tx_CraftEpic_C7_4: 984723917
+      Tx_CraftEpic_C7_21: -744391092
+      Tx_CraftEpic_C7_82: -871260721
+      Tx_CraftEpic_C7_79: -26143932
+      Tx_CraftEpic_C7_57: -2101108273
+      Tx_CraftEpic_C7_33: 569258511
+      Tx_CraftEpic_C7_45: 100914787
+      Tx_CraftEpic_C7_64: 1496579854
+      Tx_CraftEpic_C7_54: -1041186028
+      Tx_CraftEpic_C7_59: -912213961
+      Tx_CraftEpic_C7_80: 1339390731
+      Tx_CraftEpic_C7_50: -1616253667
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

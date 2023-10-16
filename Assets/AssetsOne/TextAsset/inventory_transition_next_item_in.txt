@@ -1,0 +1,4 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+SafeArea/MainContentLayout/DetailPnl/DetailContent/ItemDetailView,inventory_top_detail_icon_next_in,0,Single,0,1.25
+SafeArea/MainContentLayout/DetailPnl/DetailContent,inventory_bottom_detail_next_in,0,Single,0,1.25
+SafeArea/MainContentLayout/DetailPnl/DetailContent/FlagSpine,select-item,0,SingleSpine,0,1.5

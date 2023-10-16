@@ -1,0 +1,13 @@
+
+Ribbon.png
+size: 476,425
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+rube
+  rotate: false
+  xy: 2, 2
+  size: 472, 421
+  orig: 472, 421
+  offset: 0, 0
+  index: -1

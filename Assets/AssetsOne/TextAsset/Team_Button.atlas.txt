@@ -1,0 +1,27 @@
+
+Team_Button.png
+size: 256,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+main_button/main_button_b1
+  rotate: false
+  xy: 111, 4
+  size: 45, 54
+  orig: 45, 54
+  offset: 0, 0
+  index: -1
+main_button/main_button_b2
+  rotate: true
+  xy: 58, 8
+  size: 50, 49
+  orig: 50, 49
+  offset: 0, 0
+  index: -1
+main_button/main_button_b3
+  rotate: true
+  xy: 4, 6
+  size: 52, 50
+  orig: 52, 50
+  offset: 0, 0
+  index: -1

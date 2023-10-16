@@ -1,0 +1,5 @@
+path,anim_name,start_time,type,delay_per_child,timeScale,includeInactive
+SafeArea/MainContentLayout/ScrollViewCharm/ScrollView/_Viewport/Content,charm_item_pre_in,0,DynamicScrollerAsc,0,1,true
+SafeArea/MainContentLayout/ScrollViewCharm/ScrollView/_Viewport/Content,charm_item_in,0.015,DynamicScrollerAsc,0,1,true
+SafeArea/PanelUnequip,charm_equip_in,0,Single,0,1,false
+SafeArea/MainContentLayout/ScrollViewCharm/ScrollView/NoCharmTxt,charm_no_charm_txt_in,0,Single,0,1,false

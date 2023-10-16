@@ -1,0 +1,3 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+SafeArea/CardScrollView/_Viewport/Content,card_collection_item_pre_in,0,DynamicScrollerAsc,0,1
+SafeArea/CardScrollView/_Viewport/Content,card_collection_item_in,0.015,DynamicScrollerAsc,0,1

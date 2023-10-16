@@ -1,0 +1,7 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+BG/SafeArea/ButtonClose,setting_top_button_out,0,Single,0,1
+BG/TitleSign,setting_title_out,0,Single,0,1
+BG/ZendeskHelpCenter,setting_top_button_out,0,Single,0,1
+Content/GridA,setting_left_section_out,0.05,GroupAsc,0,1
+Content/GridB,setting_right_section_out,0.05,GroupAsc,0,1
+Content/Bottom,setting_bottom_button_out,0.05,GroupDesc,0,1

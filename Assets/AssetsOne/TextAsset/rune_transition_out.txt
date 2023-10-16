@@ -1,0 +1,14 @@
+path,anim_name,start_time,type,delay_per_child,timeScale
+MainContentLayout/ScrollViewRunes/ScrollView/_Viewport/Content,rune_item_out,0,DynamicScrollerDesc,0,1
+SafeAreaButtons/ChangeCollectionTab,rune_collection_tab_out,0,GroupDesc,0,1
+MainContentLayout/ScrollViewHolder/ScrollViewClasses,rune_class_toggle_out,0,GroupDesc,0,1
+Background/TitleSign,rune_top_title_out,0,Single,0,1
+SafeAreaButtons/ButtonClose,rune_top_button_out,0,Single,0,1
+SafeAreaButtons/ButtonFilter,rune_top_button_out,0,Single,0,1
+InputSearch,rune_top_button_out,0,Single,0,1
+SeasonDropDown,rune_top_button_out,0,Single,0,1
+SafeAreaButtons/PanelUnequip,rune_equip_out,0,Single,0,1
+WarningEndSeason,rune_top_warning_out,0,Single,0,1
+MainContentLayout/ScrollViewRunes/NoRuneTxt,rune_no_rune_txt_out,0,Single,0,1
+SafeAreaButtons/SelectTitleSign,rune_title_pick_for_axie_out,0,Single,0,1
+ExpiredRuneCharm,rune_top_warning_out,0,Single,0,1

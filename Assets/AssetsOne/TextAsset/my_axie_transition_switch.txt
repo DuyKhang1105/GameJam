@@ -1,0 +1,5 @@
+path,anim_name,start_time,type,delay_per_child,timeScale,includeInactive
+SafeAreaButtons/AxieView/Viewport/Content,my_axie_cell_pre_in,0,GroupAsc,0,1,true
+SafeAreaButtons/AxieView/Viewport/Content,my_axie_cell_in,0,GroupAsc,,1,true
+SafeAreaButtons/AxieCardListView/Viewport/Content,my_axie_list_card_celll_pre_in,0,GroupAsc,0,1,true
+SafeAreaButtons/AxieCardListView/Viewport/Content,my_axie_list_card_celll_in,0.015,GroupAsc,,1,true
