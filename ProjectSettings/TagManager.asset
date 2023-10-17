@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 3747849095
+    locked: 0
+  - name: Clouds
+    uniqueID: 1663144731
+    locked: 0
+  - name: Rocks
+    uniqueID: 3921045975
+    locked: 0
+  - name: Home
+    uniqueID: 2238810351
+    locked: 0
+  - name: Trees
+    uniqueID: 1709997717
+    locked: 0
+  - name: Game
+    uniqueID: 2153609089
+    locked: 0
+  - name: Ground
+    uniqueID: 625195711
+    locked: 0

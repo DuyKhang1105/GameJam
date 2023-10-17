@@ -282,7 +282,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -291,18 +290,18 @@ TextureImporter:
   maxTextureSize: 4096
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 16
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -1581,64 +1580,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Asset4u_HD_19: 21300050
-      Asset4u_HD_24: 21300048
-      Asset4u_HD_54: 21300108
-      Asset4u_HD_11: 21300030
-      Asset4u_HD_0: 21300000
-      Asset4u_HD_1: 21300002
-      Asset4u_HD_36: 21300072
-      Asset4u_HD_4: 21300008
-      Asset4u_HD_35: 21300070
-      Asset4u_HD_27: 21300042
-      Asset4u_HD_42: 21300084
-      Asset4u_HD_31: 21300062
-      Asset4u_HD_38: 21300076
-      Asset4u_HD_48: 21300096
-      Asset4u_HD_22: 21300044
-      Asset4u_HD_34: 21300068
-      Asset4u_HD_16: 21300026
-      Asset4u_HD_50: 21300100
-      Asset4u_HD_9: 21300020
-      Asset4u_HD_26: 21300016
-      Asset4u_HD_15: 21300024
-      Asset4u_HD_3: 21300006
-      Asset4u_HD_56: 21300038
-      Asset4u_HD_18: 21300036
-      Asset4u_HD_51: 21300102
-      Asset4u_HD_46: 21300092
-      Asset4u_HD_55: 21300110
-      Asset4u_HD_43: 21300086
-      Asset4u_HD_14: 21300170
-      Asset4u_HD_32: 21300064
-      Asset4u_HD_28: 21300056
-      Asset4u_HD_33: 21300066
-      Asset4u_HD_8: 21300018
-      Asset4u_HD_12: 21300032
-      Asset4u_HD_47: 21300094
-      Asset4u_HD_53: 21300106
-      Asset4u_HD_7: 21300014
-      Asset4u_HD_10: 21300022
-      Asset4u_HD_13: 21300034
-      Asset4u_HD_40: 21300080
-      Asset4u_HD_17: 21300028
-      Asset4u_HD_44: 21300088
-      Asset4u_HD_49: 21300098
-      Asset4u_HD_29: 21300058
-      Asset4u_HD_41: 21300082
-      Asset4u_HD_6: 21300012
-      Asset4u_HD_45: 21300090
-      Asset4u_HD_20: 21300052
-      Asset4u_HD_52: 21300104
-      Asset4u_HD_2: 21300004
-      Asset4u_HD_25: 21300040
-      Asset4u_HD_37: 21300074
-      Asset4u_HD_23: 21300046
-      Asset4u_HD_30: 21300060
-      Asset4u_HD_5: 21300010
-      Asset4u_HD_21: 21300054
-      Asset4u_HD_39: 21300078
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
