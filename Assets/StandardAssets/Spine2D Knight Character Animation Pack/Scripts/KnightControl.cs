@@ -105,4 +105,22 @@ public class KnightControl : MonoBehaviour
         spineAnimationState.SetAnimation(0, skillAnimationName_3, true);
     }
 
+    public void OneAttack()
+    {
+        spineAnimationState.SetAnimation(0, atkAnimationName_1, false);
+        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
+    }
+
+    public void Heal()
+    {
+        spineAnimationState.SetAnimation(0, skillAnimationName_1, false);
+        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
+    }
+
+    public void OneHit()
+    {
+        spineAnimationState.SetAnimation(0, hitAnimationName, false);
+        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
+    }    
+
 }
