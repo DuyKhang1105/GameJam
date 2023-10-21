@@ -1,0 +1,247 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017ff71e959b8634bbc0b043ad304cee, type: 3}
+  m_Name: ItemConfigs
+  m_EditorClassIdentifier: 
+  configs:
+  - name: 0_Equip_Weapon_Axe
+    sprite: {fileID: 21300000, guid: 9bb60ae9d657f49d590c9ad3afe7fa6c, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 1_Equip_Weapon_Axe
+    sprite: {fileID: 21300000, guid: 9b7f78acdb119437d9faab79c55ebb5b, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 2_Equip_Weapon_Axe
+    sprite: {fileID: 21300000, guid: 2cb46f80874874b238759442cab2d835, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 3_Equip_Weapon_Axe
+    sprite: {fileID: 21300000, guid: 0e98fe73a345d402e8e689337fb9ce22, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 4_Equip_Weapon_Bow
+    sprite: {fileID: 21300000, guid: 93a442ed8606246afafbf8ee374fcb5a, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 5_Equip_Weapon_Bow
+    sprite: {fileID: 21300000, guid: d9f4d65497c2c4bf294b0dcae26af507, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 6_Equip_Weapon_Arrow
+    sprite: {fileID: 21300000, guid: bba662dc9b67e7b4d8230163174058d0, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 7_Equip_Shield
+    sprite: {fileID: 21300000, guid: 81eb6727e3524462d88f4e09f58ff07e, type: 3}
+    width: 2
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 8_Equip_Shield
+    sprite: {fileID: 21300000, guid: be885b97da1c945f7ababf4813353adc, type: 3}
+    width: 2
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 9_Equip_Shield
+    sprite: {fileID: 21300000, guid: 87c8c329c7d4144a789e3017899efbbd, type: 3}
+    width: 2
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 10_Equip_Shield
+    sprite: {fileID: 21300000, guid: 1b8e59d45226f4ae994da07b8ea78881, type: 3}
+    width: 2
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 11_Equip_Shoe
+    sprite: {fileID: 21300000, guid: ab4f394251f394cbf9872d30cf017994, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 12_Equip_Shoe
+    sprite: {fileID: 21300000, guid: 5f2af9b9c5f7c4e478c0b383be1b4b53, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 13_Equip_Shoe
+    sprite: {fileID: 21300000, guid: 7f83a075a49b8471bb2e7c03da4e9829, type: 3}
+    width: 1
+    height: 2
+    type: 1
+    stamina: 0
+    rare: 0
+  - name: 14_Equip_Chain
+    sprite: {fileID: 21300000, guid: e5ecf6bb209144d5f92bd4c2bf95e78c, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 15_Equip_Chain
+    sprite: {fileID: 21300000, guid: 3d1222284831745d0a4cdfb377cbca4d, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 16_Equip_Chain
+    sprite: {fileID: 21300000, guid: a8755efa5232344ea8f517571ddedf6a, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 17_Equip_Chain
+    sprite: {fileID: 21300000, guid: ca054affc11c2469c909635c1b26c392, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 18_Equip_Chain
+    sprite: {fileID: 21300000, guid: f79c8ea7a81a94a96b853bb3a04847ac, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 19_Equip_Ring
+    sprite: {fileID: 21300000, guid: 830b338a359084514b1a02d6e86df672, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 20_Equip_Ring
+    sprite: {fileID: 21300000, guid: 4ba1bc9b2ac8c48d490d39bd4ef0f0c4, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 21_Equip_Ring
+    sprite: {fileID: 21300000, guid: e2615e07101b0476db775d2c13b42dc0, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 22_Equip_Ring
+    sprite: {fileID: 21300000, guid: 1cd3e9f3e6ddd4abb961f324b08a373a, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 23_Equip_Ring
+    sprite: {fileID: 21300000, guid: 5d7ae8c34da294df4aa8a82aa87ef793, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 24_Equip_Ring
+    sprite: {fileID: 21300000, guid: 818bd2e07e7144ad7a52853c6f834ebd, type: 3}
+    width: 1
+    height: 1
+    type: 3
+    stamina: 0
+    rare: 0
+  - name: 0_Item_HP
+    sprite: {fileID: 21300000, guid: 652c8096e515f4d73aee1cd2e47807d8, type: 3}
+    width: 1
+    height: 1
+    type: 2
+    stamina: 0
+    rare: 0
+  - name: 1_Item_Mana
+    sprite: {fileID: 21300000, guid: 7f8effce2f35d4bc2bd748178be5d7e1, type: 3}
+    width: 1
+    height: 1
+    type: 2
+    stamina: 0
+    rare: 0
+  - name: 1_Item_Strong
+    sprite: {fileID: 21300000, guid: b671d319c86d645e3aec875fe1b98753, type: 3}
+    width: 1
+    height: 1
+    type: 2
+    stamina: 0
+    rare: 0
+  - name: 3_Item_Upgrade_Pet
+    sprite: {fileID: 21300000, guid: 58cec6c0902154b3daa71e9d10b8694b, type: 3}
+    width: 1
+    height: 1
+    type: 2
+    stamina: 0
+    rare: 0
+  - name: 4_Item_Meat
+    sprite: {fileID: 21300000, guid: 1db29915abb104f9bb0beb6f2d9f07e2, type: 3}
+    width: 1
+    height: 1
+    type: 2
+    stamina: 0
+    rare: 0
+  - name: 5_Item_Coin
+    sprite: {fileID: 21300000, guid: d381d389139094047bb99fd3b6da8e4a, type: 3}
+    width: 1
+    height: 1
+    type: 2
+    stamina: 0
+    rare: 0
+  equips:
+  - id: 0_Equip_Weapon_Axe
+    equipType: 1
+    value: 1
+  - id: 1_Equip_Weapon_Axe
+    equipType: 1
+    value: 3
+  - id: 2_Equip_Weapon_Axe
+    equipType: 1
+    value: 5
+  - id: 3_Equip_Weapon_Axe
+    equipType: 1
+    value: 5
+  jewelries: []
+  supports: []

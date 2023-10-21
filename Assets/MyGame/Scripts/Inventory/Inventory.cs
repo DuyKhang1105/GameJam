@@ -1,7 +1,10 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class ListInventorySlot
@@ -11,16 +14,34 @@ public class ListInventorySlot
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Canvas canvas;
+    public Canvas canvas;
     [SerializeField] private List<InventorySlot> slotImages;
-    public const int Width = 5;
+
+    [Header("Dragable")]
+    [SerializeField] private Transform dragParent;
+    [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private GameObject confrimBtn;
+
+    [Header("Drop")]
+    [SerializeField] private List<Transform> dropPos;
+
+    public const int Width = 6;
     public const int Height = 3;
-    public const int SlotCount = 15;
-    public const float SlotSize = 150f;
+    public const int SlotCount = Width * Height;
+    public const float SlotSize = 120f;
 
+    [NonSerialized]
     public InventorySlot[,] slots;
-
+    [NonSerialized]
     public InventorySlot pointEnterSlot;
+
+    private List<InventoryItem> items;
+    private List<GameObject> itemSpawneds;
+
+    private void Awake()
+    {
+        confrimBtn.GetComponent<Button>().onClick.AddListener(Confirm);
+    }
 
     private void Start()
     {
@@ -36,10 +57,14 @@ public class Inventory : MonoBehaviour
             bool isLocked = false;
 
             if (i < 3) {
-                isLocked = level < 2;
+                //Axie slot
+                isLocked = true;
             }
             else if (i < 12) {
                 isLocked = level < 1;
+            }
+            else if (i < 15) {
+                isLocked = level < 2;
             }
             else {
                 isLocked = level < 3;
@@ -128,7 +153,50 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+    public void SpawnItems(List<ItemConfig> lstItems, Transform from)
+    {
+        if (itemSpawneds == null) itemSpawneds = new List<GameObject>();
+        foreach (var item in lstItems)
+        {
+            int index = itemSpawneds.Count;
+            var goItem = Instantiate(itemPrefab, dragParent);
+            goItem.GetComponent<InventoryItem>().ParseItem(item);
+            goItem.GetComponent<InventoryItem>().onDropedToInventory = () =>
+            {
+                itemSpawneds[index] = null;
+            };
+            Vector3 startPos = from.position;
+            Vector3 endPos = dropPos[UnityEngine.Random.Range(0, dropPos.Count)].position;
+
+            goItem.transform.localScale = Vector3.zero;
+            goItem.transform.position = startPos;
+            goItem.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+            goItem.transform.DOJump(endPos, 1, 1, 0.3f);
+            itemSpawneds.Add(goItem);
+        }
+        confrimBtn.SetActive(true);
+    }
+
+    private void Confirm()
+    {
+        itemSpawneds.ForEach(x=> {
+            if (x != null)
+            {
+                //TODO later effect confirm
+                Destroy(x);
+            }     
+        });
+        confrimBtn.SetActive(false);
+    }
+
     //Test
+    [ContextMenu("Test spawn items")]
+    private void TestSpawnItems()
+    {
+        var lstItems = ItemConfigs.Instance.GetItemsInChests(UnityEngine.Random.value, 5);
+        SpawnItems(lstItems, transform);
+    }
+
     [ContextMenu("Upgrade level 2")]
     private void UpdateLevel2()
     {

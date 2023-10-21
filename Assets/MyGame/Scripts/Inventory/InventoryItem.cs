@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,19 @@ public class InventoryItem : Drag
     [SerializeField] private int width = 1;
     [SerializeField] private int height = 1;
 
-    [SerializeField] private Inventory inventory;
-
     public bool inInventory;
 
     private List<InventorySlot> placeds;
+
+    public Action onDropedToInventory;
+
+    public void ParseItem(ItemConfig config)
+    {
+        width = config.width; height = config.height;
+        GetComponent<RectTransform>().sizeDelta = new Vector2(width * Inventory.SlotSize, height * Inventory.SlotSize);
+        GetComponent<Image>().sprite = config.sprite;
+        if (UnityEngine.Random.value < 0.5f) Rotate();
+    }
 
     public override void DragHandler(BaseEventData data)
     {
@@ -40,6 +49,7 @@ public class InventoryItem : Drag
         }     
 
         List<InventorySlot> temp = null;
+        var inventory = FindObjectOfType<Inventory>();
         if (inventory.IsCanDrop(transform.position,  width, height, out temp))
         {
             placeds = temp;
@@ -56,6 +66,8 @@ public class InventoryItem : Drag
                     x.isFree = false;
                     x.GetComponent<Image>().color = Color.green;
                 });
+
+                onDropedToInventory?.Invoke();
             }
 
             transform.SetAsFirstSibling();

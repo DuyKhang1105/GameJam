@@ -5,13 +5,14 @@ using UnityEngine.EventSystems;
 
 public class Drag : MonoBehaviour
 {
-    [SerializeField] private Canvas canvas;
 
     protected bool onSelect;
     protected bool onDrag;
 
     private Vector3 GetPoint(BaseEventData data)
     {
+        var canvas = FindObjectOfType<Inventory>().canvas;
+
         PointerEventData pointerData = data as PointerEventData;
         Vector2 position;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
