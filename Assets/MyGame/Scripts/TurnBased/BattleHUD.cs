@@ -8,28 +8,37 @@ using UnityEngine.UI;
 public class BattleHUD : MonoBehaviour
 {
 
-	public Text nameText;
-	public Text levelText;
-	public TextMeshProUGUI tmpHP;
 	public Image imgHP;
+	public Image imgShield;
+	public TextMeshProUGUI tmpHP;
+	public TextMeshProUGUI tmpShield;
 
 	int maxHP;
 
-	public void SetHUD(Unit unit)
+	public virtual void SetHUD(Unit unit)
 	{
-		//nameText.text = unit.unitName;
-		//levelText.text = "Lvl " + unit.unitLevel;
 		maxHP = unit.maxHP;
 
-        tmpHP.SetText($"{unit.currentHP}/{unit.maxHP}");
-		imgHP.fillAmount = (float)unit.currentHP/unit.maxHP;
-
+        tmpShield.SetText($"{unit.shield}");
+		SetHP(unit.currentHP);
+		SetShield(unit.shield);
     }
 
-	public void SetHP(int hp)
+	public virtual void SetHP(int hp)
 	{
         tmpHP.SetText($"{hp}/{maxHP}");
         imgHP.fillAmount = (float)hp / maxHP;
     }
 
+	public virtual void SetShield(int shi)
+	{
+		if (shi <= 0)
+		{
+			imgShield.gameObject.SetActive(false);
+        }else
+		{
+            imgShield.gameObject.SetActive(true);
+            tmpShield.SetText($"{shi}");
+        }
+    }
 }

@@ -18,6 +18,11 @@ public class Parallax : MonoBehaviour
         }
     }
 
+    public void SetScrollLeft(bool isLeft)
+    {
+        scrollLeft = isLeft;
+    }
+
     void SetupTexture()
     {
         Sprite sprite = GetComponent<SpriteRenderer>().sprite;

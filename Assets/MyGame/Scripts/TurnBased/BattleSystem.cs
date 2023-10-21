@@ -2,126 +2,156 @@
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+public enum BattleState { START, HEROTURN, ENEMYTURN, ACTING, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
 
-	public GameObject playerPrefab;
-	public GameObject enemyPrefab;
+	public GameObject heroPrefab;
+	public List<GameObject> enemyPrefabs;
 
-	public Transform playerBattleStation;
-	public Transform enemyBattleStation;
+	public Transform heroBattleStation;
+	public List<Transform> enemyBattleStations;
 
-	Unit playerUnit;
-	Unit enemyUnit;
+	Unit heroUnit;
+    public List<Unit> enemyUnits;
 
-	KnightControl knightControl;
-    SkeletonAnimation skeletonAnimationEnemy;
+	HeroControl heroControl;
+    public List<EnemyControl> enemyControls;
 
     public TextMeshProUGUI dialogueText;
 
-	public BattleHUD playerHUD;
-	public BattleHUD enemyHUD;
+	public HeroBattleHUD heroHUD;
+	public List<EnemyBattleHUD> enemyHUDs;
 
 	public BattleState state;
 
-    // Start is called before the first frame update
+	[Header("other test")]
+    public Background BG;
+	public GameObject goNext;
+	public GameObject goEndTurn;
+
+	int indexEnemy;
+    int indexTarget;
+	List<int> indexActions = new List<int>();
+
     void Start()
     {
-		state = BattleState.START;
-		StartCoroutine(SetupBattle());
+        goNext.SetActive(false);
+        state = BattleState.START;
+
+        StartCoroutine(SetupBattle());
+        ResetTarget();
     }
 
 	IEnumerator SetupBattle()
 	{
-		GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
-		playerUnit = playerGO.GetComponent<Unit>();
-        knightControl = playerGO.GetComponent<KnightControl>();
+        if (heroUnit == null)
+        {
+            GameObject heroGO = Instantiate(heroPrefab, heroBattleStation);
+            heroUnit = heroGO.GetComponent<Unit>();
+            heroControl = heroGO.GetComponent<HeroControl>();
+        }
 
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-		enemyUnit = enemyGO.GetComponent<Unit>();
-        skeletonAnimationEnemy = enemyGO.GetComponent<SkeletonAnimation>();
+        for (int i = 0; i < enemyPrefabs.Count; i++)
+        {
+            Debug.LogError("Instantiate");
+            GameObject enemyGO = Instantiate(enemyPrefabs[i], enemyBattleStations[i]);
+            enemyUnits.Add(enemyGO.GetComponent<Unit>());
+            enemyControls.Add(enemyGO.GetComponent<EnemyControl>());
+            enemyHUDs[i].gameObject.SetActive(true);
+            enemyHUDs[i].SetHUD(enemyUnits[i]);
+        }
 
-        dialogueText.text = "A wild " + enemyUnit.unitName + " approaches...";
+        dialogueText.text = "A wild approaches...";
 
-        playerHUD.SetHUD(playerUnit);
-		enemyHUD.SetHUD(enemyUnit);
+        heroHUD.SetHUD(heroUnit);
 
 		yield return new WaitForSeconds(2f);
 
-		state = BattleState.PLAYERTURN;
-		PlayerTurn();
+        indexEnemy = 0;
+        indexTarget = 0;
+        NextActionEnemy();
+
+        state = BattleState.HEROTURN;
+		HeroTurn();
 	}
 
-	IEnumerator PlayerAttack()
+	IEnumerator HeroAttack()
 	{
-		bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+		bool isDead = enemyUnits[indexTarget].TakeDamage(heroUnit.damage);
+        state = BattleState.ACTING;
 
-		// Code tam
-		Sequence s = DOTween.Sequence();
-		s.Append(playerUnit.transform.DOMoveX(5f, 1f));
+        // Code tam
+        Sequence s = DOTween.Sequence();
+		s.Append(heroUnit.transform.DOMoveX(0f, 1f));
 		s.AppendCallback(() =>
 		{ 
-			knightControl.OneAttack();
+			heroControl.OneAttack();
         });
 		s.AppendInterval(0.5f);
         s.AppendCallback(() =>
         {
-			skeletonAnimationEnemy.AnimationState.SetAnimation(0, "defense/hit-by-normal", false);
-            skeletonAnimationEnemy.AnimationState.AddAnimation(0, "action/idle/normal", true, 0);
+            if (!isDead)
+            {
+                enemyControls[indexTarget].OneHit();
+            }else
+            {
+                enemyControls[indexTarget].Die();
+            }
 
-            enemyHUD.SetHP(enemyUnit.currentHP);
+            enemyHUDs[indexTarget].SetHP(enemyUnits[indexTarget].currentHP);
+            enemyHUDs[indexTarget].SetShield(enemyUnits[indexTarget].shield);
             dialogueText.text = "The attack is successful!";
         });
 		s.AppendInterval(0.4f);
-        s.Append(playerUnit.transform.DOMoveX(-4.53f, 1f));
+        s.Append(heroUnit.transform.DOMoveX(heroBattleStation.position.x, 1f));
 
 		// Code tam 
 
 		yield return new WaitForSeconds(3f);
 
-		if(isDead)
+        state = BattleState.HEROTURN;
+        if (isDead)
 		{
-			state = BattleState.WON;
-			EndBattle();
-		} else
-		{
-			state = BattleState.ENEMYTURN;
-			StartCoroutine(EnemyTurn());
-		}
+            var indexDie = indexTarget;
+            ResetTarget();
+            enemyHUDs[indexDie].gameObject.SetActive(false);
+
+            yield return new WaitForSeconds(1f);
+            enemyControls[indexDie].gameObject.SetActive(false);
+        }
 	}
 
-	IEnumerator EnemyTurn()
+	IEnumerator HeroHeal()
 	{
-		dialogueText.text = enemyUnit.unitName + " attacks!";
+        state = BattleState.ACTING;
+
+        heroUnit.Heal(5);
+		heroControl.Heal();
+
+
+        heroHUD.SetHP(heroUnit.currentHP);
+		dialogueText.text = "You feel renewed strength!";
+
+		yield return new WaitForSeconds(2f);
+        state = BattleState.HEROTURN;
+    }
+
+    IEnumerator EnemyTurn()
+	{
+        int totalEnemy = enemyUnits.Count;
+
+        dialogueText.text = enemyUnits[indexEnemy].unitName + " " + indexEnemy + " attacks!";
 
         yield return new WaitForSeconds(1f);
 
-		bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-
-        // Code tam
-        Sequence s = DOTween.Sequence();
-        s.Append(enemyUnit.transform.DOMoveX(-3f, 1f));
-        s.AppendCallback(() =>
-        {
-            skeletonAnimationEnemy.AnimationState.SetAnimation(0, "attack/melee/normal-attack", false);
-            skeletonAnimationEnemy.AnimationState.AddAnimation(0, "action/idle/normal", true, 0);
-        });
-        s.AppendInterval(0.6f);
-        s.AppendCallback(() =>
-        {
-            knightControl.OneHit();
-            playerHUD.SetHP(playerUnit.currentHP);
-        });
-        s.AppendInterval(0.4f);
-        s.Append(enemyUnit.transform.DOMoveX(6.78f, 1f));
-
-        // Code tam 
+		bool isDead = ActionEnemy(indexEnemy);
 
         yield return new WaitForSeconds(3f);
 
@@ -129,15 +159,200 @@ public class BattleSystem : MonoBehaviour
 		{
 			state = BattleState.LOST;
 			EndBattle();
-		} else
+		}
+        else
 		{
-			state = BattleState.PLAYERTURN;
-			PlayerTurn();
+            indexEnemy++;
+            CheckIgnoresDeadEnemies();
+
+            if (indexEnemy < totalEnemy)
+            {
+                StartCoroutine(EnemyTurn());
+            }
+            else
+            {
+                ResetTarget();
+                state = BattleState.HEROTURN;
+                NextActionEnemy();
+                HeroTurn();
+            }
 		}
 
 	}
 
-	void EndBattle()
+    void CheckIgnoresDeadEnemies()
+    {
+        for (int i = 0; i < enemyUnits.Count; i++)
+        {
+            if (indexEnemy == i && enemyUnits[i].currentHP <= 0)
+            {
+                indexEnemy++;
+            }
+        }
+    }
+
+	void HeroTurn()
+	{
+		dialogueText.text = heroUnit.unitName + " Turn. Choose An Action";
+        heroUnit.ResetStamina();
+        heroHUD.SetStamina(heroUnit.currentStamina);
+		goEndTurn.SetActive(true);
+    }
+
+	bool ActionEnemy(int indexEnemy)
+	{
+        bool isDead = false;
+		switch (indexActions[indexEnemy])
+		{
+			case 0:
+                isDead = EnemyAttack(indexEnemy);
+                break;
+
+            case 1:
+				EnemyShield(indexEnemy);
+                break;
+
+			default:
+				break;
+        }
+		enemyHUDs[indexEnemy].SetActiveNextAction(false);
+        return isDead;
+    }
+
+	void NextActionEnemy()
+	{
+        indexActions.Clear();
+
+        for (int i = 0; i < enemyUnits.Count; i++)
+        {
+            int indexNext = Random.Range(0, 2);
+
+            switch (indexNext)
+            {
+                case 0:
+                    enemyHUDs[i].SetNextAction(true, enemyUnits[i].damage);
+                    break;
+
+                case 1:
+                    enemyHUDs[i].SetNextAction(false, enemyUnits[i].shield);
+                    break;
+
+                default:
+                    break;
+            }
+
+            indexActions.Add(indexNext);
+        }
+    }
+
+
+    bool EnemyAttack(int indexEnemy)
+	{
+        bool isDead = heroUnit.TakeDamage(enemyUnits[indexEnemy].damage);
+
+        Sequence s = DOTween.Sequence();
+        s.Append(enemyUnits[indexEnemy].transform.DOMoveX(0f, 1f));//
+        s.AppendCallback(() =>
+        {
+            enemyControls[indexEnemy].OneAttack();
+        });
+        s.AppendInterval(0.6f);
+        s.AppendCallback(() =>
+        {
+            heroControl.OneHit();
+            heroHUD.SetHP(heroUnit.currentHP);
+            heroHUD.SetShield(heroUnit.shield);
+        });
+        s.AppendInterval(0.4f);
+        s.Append(enemyUnits[indexEnemy].transform.DOMoveX(enemyBattleStations[indexEnemy].position.x, 1f));
+
+		return isDead;
+    }
+		
+	void EnemyShield(int indexEnemy)
+	{
+        enemyUnits[indexEnemy].Shield(5);
+        enemyControls[indexEnemy].Heal();
+
+        enemyHUDs[indexEnemy].SetShield(enemyUnits[indexEnemy].shield);
+    }
+
+	public void OnEndTurn()
+	{
+        if (state != BattleState.HEROTURN)
+            return;
+
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+        goEndTurn.SetActive(false);
+    }
+
+    public void OnNext()
+    {
+        goNext.SetActive(false);
+        BG.RunBG(true);
+        heroControl.Run();
+        
+        DOVirtual.DelayedCall(2f, () =>
+        {
+            enemyUnits.Clear();
+            enemyControls.Clear();
+
+            heroControl.Idle();
+            BG.RunBG(false);
+            state = BattleState.START;
+
+            StartCoroutine(SetupBattle());
+            ResetTarget();
+        });
+    }
+
+    void SetTarget(int index)
+    {
+        Debug.LogError("index: " + index);
+        indexTarget = index;
+        indexEnemy = index;
+        for (int i = 0; i < enemyHUDs.Count; i++)
+        {
+            if (i == index)
+            {
+                enemyHUDs[i].SetTarget(true);
+            }else
+            {
+                enemyHUDs[i].SetTarget(false);
+            }
+        }
+    }
+
+    public void OnSetTarget(int index)
+    {
+        if (state != BattleState.HEROTURN)
+            return;
+
+        SetTarget(index);
+    }
+
+    public void ResetTarget()
+    {
+        bool isWon = true;
+        for (int i = 0; i < enemyUnits.Count; i++)
+        {
+            if (enemyUnits[i].currentHP > 0)
+            {
+                isWon = false;
+                SetTarget(i);
+                return;
+            }
+        }
+
+        if (isWon)
+        {
+            state = BattleState.WON;
+            EndBattle();
+        }
+    }
+
+    void EndBattle()
 	{
 		if(state == BattleState.WON)
 		{
@@ -146,43 +361,35 @@ public class BattleSystem : MonoBehaviour
 		{
 			dialogueText.text = "You were defeated.";
 		}
-	}
-
-	void PlayerTurn()
-	{
-		dialogueText.text = playerUnit.unitName + " Turn. Choose An Action";
-
-	}
-
-	IEnumerator PlayerHeal()
-	{
-		playerUnit.Heal(5);
-		knightControl.Heal();
-
-
-        playerHUD.SetHP(playerUnit.currentHP);
-		dialogueText.text = "You feel renewed strength!";
-
-		yield return new WaitForSeconds(2f);
-
-		state = BattleState.ENEMYTURN;
-		StartCoroutine(EnemyTurn());
-	}
+        goEndTurn.SetActive(false);
+        goNext.SetActive(true);
+    }
 
 	public void OnAttackButton()
 	{
-		if (state != BattleState.PLAYERTURN)
-			return;
+        if (state != BattleState.HEROTURN)
+            return;
 
-		StartCoroutine(PlayerAttack());
+        bool isEnough = heroUnit.TakeStamina(1);
+        heroHUD.SetStamina(heroUnit.currentStamina);
+
+        if (!isEnough)
+            return;
+
+        StartCoroutine(HeroAttack());
 	}
 
 	public void OnHealButton()
 	{
-		if (state != BattleState.PLAYERTURN)
+        if (state != BattleState.HEROTURN)
 			return;
 
-		StartCoroutine(PlayerHeal());
-	}
+        bool isEnough = heroUnit.TakeStamina(1);
+        heroHUD.SetStamina(heroUnit.currentStamina);
 
+        if (!isEnough)
+            return;
+
+        StartCoroutine(HeroHeal());
+	}
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7230745518426371252}
   - component: {fileID: 1155139569353225046}
   - component: {fileID: 5986599943386864300}
+  - component: {fileID: 2749084589826065733}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -143,7 +144,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Enemy
-  unitLevel: 0
+  shield: 1
   damage: 2
+  maxStamina: 0
+  currentStamina: 0
   maxHP: 40
   currentHP: 30
+  criticalRate: 0
+  criticalDamage: 0
+  normalEvasionRate: 0
+  criticalEvasionRate: 0
+  armorPenetrationRate: 0
+--- !u!114 &2749084589826065733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347226599512414206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce68f0a3cf30fc44bdc2e0b66f259e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runAnimationName: 
+  idleAnimationName: action/idle/normal
+  walkAnimationName: 
+  atkAnimationName_1: attack/melee/normal-attack
+  atkAnimationName_2: 
+  jumpAnimationName: 
+  hitAnimationName: defense/hit-by-normal
+  deathAnimationName: defense/hit-die
+  stunAnimationName: 
+  skillAnimationName_1: battle/get-buff
+  skillAnimationName_2: 
+  skillAnimationName_3: 

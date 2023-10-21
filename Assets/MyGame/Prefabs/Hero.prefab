@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7896887383462008266}
   - component: {fileID: 7896887383462008267}
   - component: {fileID: 7896887383462008271}
-  - component: {fileID: 2764372898441649497}
+  - component: {fileID: 2870601798756823067}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -134,11 +134,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Hero
-  unitLevel: 0
-  damage: 1
+  shield: 5
+  damage: 50
+  maxStamina: 3
+  currentStamina: 0
   maxHP: 20
   currentHP: 15
---- !u!114 &2764372898441649497
+  criticalRate: 0
+  criticalDamage: 0
+  normalEvasionRate: 0
+  criticalEvasionRate: 0
+  armorPenetrationRate: 0
+--- !u!114 &2870601798756823067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,18 +154,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7896887383462008264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9912038dcf49f1944ac66d86ef030d78, type: 3}
+  m_Script: {fileID: 11500000, guid: bee41a2f080b92c469b03db3d8c49937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   runAnimationName: run
   idleAnimationName: idle_3
-  walkAnimationName: walk
+  walkAnimationName: 
   atkAnimationName_1: sword_attack
   atkAnimationName_2: 
   jumpAnimationName: 
   hitAnimationName: hit
-  deathAnimationName: 
+  deathAnimationName: dead
   stunAnimationName: 
-  skillAnimationName_1: buff_2
-  skillAnimationName_2: 
-  skillAnimationName_3: 
+  skillAnimationName_1: buff_1
+  skillAnimationName_2: buff_2
+  skillAnimationName_3: buff_3
