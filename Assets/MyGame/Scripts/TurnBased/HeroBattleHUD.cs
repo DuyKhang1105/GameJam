@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class HeroBattleHUD : BattleHUD
 {
+    [Header("HeroBattleHUD")]
     public TextMeshProUGUI tmpStamina;
 
     public override void SetHUD(Unit unit)

@@ -61,6 +61,12 @@ public class HeroControl : MonoBehaviour
         spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
     }
 
+    public void Critical()
+    {
+        spineAnimationState.SetAnimation(0, atkAnimationName_2, false);
+        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
+    }
+
     public void Heal()
     {
         spineAnimationState.SetAnimation(0, skillAnimationName_2, false);
@@ -73,7 +79,7 @@ public class HeroControl : MonoBehaviour
         spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
     }
 
-    public void Die()
+    public void Dead()
     {
         spineAnimationState.SetAnimation(0, deathAnimationName, false);
     }
@@ -86,5 +92,11 @@ public class HeroControl : MonoBehaviour
     public void Idle()
     {
         spineAnimationState.SetAnimation(0, idleAnimationName, true);
+    }
+
+    public void Dodge()
+    {
+        spineAnimationState.SetAnimation(0, atkAnimationName_2, false);
+        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
     }
 }

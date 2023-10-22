@@ -8,6 +8,11 @@ public class AxieConfig
     public string axieId;
     public GameObject graphic;
     public GameObject graphicUI;
+
+    [Range(0f, 1f)]
+    public float dodgeRate;
+    [Range(0f, 1f)]
+    public float criticalRate;
 }
 
 public enum AxieEffectType

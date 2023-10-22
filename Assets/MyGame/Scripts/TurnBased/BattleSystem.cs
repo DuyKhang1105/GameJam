@@ -4,15 +4,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Sequence = DG.Tweening.Sequence;
 
 public enum BattleState { START, HEROTURN, ENEMYTURN, ACTING, WON, LOST }
 
+public enum ActionType { ATTACK, HEAL, SHIELD, POW}
+
+
 public class BattleSystem : MonoBehaviour
 {
+    public List<string> idAxies;
+    public List<Transform> axieBattleStations;
 
-	public GameObject heroPrefab;
+    public GameObject heroPrefab;
 	public List<GameObject> enemyPrefabs;
 
 	public Transform heroBattleStation;
@@ -23,6 +30,9 @@ public class BattleSystem : MonoBehaviour
 
 	HeroControl heroControl;
     public List<EnemyControl> enemyControls;
+    public List<AxieControl> axieControls;
+
+    public List<AxieConfig> listAxieConfig;
 
     public TextMeshProUGUI dialogueText;
 
@@ -35,6 +45,7 @@ public class BattleSystem : MonoBehaviour
     public Background BG;
 	public GameObject goNext;
 	public GameObject goEndTurn;
+    public AxieConfigs axieConfigs;
 
 	int indexEnemy;
     int indexTarget;
@@ -56,11 +67,19 @@ public class BattleSystem : MonoBehaviour
             GameObject heroGO = Instantiate(heroPrefab, heroBattleStation);
             heroUnit = heroGO.GetComponent<Unit>();
             heroControl = heroGO.GetComponent<HeroControl>();
+
+            for (int i = 0; i < idAxies.Count; i++)
+            {
+                AxieConfig config = axieConfigs.GetAxieConfig(idAxies[i]);
+                listAxieConfig.Add(config);
+                heroUnit.PetBuff(config);
+                GameObject axieGO = Instantiate(config.graphic, axieBattleStations[i]);
+                axieControls.Add(axieGO.GetComponent<AxieControl>());
+            }
         }
 
         for (int i = 0; i < enemyPrefabs.Count; i++)
         {
-            Debug.LogError("Instantiate");
             GameObject enemyGO = Instantiate(enemyPrefabs[i], enemyBattleStations[i]);
             enemyUnits.Add(enemyGO.GetComponent<Unit>());
             enemyControls.Add(enemyGO.GetComponent<EnemyControl>());
@@ -84,30 +103,52 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator HeroAttack()
 	{
-		bool isDead = enemyUnits[indexTarget].TakeDamage(heroUnit.damage);
+        bool isMiss = enemyUnits[indexTarget].TakeDamage(heroUnit.GetDamage());
+        bool isDead = enemyUnits[indexTarget].isDead;
+        if (!isMiss && !isDead)
+        {
+            enemyUnits[indexTarget].TakePow(heroUnit.damage);
+        }
         state = BattleState.ACTING;
 
         // Code tam
         Sequence s = DOTween.Sequence();
 		s.Append(heroUnit.transform.DOMoveX(0f, 1f));
 		s.AppendCallback(() =>
-		{ 
-			heroControl.OneAttack();
+		{
+            if (heroUnit.isCrit)
+                heroControl.Critical();
+            else
+                heroControl.OneAttack();
+
+            if (isMiss)
+                enemyControls[indexTarget].Dodge();
         });
 		s.AppendInterval(0.5f);
         s.AppendCallback(() =>
         {
-            if (!isDead)
+            if (isMiss)
             {
-                enemyControls[indexTarget].OneHit();
-            }else
-            {
-                enemyControls[indexTarget].Die();
+                //enemyControls[indexTarget].Dodge();
+                dialogueText.text = "The attack is failure!";
             }
+            else
+            {
+                if (!isDead)
+                {
+                    enemyControls[indexTarget].OneHit();
+                }
+                else
+                {
+                    enemyControls[indexTarget].Die();
+                }
 
-            enemyHUDs[indexTarget].SetHP(enemyUnits[indexTarget].currentHP);
-            enemyHUDs[indexTarget].SetShield(enemyUnits[indexTarget].shield);
-            dialogueText.text = "The attack is successful!";
+                enemyHUDs[indexTarget].SetPow(enemyUnits[indexTarget].currentPow);
+                enemyHUDs[indexTarget].SetHP(enemyUnits[indexTarget].currentHP);
+                enemyHUDs[indexTarget].SetShield(enemyUnits[indexTarget].currentShield);
+                dialogueText.text = "The attack is successful!";
+            }
+            
         });
 		s.AppendInterval(0.4f);
         s.Append(heroUnit.transform.DOMoveX(heroBattleStation.position.x, 1f));
@@ -143,9 +184,22 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.HEROTURN;
     }
 
+
+
     IEnumerator EnemyTurn()
 	{
         int totalEnemy = enemyUnits.Count;
+
+        while (enemyUnits[indexEnemy].isDead)
+        {
+            indexEnemy++;
+
+            if (indexEnemy >= totalEnemy)
+            {
+                EndEnemyTurn();
+                yield break;
+            }
+        }
 
         dialogueText.text = enemyUnits[indexEnemy].unitName + " " + indexEnemy + " attacks!";
 
@@ -162,33 +216,26 @@ public class BattleSystem : MonoBehaviour
 		}
         else
 		{
-            indexEnemy++;
-            CheckIgnoresDeadEnemies();
-
-            if (indexEnemy < totalEnemy)
+            // Next Enemy
+            if (indexEnemy < (totalEnemy - 1))
             {
+                indexEnemy++;
                 StartCoroutine(EnemyTurn());
             }
             else
             {
-                ResetTarget();
-                state = BattleState.HEROTURN;
-                NextActionEnemy();
-                HeroTurn();
+                EndEnemyTurn();
             }
 		}
-
 	}
 
-    void CheckIgnoresDeadEnemies()
+    void EndEnemyTurn()
     {
-        for (int i = 0; i < enemyUnits.Count; i++)
-        {
-            if (indexEnemy == i && enemyUnits[i].currentHP <= 0)
-            {
-                indexEnemy++;
-            }
-        }
+        ResetTarget();
+        indexEnemy = 0;
+        state = BattleState.HEROTURN;
+        NextActionEnemy();
+        HeroTurn();
     }
 
 	void HeroTurn()
@@ -212,7 +259,14 @@ public class BattleSystem : MonoBehaviour
 				EnemyShield(indexEnemy);
                 break;
 
-			default:
+            case 2:
+                EnemyHeal(indexEnemy);
+                break;
+            case 3:
+                EnemySkill(indexEnemy);
+                break;
+
+            default:
 				break;
         }
 		enemyHUDs[indexEnemy].SetActiveNextAction(false);
@@ -225,17 +279,28 @@ public class BattleSystem : MonoBehaviour
 
         for (int i = 0; i < enemyUnits.Count; i++)
         {
-            int indexNext = Random.Range(0, 2);
+            int indexNext = Random.Range(0, 3);
+
+            if (enemyUnits[i].isPow)
+                indexNext = 3;
 
             switch (indexNext)
             {
                 case 0:
-                    enemyHUDs[i].SetNextAction(true, enemyUnits[i].damage);
+                    enemyHUDs[i].SetNextAction(ActionType.ATTACK, enemyUnits[i].damage);
                     break;
 
                 case 1:
-                    enemyHUDs[i].SetNextAction(false, enemyUnits[i].shield);
+                    enemyHUDs[i].SetNextAction(ActionType.SHIELD, 5);
                     break;
+
+                case 2:
+                    enemyHUDs[i].SetNextAction(ActionType.HEAL, 5);
+                    break;
+
+                case 3: 
+                    enemyHUDs[i].SetNextAction(ActionType.POW, 5);
+                    break ;
 
                 default:
                     break;
@@ -245,23 +310,45 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-
     bool EnemyAttack(int indexEnemy)
 	{
-        bool isDead = heroUnit.TakeDamage(enemyUnits[indexEnemy].damage);
+        bool isMiss = heroUnit.TakeDamage(enemyUnits[indexEnemy].damage);
+        bool isDead = heroUnit.isDead;
 
         Sequence s = DOTween.Sequence();
         s.Append(enemyUnits[indexEnemy].transform.DOMoveX(0f, 1f));//
         s.AppendCallback(() =>
         {
             enemyControls[indexEnemy].OneAttack();
+
+            if (isMiss)
+            {
+                DOVirtual.DelayedCall(0.2f, () =>
+                {
+                    heroControl.Dodge();
+                });
+            }
         });
         s.AppendInterval(0.6f);
         s.AppendCallback(() =>
         {
-            heroControl.OneHit();
-            heroHUD.SetHP(heroUnit.currentHP);
-            heroHUD.SetShield(heroUnit.shield);
+            if (isMiss)
+            {
+                //heroControl.Dodge();
+            }
+            else
+            {
+                if (isDead)
+                {
+                    heroControl.Dead();
+                }
+                else
+                {
+                    heroControl.OneHit();
+                }
+                heroHUD.SetHP(heroUnit.currentHP);
+                heroHUD.SetShield(heroUnit.currentShield);
+            }
         });
         s.AppendInterval(0.4f);
         s.Append(enemyUnits[indexEnemy].transform.DOMoveX(enemyBattleStations[indexEnemy].position.x, 1f));
@@ -272,11 +359,33 @@ public class BattleSystem : MonoBehaviour
 	void EnemyShield(int indexEnemy)
 	{
         enemyUnits[indexEnemy].Shield(5);
-        enemyControls[indexEnemy].Heal();
+        enemyControls[indexEnemy].Buff();
 
-        enemyHUDs[indexEnemy].SetShield(enemyUnits[indexEnemy].shield);
+        enemyHUDs[indexEnemy].SetShield(enemyUnits[indexEnemy].currentShield);
     }
 
+    void EnemyHeal(int indexEnemy)
+    {
+        enemyUnits[indexEnemy].Heal(5);
+        enemyControls[indexEnemy].Buff();
+
+        enemyHUDs[indexEnemy].SetHP(enemyUnits[indexEnemy].currentHP);
+    }
+
+    void EnemySkill(int indexEnemy)
+    {
+        //Test skill heal all
+        for (int i = 0; i < enemyUnits.Count; i++)
+        {
+            enemyUnits[i].Heal(5);
+            enemyControls[i].Buff();
+            enemyHUDs[i].SetHP(enemyUnits[i].currentHP);
+        }
+
+        enemyUnits[indexEnemy].ResetPow();
+        enemyHUDs[indexEnemy].SetPow(enemyUnits[indexEnemy].currentPow);
+    }
+        
 	public void OnEndTurn()
 	{
         if (state != BattleState.HEROTURN)
@@ -292,6 +401,11 @@ public class BattleSystem : MonoBehaviour
         goNext.SetActive(false);
         BG.RunBG(true);
         heroControl.Run();
+
+        foreach (var axie in axieControls)
+        {
+            axie.Run();
+        }
         
         DOVirtual.DelayedCall(2f, () =>
         {
@@ -299,6 +413,11 @@ public class BattleSystem : MonoBehaviour
             enemyControls.Clear();
 
             heroControl.Idle();
+            foreach (var axie in axieControls)
+            {
+                axie.Idle();
+            }
+
             BG.RunBG(false);
             state = BattleState.START;
 
@@ -309,9 +428,8 @@ public class BattleSystem : MonoBehaviour
 
     void SetTarget(int index)
     {
-        Debug.LogError("index: " + index);
         indexTarget = index;
-        indexEnemy = index;
+
         for (int i = 0; i < enemyHUDs.Count; i++)
         {
             if (i == index)

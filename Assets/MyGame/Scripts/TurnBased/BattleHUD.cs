@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,15 +20,15 @@ public class BattleHUD : MonoBehaviour
 	{
 		maxHP = unit.maxHP;
 
-        tmpShield.SetText($"{unit.shield}");
+        tmpShield.SetText($"{unit.currentShield}");
 		SetHP(unit.currentHP);
-		SetShield(unit.shield);
+		SetShield(unit.currentShield);
     }
 
 	public virtual void SetHP(int hp)
 	{
         tmpHP.SetText($"{hp}/{maxHP}");
-        imgHP.fillAmount = (float)hp / maxHP;
+		imgHP.DOFillAmount((float)hp / maxHP, 1f);
     }
 
 	public virtual void SetShield(int shi)

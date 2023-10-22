@@ -3,28 +3,44 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Unit : MonoBehaviour
 {
 
 	public string unitName;
 
-	public int shield;
 	public int damage;
 
-	public int maxStamina;
+	public int buffShield;
+	public int currentShield;
+
+	public int initStamina;
 	public int currentStamina;
 
 	public int maxHP;
+	public int buffHP;
 	public int currentHP;
 
-	public int criticalRate;
-	public int criticalDamage;
+    public int maxPow;
+    public int currentPow;
 
-	public int normalEvasionRate;
-	public int criticalEvasionRate;
+    [Range(0f, 1f)]
+	public float dodgeRate;
+    [Range(0f, 1f)]
+    public float criticalRate;
+    [Range(0f, 1f)]
+    public float armorPenetrationRate;
 
-	public int armorPenetrationRate;
+	public bool isPow = false;
+	public bool isDead = false;
+    public bool isCrit = false;
+
+    public void PetBuff(AxieConfig axieConfig)
+    {
+        dodgeRate += axieConfig.dodgeRate;
+        criticalRate += axieConfig.criticalRate;
+    }
 
     public bool TakeStamina(int sta)
     {
@@ -42,35 +58,77 @@ public class Unit : MonoBehaviour
 
 	public void ResetStamina()
 	{
-        currentStamina = maxStamina;
+        currentStamina = initStamina;
     }
 
     public int TakeShield(int dmg)
     {
-        shield -= dmg;
+        currentShield -= dmg;
 
-        if (shield >= 0)
+        if (currentShield >= 0)
             return 0;
         else
 		{
-			int newDmg = -shield;
-			shield = 0;
+			int newDmg = -currentShield;
+			currentShield = 0;
             return newDmg;
         }
     }
 
     public bool TakeDamage(int dmg)
 	{
-		currentHP -= TakeShield(dmg);
+		float r = Random.Range(0, 1f);
+		Debug.LogError("r dodgeRate: " + r);
+		if (r <= dodgeRate)
+            return true;
+
+        currentHP -= TakeShield(dmg);
 
 		if (currentHP <= 0)
 		{
             currentHP = 0;
-            return true;
+			isDead = true;
         }
 		else
-			return false;
-	}
+		{
+            isDead = false;
+        }
+        return false;
+    }
+
+    public int GetDamage()
+    {
+        //criticalRate
+        float r = Random.Range(0, 1f);
+        Debug.LogError("r criticalRate: " + r);
+        if (r <= criticalRate)
+        {
+            isCrit = true;
+            return damage * 2;
+        }
+
+        isCrit = false;
+        return damage;
+    }
+
+    public void TakePow(int dmg)
+	{
+        currentPow += dmg;
+        if (currentPow >= maxPow)
+        {
+            currentPow = maxPow;
+            isPow = true;
+        }else
+        {
+            isPow = false;
+        }
+    }
+
+    public void ResetPow()
+    {
+        currentPow = 0;
+        isPow = false;
+    }
 
 	public void Heal(int amount)
 	{
@@ -79,8 +137,9 @@ public class Unit : MonoBehaviour
 			currentHP = maxHP;
 	}
 
-	public void Shield(int shi)
+	public void Shield(int amount)
 	{
-		shield += shi;
+		currentShield += amount;
 	}
+
 }

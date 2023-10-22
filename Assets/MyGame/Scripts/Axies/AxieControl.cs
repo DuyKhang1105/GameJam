@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControl : MonoBehaviour
+public class AxieControl : MonoBehaviour
 {
     #region Inspector
     // [SpineAnimation] attribute allows an Inspector dropdown of Spine animation names coming form SkeletonAnimation.
@@ -55,32 +55,19 @@ public class EnemyControl : MonoBehaviour
         skeleton = skeletonAnimation.Skeleton;
     }
 
-    public void OneAttack()
-    {
-        spineAnimationState.SetAnimation(0, atkAnimationName_1, false);
-        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
-    }
-
     public void Buff()
     {
         spineAnimationState.SetAnimation(0, skillAnimationName_1, false);
         spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
     }
 
-    public void OneHit()
+    public void Run()
     {
-        spineAnimationState.SetAnimation(0, hitAnimationName, false);
-        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
+        spineAnimationState.SetAnimation(0, runAnimationName, true);
     }
 
-    public void Die()
+    public void Idle()
     {
-        spineAnimationState.SetAnimation(0, deathAnimationName, false);
-    }
-
-    public void Dodge()
-    {
-        spineAnimationState.SetAnimation(0, moveBackAnimationName, false);
-        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
+        spineAnimationState.SetAnimation(0, idleAnimationName, true);
     }
 }

@@ -144,17 +144,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Enemy
-  shield: 1
   damage: 2
-  maxStamina: 0
+  buffShield: 0
+  currentShield: 5
+  initStamina: 0
   currentStamina: 0
   maxHP: 40
+  buffHP: 0
   currentHP: 30
+  maxPow: 15
+  currentPow: 0
+  dodgeRate: 0
   criticalRate: 0
-  criticalDamage: 0
-  normalEvasionRate: 0
-  criticalEvasionRate: 0
   armorPenetrationRate: 0
+  isPow: 0
+  isDead: 0
 --- !u!114 &2749084589826065733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +176,7 @@ MonoBehaviour:
   walkAnimationName: 
   atkAnimationName_1: attack/melee/normal-attack
   atkAnimationName_2: 
-  jumpAnimationName: 
+  moveBackAnimationName: action/move-back
   hitAnimationName: defense/hit-by-normal
   deathAnimationName: defense/hit-die
   stunAnimationName: 
