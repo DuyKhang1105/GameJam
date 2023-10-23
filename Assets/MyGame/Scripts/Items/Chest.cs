@@ -16,7 +16,7 @@ public class Chest : MonoBehaviour
     public float rareMax;
     public int count;
 
-    private bool isOpend;
+    public bool isOpend;
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class Chest : MonoBehaviour
     {
         var chestImg = GetComponent<Image>();
         if (rareMax <= 0.1f) chestImg.sprite = isOpend? commonOpenedSpr: commonSpr;
-        else if (rareMax <= 0.8f) chestImg.sprite = isOpend ? rareOpenedSpr: rareSpr;
+        else if (rareMax <= 0.75f) chestImg.sprite = isOpend ? rareOpenedSpr: rareSpr;
         else chestImg.sprite = isOpend ? legendOpenedSpr : legendSpr;
     }
 

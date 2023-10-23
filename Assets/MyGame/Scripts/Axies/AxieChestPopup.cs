@@ -56,13 +56,15 @@ public class AxieChestPopup : MonoBehaviour
         {
             isSelected = true;
             FindObjectOfType<AxieInventory>().AddAxie(axies[indexSelected]);
+            GameUI.Instance.bg.SetActive(false);
             gameObject.SetActive(false);
+            GameUI.Instance.nextBtn.SetActive(true);
         }
     }
 
     private void SkipSelect()
     {
-        ItemConfig itemConfig = ItemConfigs.Instance.configs.Find(x => x.name.Contains("Item_Upgrade_Pet"));
+        ItemConfig itemConfig = ItemConfigs.Instance.configs.Find(x => x.id.Contains("Item_Upgrade_Pet"));
         gameObject.SetActive(false);
         var inventory = FindObjectOfType<Inventory>();
         var lst = new List<ItemConfig>();
@@ -72,6 +74,7 @@ public class AxieChestPopup : MonoBehaviour
 
     private void OpenChest()
     {
+        GameUI.Instance.bg.SetActive(true); 
         slotTrans.ForEach(t => { t.gameObject.SetActive(false); });
         {
             axies = new List<AxieConfig>();

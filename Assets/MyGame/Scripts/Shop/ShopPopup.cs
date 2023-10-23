@@ -19,11 +19,23 @@ public class ShopPopup : MonoBehaviour
 
     public Action onBuyed;
 
+    private void Awake()
+    {
+        confirmBtn.onClick.AddListener(Confirm);
+        cancelBtn.onClick.AddListener(Cancel);
+    }
+
     private void Start()
     {
+        OpenShop();    
+    }
+
+    private void OpenShop()
+    {
+        GameUI.Instance.bg.SetActive(true);
         Debug.Log("Start shop");
         items = new List<GameObject>();
-        itemConfigs = ItemConfigs.Instance.configs.FindAll(x => x.type == ItemType.Support && !x.name.Contains("Coin"));
+        itemConfigs = ItemConfigs.Instance.configs.FindAll(x => x.type == ItemType.Support && !x.id.Contains("Coin"));
         if (itemConfigs != null)
         {
             foreach (ItemConfig itemConfig in itemConfigs)
@@ -41,11 +53,7 @@ public class ShopPopup : MonoBehaviour
                 items.Add(item);
             }
         }
-
-        confirmBtn.onClick.AddListener(Confirm);
-        cancelBtn.onClick.AddListener(Cancel);
     }
-
     private void Confirm()
     {
         var inventory = FindObjectOfType<Inventory>();
@@ -53,6 +61,7 @@ public class ShopPopup : MonoBehaviour
         lst.Add(itemConfigs[indexSelected]);
         inventory.SpawnItems(lst, items[indexSelected].transform);
         onBuyed?.Invoke();
+        GameUI.Instance.bg.SetActive(false);
         gameObject.SetActive(false); 
     }
 

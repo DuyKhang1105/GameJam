@@ -2,6 +2,7 @@
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
@@ -16,8 +17,12 @@ public enum ActionType { ATTACK, HEAL, SHIELD, POW}
 
 public class BattleSystem : MonoBehaviour
 {
-    public List<string> idAxies;
+    [Header("Stage")]
+    public int stageIndex;
+
+    [Header("Pet")]
     public List<Transform> axieBattleStations;
+    private Dictionary<string, GameObject> dicAxies;
 
     public GameObject heroPrefab;
 	public List<GameObject> enemyPrefabs;
@@ -30,9 +35,6 @@ public class BattleSystem : MonoBehaviour
 
 	HeroControl heroControl;
     public List<EnemyControl> enemyControls;
-    public List<AxieControl> axieControls;
-
-    public List<AxieConfig> listAxieConfig;
 
     public TextMeshProUGUI dialogueText;
 
@@ -41,65 +43,118 @@ public class BattleSystem : MonoBehaviour
 
 	public BattleState state;
 
-	[Header("other test")]
+	[Header("GUI")]
     public Background BG;
-	public GameObject goNext;
-	public GameObject goEndTurn;
-    public AxieConfigs axieConfigs;
+
 
 	int indexEnemy;
     int indexTarget;
+
 	List<int> indexActions = new List<int>();
+
+    public static BattleSystem Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+        dicAxies = new Dictionary<string, GameObject>();
+    }
 
     void Start()
     {
-        goNext.SetActive(false);
+        var axieInventory = GameUI.Instance.axieInventory.GetComponent<AxieInventory>();
+        axieInventory.onChangeList += OnChangePets;
+
         state = BattleState.START;
 
-        StartCoroutine(SetupBattle());
-        ResetTarget();
+        InitHero();
+        SetupStage();
     }
 
-	IEnumerator SetupBattle()
-	{
+    private void OnChangePets()
+    {
+        var axieIds = dicAxies.Keys.ToList();
+        foreach (var axieId in axieIds) {
+            Destroy(dicAxies[axieId]);
+            dicAxies.Remove(axieId);
+        }
+
+        var axieInventory = GameUI.Instance.axieInventory.GetComponent<AxieInventory>();
+        for (int i = 0; i < axieInventory.axies.Count; i++)
+        {
+            AxieConfig config = axieInventory.axies[i];
+            GameObject axieGO = Instantiate(config.graphic, axieBattleStations[i]);
+            dicAxies.Add(config.axieId, axieGO);
+        }
+    }
+
+    private void InitHero()
+    {
         if (heroUnit == null)
         {
             GameObject heroGO = Instantiate(heroPrefab, heroBattleStation);
             heroUnit = heroGO.GetComponent<Unit>();
             heroControl = heroGO.GetComponent<HeroControl>();
-
-            for (int i = 0; i < idAxies.Count; i++)
-            {
-                AxieConfig config = axieConfigs.GetAxieConfig(idAxies[i]);
-                listAxieConfig.Add(config);
-                heroUnit.PetBuff(config);
-                GameObject axieGO = Instantiate(config.graphic, axieBattleStations[i]);
-                axieControls.Add(axieGO.GetComponent<AxieControl>());
-            }
         }
-
-        for (int i = 0; i < enemyPrefabs.Count; i++)
-        {
-            GameObject enemyGO = Instantiate(enemyPrefabs[i], enemyBattleStations[i]);
-            enemyUnits.Add(enemyGO.GetComponent<Unit>());
-            enemyControls.Add(enemyGO.GetComponent<EnemyControl>());
-            enemyHUDs[i].gameObject.SetActive(true);
-            enemyHUDs[i].SetHUD(enemyUnits[i]);
-        }
-
-        dialogueText.text = "A wild approaches...";
-
         heroHUD.SetHUD(heroUnit);
+    }
 
-		yield return new WaitForSeconds(2f);
-
-        indexEnemy = 0;
-        indexTarget = 0;
-        NextActionEnemy();
-
-        state = BattleState.HEROTURN;
-		HeroTurn();
+	private void SetupStage()
+	{
+        StartCoroutine(IeSetupStage());
 	}
+
+    private IEnumerator IeSetupStage()
+    {
+        enemyHUDs.ForEach(x=>x.gameObject.SetActive(false));
+        GameUI.Instance.nextBtn.gameObject.SetActive(false);
+        GameUI.Instance.endTurnBtn.gameObject.SetActive(false);
+
+        StageConfig stage = StageConfigs.Instance.GetStage(stageIndex);
+        switch (stage.stageType) {
+            case StageType.Enemy:
+                for (int i = 0; i < enemyPrefabs.Count; i++)
+                {
+                    GameObject enemyGO = Instantiate(enemyPrefabs[i], enemyBattleStations[i]);
+                    enemyUnits.Add(enemyGO.GetComponent<Unit>());
+                    enemyControls.Add(enemyGO.GetComponent<EnemyControl>());
+                    enemyHUDs[i].gameObject.SetActive(true);
+                    enemyHUDs[i].SetHUD(enemyUnits[i]);
+                }
+                dialogueText.text = "A wild approaches...";
+                yield return new WaitForSeconds(2f);
+
+                ResetTarget();
+
+                indexEnemy = 0;
+                indexTarget = 0;
+                NextActionEnemy();
+
+                state = BattleState.HEROTURN;
+                HeroTurn();
+                break;
+            case StageType.MiniBoss:
+                //TODO 
+                break;
+            case StageType.Boss:
+                //TODO
+                break;
+            case StageType.Chest:
+                if (stageIndex == 0)
+                {
+                    GameUI.Instance.startChest.GetComponent<StartChest>().isOpened = false;
+                    GameUI.Instance.startChest.SetActive(true);
+                }       
+                else
+                {
+                    GameUI.Instance.startChest.GetComponent<Chest>().isOpend = false;
+                    GameUI.Instance.startChest.SetActive(true);
+                }
+                break;
+            case StageType.AxieChest:
+                break;
+        }
+    }
 
 	IEnumerator HeroAttack()
 	{
@@ -243,7 +298,7 @@ public class BattleSystem : MonoBehaviour
 		dialogueText.text = heroUnit.unitName + " Turn. Choose An Action";
         heroUnit.ResetStamina();
         heroHUD.SetStamina(heroUnit.currentStamina);
-		goEndTurn.SetActive(true);
+		GameUI.Instance.endTurnBtn.SetActive(true);
     }
 
 	bool ActionEnemy(int indexEnemy)
@@ -393,18 +448,21 @@ public class BattleSystem : MonoBehaviour
 
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
-        goEndTurn.SetActive(false);
+        GameUI.Instance.endTurnBtn.SetActive(false);
     }
 
     public void OnNext()
     {
-        goNext.SetActive(false);
+        stageIndex += 1;
+
+        //virtual
+        GameUI.Instance.nextBtn.SetActive(false);
         BG.RunBG(true);
         heroControl.Run();
 
-        foreach (var axie in axieControls)
+        foreach (var axie in dicAxies.Values)
         {
-            axie.Run();
+            axie.GetComponent<AxieControl>().Run();
         }
         
         DOVirtual.DelayedCall(2f, () =>
@@ -413,15 +471,15 @@ public class BattleSystem : MonoBehaviour
             enemyControls.Clear();
 
             heroControl.Idle();
-            foreach (var axie in axieControls)
+            foreach (var axie in dicAxies.Values)
             {
-                axie.Idle();
+                axie.GetComponent<AxieControl>().Idle();
             }
 
             BG.RunBG(false);
             state = BattleState.START;
 
-            StartCoroutine(SetupBattle());
+            SetupStage();
             ResetTarget();
         });
     }
@@ -479,8 +537,8 @@ public class BattleSystem : MonoBehaviour
 		{
 			dialogueText.text = "You were defeated.";
 		}
-        goEndTurn.SetActive(false);
-        goNext.SetActive(true);
+        GameUI.Instance.endTurnBtn.SetActive(false);
+        GameUI.Instance.nextBtn.SetActive(true);
     }
 
 	public void OnAttackButton()
@@ -488,11 +546,7 @@ public class BattleSystem : MonoBehaviour
         if (state != BattleState.HEROTURN)
             return;
 
-        bool isEnough = heroUnit.TakeStamina(1);
         heroHUD.SetStamina(heroUnit.currentStamina);
-
-        if (!isEnough)
-            return;
 
         StartCoroutine(HeroAttack());
 	}
@@ -502,12 +556,7 @@ public class BattleSystem : MonoBehaviour
         if (state != BattleState.HEROTURN)
 			return;
 
-        bool isEnough = heroUnit.TakeStamina(1);
         heroHUD.SetStamina(heroUnit.currentStamina);
-
-        if (!isEnough)
-            return;
-
         StartCoroutine(HeroHeal());
 	}
 }

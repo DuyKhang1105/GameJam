@@ -14,8 +14,7 @@ public enum ItemType
 [System.Serializable]
 public class ItemConfig
 {
-    public string id => sprite.name;
-    public string name;
+    public string id;
     public Sprite sprite;
 
     [Header("Place")]
@@ -24,6 +23,7 @@ public class ItemConfig
 
     [Header("Statistic")]
     public ItemType type;
+    public bool useable;
     public int stamina;
 
     [Header("Rare")]
@@ -31,12 +31,25 @@ public class ItemConfig
     public float rare; //0 -> 1
 }
 
+
 public enum EquipType
 {
     None,
-    Weapon,
-    Shield,
-    Shoe
+    Weapon, //=> attack
+    Shield, //=> shield
+    Shoe, 
+    Helmet
+}
+
+public enum StatisticType
+{
+    Attack, //=> weapon
+    Shield, //=> shield
+    Avoid, //=> shoe
+    Critical, //=> helmet
+    HP,
+    Stamina,
+    Coin
 }
 
 [System.Serializable]
@@ -44,6 +57,7 @@ public class EquipConfig
 {
     public string id;
     public EquipType equipType;
+    public StatisticType statistic;
     public float value;
 }
 
@@ -51,8 +65,8 @@ public class EquipConfig
 public class JewelryConfig
 {
     public List<string> ids;
-    //TODO effect type
-    //TODO equip type
+    public EquipType equipType;
+    public StatisticType statistic;
     public float value;
 }
 
@@ -60,8 +74,10 @@ public class JewelryConfig
 public class SupportConfig
 {
     public string id;
-    //TODO effect type
+    public StatisticType statistic;
     public float value;
+    public StatisticType statistic2;
+    public float value2;
 }
 
 [CreateAssetMenu(fileName ="ItemConfigs",menuName = "Configs/ItemConfigs")]
@@ -103,5 +119,10 @@ public class ItemConfigs : ScriptableObject
             }
         }
         return result;
+    }
+
+    public ItemConfig GetItemConfig(string id)
+    {
+        return configs.Find(x=>x.id == id);
     }
 }

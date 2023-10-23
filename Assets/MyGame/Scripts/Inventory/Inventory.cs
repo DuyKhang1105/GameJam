@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
     public InventorySlot pointEnterSlot;
 
     private List<InventoryItem> items;
-    private List<GameObject> itemSpawneds;
+    private List<GameObject> dragItems = new List<GameObject>();
 
     private void Awake()
     {
@@ -125,6 +125,26 @@ public class Inventory : MonoBehaviour
         }
         result.Add(lst1);
 
+        //ListInventorySlot lst3 = new ListInventorySlot();
+        //for (int iCol = 0; iCol < width; iCol++)
+        //{
+        //    for (int iRow = -height + 1; iRow <= 0; iRow++)
+        //    {
+        //        lst3.slots.Add(GetSlot(slot.col + iCol, slot.row + iRow));
+        //    }
+        //}
+        //result.Add(lst3);
+
+        //ListInventorySlot lst4 = new ListInventorySlot();
+        //for (int iCol = -width + 1; iCol <= 0; iCol++)
+        //{
+        //    for (int iRow = 0; iRow < height; iRow++)
+        //    {
+        //        lst4.slots.Add(GetSlot(slot.col + iCol, slot.row + iRow));
+        //    }
+        //}
+        //result.Add(lst4);
+
         return result;
     }
 
@@ -155,15 +175,19 @@ public class Inventory : MonoBehaviour
 
     public void SpawnItems(List<ItemConfig> lstItems, Transform from)
     {
-        if (itemSpawneds == null) itemSpawneds = new List<GameObject>();
+        if (dragItems == null) dragItems = new List<GameObject>();
         foreach (var item in lstItems)
         {
-            int index = itemSpawneds.Count;
+            int index = dragItems.Count;
             var goItem = Instantiate(itemPrefab, dragParent);
             goItem.GetComponent<InventoryItem>().ParseItem(item);
             goItem.GetComponent<InventoryItem>().onDropedToInventory = () =>
             {
-                itemSpawneds[index] = null;
+                dragItems[index] = null;
+            };
+            goItem.GetComponent<InventoryItem>().onDropedOutInventory = (arg) =>
+            {
+                dragItems.Add(arg);
             };
             Vector3 startPos = from.position;
             Vector3 endPos = dropPos[UnityEngine.Random.Range(0, dropPos.Count)].position;
@@ -172,14 +196,15 @@ public class Inventory : MonoBehaviour
             goItem.transform.position = startPos;
             goItem.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
             goItem.transform.DOJump(endPos, 1, 1, 0.3f);
-            itemSpawneds.Add(goItem);
+            dragItems.Add(goItem);
         }
         confrimBtn.SetActive(true);
+        GameUI.Instance.bg.SetActive(true);
     }
 
     private void Confirm()
     {
-        itemSpawneds.ForEach(x=> {
+        dragItems.ForEach(x=> {
             if (x != null)
             {
                 //TODO later effect confirm
@@ -187,6 +212,11 @@ public class Inventory : MonoBehaviour
             }     
         });
         confrimBtn.SetActive(false);
+        GameUI.Instance.bg.SetActive(false);
+        GameUI.Instance.nextBtn.SetActive(true);
+        GameUI.Instance.chest.SetActive(false);
+        GameUI.Instance.startChest.SetActive(false);
+        GameUI.Instance.axieChest.SetActive(false);
     }
 
     //Test

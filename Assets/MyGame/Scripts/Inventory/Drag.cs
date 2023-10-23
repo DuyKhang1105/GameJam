@@ -8,8 +8,8 @@ public class Drag : MonoBehaviour
 
     protected bool onSelect;
     protected bool onDrag;
-
-    private Vector3 GetPoint(BaseEventData data)
+    
+    protected Vector3 GetPoint(BaseEventData data)
     {
         var canvas = FindObjectOfType<Inventory>().canvas;
 
@@ -44,12 +44,9 @@ public class Drag : MonoBehaviour
     {
         onDrag = false;
         pointUp = GetPoint(data);
-       
-
+      
         var distance = Vector3.Distance(pointDown, pointUp);
-        //Debug.Log("Distance: " + distance);
-
-        if (distance < 1f)
+        if (distance < 10f)
         {
             OnClick();
         }

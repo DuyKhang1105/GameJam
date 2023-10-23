@@ -137,11 +137,11 @@ MonoBehaviour:
   damage: 10
   buffShield: 0
   currentShield: 5
-  initStamina: 3
+  initStamina: 5
   currentStamina: 3
   maxHP: 20
   buffHP: 0
-  currentHP: 15
+  currentHP: 20
   maxPow: 0
   currentPow: 0
   dodgeRate: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
   armorPenetrationRate: 0
   isPow: 0
   isDead: 0
+  isCrit: 0
 --- !u!114 &2870601798756823067
 MonoBehaviour:
   m_ObjectHideFlags: 0

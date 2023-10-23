@@ -36,12 +36,6 @@ public class Unit : MonoBehaviour
 	public bool isDead = false;
     public bool isCrit = false;
 
-    public void PetBuff(AxieConfig axieConfig)
-    {
-        dodgeRate += axieConfig.dodgeRate;
-        criticalRate += axieConfig.criticalRate;
-    }
-
     public bool TakeStamina(int sta)
     {
 		int a = currentStamina;
