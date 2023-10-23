@@ -7,39 +7,40 @@ public class AxieControl : MonoBehaviour
 {
     #region Inspector
     // [SpineAnimation] attribute allows an Inspector dropdown of Spine animation names coming form SkeletonAnimation.
-    [SpineAnimation]
-    public string runAnimationName;
+    //[SpineAnimation]
+    public const string runAnimationName = "action/run";
+    //[SpineAnimation]
+    public const string idleAnimationName = "action/idle/normal";
 
-    [SpineAnimation]
-    public string idleAnimationName;
+    public const string buffAnimationName = "battle/get-buff";
 
-    [SpineAnimation]
-    public string walkAnimationName;
+    //[SpineAnimation]
+    //public string walkAnimationName;
 
-    [SpineAnimation]
-    public string atkAnimationName_1;
+    //[SpineAnimation]
+    //public string atkAnimationName_1;
 
-    [SpineAnimation]
-    public string atkAnimationName_2;
+    //[SpineAnimation]
+    //public string atkAnimationName_2;
 
-    [SpineAnimation]
-    public string moveBackAnimationName;
+    //[SpineAnimation]
+    //public string moveBackAnimationName;
 
-    [SpineAnimation]
-    public string hitAnimationName;
+    //[SpineAnimation]
+    //public string hitAnimationName;
 
-    [SpineAnimation]
-    public string deathAnimationName;
+    //[SpineAnimation]
+    //public string deathAnimationName;
 
-    [SpineAnimation]
-    public string stunAnimationName;
+    //[SpineAnimation]
+    //public string stunAnimationName;
 
-    [SpineAnimation]
-    public string skillAnimationName_1;
-    [SpineAnimation]
-    public string skillAnimationName_2;
-    [SpineAnimation]
-    public string skillAnimationName_3;
+    //[SpineAnimation]
+    //public string skillAnimationName_1;
+    //[SpineAnimation]
+    //public string skillAnimationName_2;
+    //[SpineAnimation]
+    //public string skillAnimationName_3;
 
     #endregion
 
@@ -48,7 +49,7 @@ public class AxieControl : MonoBehaviour
     public Spine.AnimationState spineAnimationState;
     public Spine.Skeleton skeleton;
 
-    void Start()
+    void Awake()
     {
         skeletonAnimation = GetComponent<SkeletonAnimation>();
         spineAnimationState = skeletonAnimation.AnimationState;
@@ -57,7 +58,7 @@ public class AxieControl : MonoBehaviour
 
     public void Buff()
     {
-        spineAnimationState.SetAnimation(0, skillAnimationName_1, false);
+        spineAnimationState.SetAnimation(0, buffAnimationName, false);
         spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
     }
 

@@ -38,6 +38,8 @@ public class Inventory : MonoBehaviour
     private List<InventoryItem> items;
     private List<GameObject> dragItems = new List<GameObject>();
 
+    public int level;
+
     private void Awake()
     {
         confrimBtn.GetComponent<Button>().onClick.AddListener(Confirm);
@@ -46,6 +48,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         slots = new InventorySlot[Width, Height];
+        level = 1;
         UpgradeLevel(1);
     }
 

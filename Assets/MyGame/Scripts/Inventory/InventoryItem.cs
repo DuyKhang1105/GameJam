@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -30,6 +31,14 @@ public class InventoryItem : Drag
         GetComponent<RectTransform>().sizeDelta = new Vector2(width * Inventory.SlotSize, height * Inventory.SlotSize);
         GetComponent<Image>().sprite = config.sprite;
         if (UnityEngine.Random.value < 0.5f) Rotate();
+    }
+
+    public override void DragHandler(BaseEventData data)
+    {
+        if (BattleSystem.Instance.state == BattleState.LOOTITEM)
+        {
+            base.DragHandler(data);
+        }
     }
 
     public override void PointDownHandler(BaseEventData data)

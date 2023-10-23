@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &242006166021285473
+--- !u!1 &3241507626981268731
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5012956444333302052}
-  - component: {fileID: 6323562364608966336}
-  - component: {fileID: 4618905012973115461}
-  - component: {fileID: 8999134290424386631}
-  - component: {fileID: 2842290337686894107}
+  - component: {fileID: 3241507626981268711}
+  - component: {fileID: 3241507626981268708}
+  - component: {fileID: 3241507626981268709}
+  - component: {fileID: 3241507626981268730}
+  - component: {fileID: -8544113049826954810}
   m_Layer: 0
-  m_Name: 11_dps-bug
+  m_Name: 1_olek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5012956444333302052
+--- !u!4 &3241507626981268711
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242006166021285473}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 3241507626981268731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.3, y: -2.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6323562364608966336
+--- !u!33 &3241507626981268708
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242006166021285473}
+  m_GameObject: {fileID: 3241507626981268731}
   m_Mesh: {fileID: 0}
---- !u!23 &4618905012973115461
+--- !u!23 &3241507626981268709
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242006166021285473}
+  m_GameObject: {fileID: 3241507626981268731}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 80af5871a41214e23bef6f9003526af9, type: 2}
+  - {fileID: 2100000, guid: 0548f4c46fc0e4d7bab7cabfa35327b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,19 +83,19 @@ MeshRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8999134290424386631
+--- !u!114 &3241507626981268730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242006166021285473}
+  m_GameObject: {fileID: 3241507626981268731}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 9b1e772c1bd9c4cb0ada61ec5c1ffae6, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 7d1ef9104d38443a4b39cf8906cc277d, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
@@ -117,30 +117,18 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: action/idle/normal
+  _animationName: 
   loop: 1
   timeScale: 1
---- !u!114 &2842290337686894107
+--- !u!114 &-8544113049826954810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242006166021285473}
+  m_GameObject: {fileID: 3241507626981268731}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ed3071991bd1e04aab438f071dc1551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runAnimationName: action/run
-  idleAnimationName: action/idle/normal
-  walkAnimationName: 
-  atkAnimationName_1: 
-  atkAnimationName_2: 
-  moveBackAnimationName: 
-  hitAnimationName: 
-  deathAnimationName: 
-  stunAnimationName: 
-  skillAnimationName_1: 
-  skillAnimationName_2: 
-  skillAnimationName_3: 

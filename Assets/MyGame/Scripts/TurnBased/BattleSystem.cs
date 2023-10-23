@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Sequence = DG.Tweening.Sequence;
 
-public enum BattleState { START, HEROTURN, ENEMYTURN, ACTING, WON, LOST }
+public enum BattleState { START, HEROTURN, ENEMYTURN, ACTING, WON, LOST , LOOTITEM, LOOTAXIE, MOVETONEXT}
 
 public enum ActionType { ATTACK, HEAL, SHIELD, POW}
 
@@ -84,8 +84,13 @@ public class BattleSystem : MonoBehaviour
         {
             AxieConfig config = axieInventory.axies[i];
             GameObject axieGO = Instantiate(config.graphic, axieBattleStations[i]);
+            axieGO.transform.localPosition = Vector3.zero;
+            axieGO.transform.localScale = new Vector3(-0.8f, 0.8f, 0.8f);
+            axieGO.GetComponent<AxieControl>().Idle();
             dicAxies.Add(config.axieId, axieGO);
         }
+
+        Debug.Log("Axies: " + string.Join(", ", axieInventory.axies));
     }
 
     private void InitHero()
@@ -113,6 +118,8 @@ public class BattleSystem : MonoBehaviour
         StageConfig stage = StageConfigs.Instance.GetStage(stageIndex);
         switch (stage.stageType) {
             case StageType.Enemy:
+            case StageType.MiniBoss:
+            case StageType.Boss:
                 for (int i = 0; i < enemyPrefabs.Count; i++)
                 {
                     GameObject enemyGO = Instantiate(enemyPrefabs[i], enemyBattleStations[i]);
@@ -133,12 +140,12 @@ public class BattleSystem : MonoBehaviour
                 state = BattleState.HEROTURN;
                 HeroTurn();
                 break;
-            case StageType.MiniBoss:
-                //TODO 
-                break;
-            case StageType.Boss:
-                //TODO
-                break;
+            //case StageType.MiniBoss:
+            //    //TODO 
+            //    break;
+            //case StageType.Boss:
+            //    //TODO
+            //    break;
             case StageType.Chest:
                 if (stageIndex == 0)
                 {
@@ -147,11 +154,15 @@ public class BattleSystem : MonoBehaviour
                 }       
                 else
                 {
-                    GameUI.Instance.startChest.GetComponent<Chest>().isOpend = false;
-                    GameUI.Instance.startChest.SetActive(true);
+                    GameUI.Instance.chest.GetComponent<Chest>().isOpend = false;
+                    GameUI.Instance.chest.SetActive(true);
                 }
+                state = BattleState.LOOTITEM;
                 break;
             case StageType.AxieChest:
+                GameUI.Instance.axieChest.GetComponent<AxieChest>().isOpend = false;
+                GameUI.Instance.axieChest.SetActive(true);
+                state = BattleState.LOOTAXIE;
                 break;
         }
     }
@@ -443,17 +454,49 @@ public class BattleSystem : MonoBehaviour
         
 	public void OnEndTurn()
 	{
+        GameUI.Instance.endTurnBtn.SetActive(false);
+
         if (state != BattleState.HEROTURN)
             return;
 
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
-        GameUI.Instance.endTurnBtn.SetActive(false);
+        bool isAllEnemiesDead = enemyUnits.All(e => e.isDead);
+        if (isAllEnemiesDead)
+        {
+            OnNext();
+        }
+        else
+        {
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+            GameUI.Instance.endTurnBtn.SetActive(false);
+        }
+        
     }
 
     public void OnNext()
     {
+        GameUI.Instance.nextBtn.SetActive(false);
+
+        //check upgrade level
+        var stageConfig = StageConfigs.Instance.GetStage(stageIndex);
+        if (stageConfig.isLevelUp)
+        {
+            var inventory = GameUI.Instance.inventory.GetComponent<Inventory>();
+            inventory.level += 1;
+            inventory.UpgradeLevel(inventory.level);
+            Notification.Instance.ShowNoti($"Congrat. Inventory upgrade to level {inventory.level}!!");
+        }
+
         stageIndex += 1;
+        state = BattleState.MOVETONEXT;
+
+        //check end battle
+        if (stageIndex >= StageConfigs.Instance.stageConfigs.Count)
+        {
+            state = BattleState.WON;
+            EndBattle();
+            return;
+        }
 
         //virtual
         GameUI.Instance.nextBtn.SetActive(false);
@@ -510,21 +553,13 @@ public class BattleSystem : MonoBehaviour
 
     public void ResetTarget()
     {
-        bool isWon = true;
         for (int i = 0; i < enemyUnits.Count; i++)
         {
             if (enemyUnits[i].currentHP > 0)
             {
-                isWon = false;
                 SetTarget(i);
                 return;
             }
-        }
-
-        if (isWon)
-        {
-            state = BattleState.WON;
-            EndBattle();
         }
     }
 

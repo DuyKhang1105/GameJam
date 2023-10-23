@@ -9,9 +9,9 @@ public class AxieChestPopup : MonoBehaviour
     [SerializeField] private Button confirmBtn;
     [SerializeField] private Button skipBtn;
     [SerializeField] private List<Transform> slotTrans;
-    private bool isSelected;
     public int count;
     private int indexSelected;
+    private bool isSelected;
     private List<AxieConfig> axies;
 
     private void Awake()
@@ -33,14 +33,13 @@ public class AxieChestPopup : MonoBehaviour
             {
                 SelectAxie(index);
             });
-        }
-
-        SelectAxie(1);   
+        } 
     }
 
     private void Start()
     {
         OpenChest();
+        SelectAxie(1); 
     }
 
     private void SelectAxie(int index)
@@ -58,6 +57,7 @@ public class AxieChestPopup : MonoBehaviour
             FindObjectOfType<AxieInventory>().AddAxie(axies[indexSelected]);
             GameUI.Instance.bg.SetActive(false);
             gameObject.SetActive(false);
+            GameUI.Instance.axieChest.SetActive(false);
             GameUI.Instance.nextBtn.SetActive(true);
         }
     }

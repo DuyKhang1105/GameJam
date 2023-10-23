@@ -8,7 +8,7 @@ public class AxieChest : MonoBehaviour
 {
     [SerializeField] private Sprite normalSpr;
     [SerializeField] private Sprite openedSpr;
-    private bool isOpend;
+    public bool isOpend;
 
     private void Start()
     {

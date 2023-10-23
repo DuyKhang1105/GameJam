@@ -106,7 +106,7 @@ MonoBehaviour:
     width: 1
     height: 2
     type: 1
-    useable: 1
+    useable: 0
     stamina: 0
     rare: 0
   - id: 12_Equip_Shoe
@@ -289,7 +289,7 @@ MonoBehaviour:
   - id: 0_Equip_Weapon_Axe
     equipType: 1
     statistic: 0
-    value: 3
+    value: 3000
   - id: 1_Equip_Weapon_Axe
     equipType: 1
     statistic: 0
