@@ -13,20 +13,18 @@ public class AxieInventory : MonoBehaviour
     private void Start()
     {
         axies = new List<AxieConfig>();
+        UpdateVirtual();
     }
 
     private void UpdateVirtual()
     {
         slotTrans.ForEach(t => { 
-            if (t.childCount > 0) Destroy(t.GetChild(0).gameObject);
             t.gameObject.SetActive(false); 
         });
         for (int i = 0; i < axies.Count; i++)
         {
             slotTrans[i].gameObject.SetActive(true);
-            var axieUI = Instantiate(axies[i].graphicUI, slotTrans[i]);
-            axieUI.transform.localScale = new Vector3 (-1f, 1f, 1f);
-            axieUI.transform.localPosition = Vector3.up * -40f;
+            slotTrans[i].GetComponent<AxieInventorySlot>().ParseAxie(axies[i], 0f);
         }
     }
 

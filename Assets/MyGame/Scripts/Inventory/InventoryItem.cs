@@ -183,6 +183,24 @@ public class InventoryItem : Drag
 
                             break;
                         case ItemType.Support:
+                            var support = ItemConfigs.Instance.supports.Find(x => x.id == itemConfig.id);
+                            if (support != null)
+                            {
+                                if (support.id.Contains("Coin"))
+                                {
+                                    //Open shop
+                                    return;
+                                }
+
+                                if (support.id.Contains("Upgrade_Pet"))
+                                {
+                                    //Select pet to upgrade
+                                    return;
+                                }
+
+                                //TODO add unit
+                                
+                            }
                             break;
                     }
                 }

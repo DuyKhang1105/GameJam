@@ -30,14 +30,6 @@ MonoBehaviour:
     stamina: 2
     rare: 0
   - id: 2_Equip_Weapon_Axe
-    sprite: {fileID: 21300000, guid: 2cb46f80874874b238759442cab2d835, type: 3}
-    width: 1
-    height: 2
-    type: 1
-    useable: 1
-    stamina: 2
-    rare: 0
-  - id: 3_Equip_Weapon_Axe
     sprite: {fileID: 21300000, guid: 0e98fe73a345d402e8e689337fb9ce22, type: 3}
     width: 1
     height: 2
@@ -45,7 +37,7 @@ MonoBehaviour:
     useable: 1
     stamina: 2
     rare: 0
-  - id: 4_Equip_Weapon_Bow
+  - id: 3_Equip_Weapon_Bow
     sprite: {fileID: 21300000, guid: 93a442ed8606246afafbf8ee374fcb5a, type: 3}
     width: 1
     height: 2
@@ -53,15 +45,7 @@ MonoBehaviour:
     useable: 1
     stamina: 2
     rare: 0
-  - id: 5_Equip_Weapon_Bow
-    sprite: {fileID: 21300000, guid: d9f4d65497c2c4bf294b0dcae26af507, type: 3}
-    width: 1
-    height: 2
-    type: 1
-    useable: 1
-    stamina: 2
-    rare: 0
-  - id: 6_Equip_Arrow
+  - id: 4_Equip_Arrow
     sprite: {fileID: 21300000, guid: bba662dc9b67e7b4d8230163174058d0, type: 3}
     width: 1
     height: 2
@@ -69,7 +53,7 @@ MonoBehaviour:
     useable: 0
     stamina: 0
     rare: 0
-  - id: 7_Equip_Shield
+  - id: 5_Equip_Shield
     sprite: {fileID: 21300000, guid: 81eb6727e3524462d88f4e09f58ff07e, type: 3}
     width: 2
     height: 2
@@ -77,7 +61,7 @@ MonoBehaviour:
     useable: 1
     stamina: 2
     rare: 0
-  - id: 8_Equip_Shield
+  - id: 6_Equip_Shield
     sprite: {fileID: 21300000, guid: be885b97da1c945f7ababf4813353adc, type: 3}
     width: 2
     height: 2
@@ -85,15 +69,7 @@ MonoBehaviour:
     useable: 1
     stamina: 2
     rare: 0
-  - id: 9_Equip_Shield
-    sprite: {fileID: 21300000, guid: 87c8c329c7d4144a789e3017899efbbd, type: 3}
-    width: 2
-    height: 2
-    type: 1
-    useable: 1
-    stamina: 2
-    rare: 0
-  - id: 10_Equip_Shield
+  - id: 7_Equip_Shield
     sprite: {fileID: 21300000, guid: 1b8e59d45226f4ae994da07b8ea78881, type: 3}
     width: 2
     height: 2
@@ -101,7 +77,7 @@ MonoBehaviour:
     useable: 0
     stamina: 0
     rare: 0
-  - id: 11_Equip_Shoe
+  - id: 8_Equip_Shoe
     sprite: {fileID: 21300000, guid: ab4f394251f394cbf9872d30cf017994, type: 3}
     width: 1
     height: 2
@@ -109,7 +85,7 @@ MonoBehaviour:
     useable: 0
     stamina: 0
     rare: 0
-  - id: 12_Equip_Shoe
+  - id: 9_Equip_Shoe
     sprite: {fileID: 21300000, guid: 5f2af9b9c5f7c4e478c0b383be1b4b53, type: 3}
     width: 1
     height: 2
@@ -117,10 +93,34 @@ MonoBehaviour:
     useable: 0
     stamina: 0
     rare: 0
-  - id: 13_Equip_Shoe
+  - id: 10_Equip_Shoe
     sprite: {fileID: 21300000, guid: 7f83a075a49b8471bb2e7c03da4e9829, type: 3}
     width: 1
     height: 2
+    type: 1
+    useable: 0
+    stamina: 0
+    rare: 0
+  - id: 11_Equip_Helmet
+    sprite: {fileID: 21300000, guid: 167ce67675b07446faee2fba23138b7e, type: 3}
+    width: 1
+    height: 1
+    type: 1
+    useable: 0
+    stamina: 0
+    rare: 0
+  - id: 12_Equip_Helmet
+    sprite: {fileID: 21300000, guid: 36f3733fabf5d42fabef34ddb8c41625, type: 3}
+    width: 1
+    height: 1
+    type: 1
+    useable: 0
+    stamina: 0
+    rare: 0
+  - id: 13_Equip_Helmet
+    sprite: {fileID: 21300000, guid: 782177056360a4bd08c30de4802e3197, type: 3}
+    width: 1
+    height: 1
     type: 1
     useable: 0
     stamina: 0
@@ -157,15 +157,7 @@ MonoBehaviour:
     useable: 0
     stamina: 0
     rare: 0
-  - id: 18_Equip_Chain
-    sprite: {fileID: 21300000, guid: f79c8ea7a81a94a96b853bb3a04847ac, type: 3}
-    width: 1
-    height: 1
-    type: 3
-    useable: 0
-    stamina: 0
-    rare: 0
-  - id: 19_Equip_Ring
+  - id: 18_Equip_Ring
     sprite: {fileID: 21300000, guid: 830b338a359084514b1a02d6e86df672, type: 3}
     width: 1
     height: 1
@@ -173,23 +165,7 @@ MonoBehaviour:
     useable: 0
     stamina: 0
     rare: 0
-  - id: 20_Equip_Ring
-    sprite: {fileID: 21300000, guid: 4ba1bc9b2ac8c48d490d39bd4ef0f0c4, type: 3}
-    width: 1
-    height: 1
-    type: 3
-    useable: 0
-    stamina: 0
-    rare: 0
-  - id: 21_Equip_Ring
-    sprite: {fileID: 21300000, guid: e2615e07101b0476db775d2c13b42dc0, type: 3}
-    width: 1
-    height: 1
-    type: 3
-    useable: 0
-    stamina: 0
-    rare: 0
-  - id: 22_Equip_Ring
+  - id: 19_Equip_Ring
     sprite: {fileID: 21300000, guid: 1cd3e9f3e6ddd4abb961f324b08a373a, type: 3}
     width: 1
     height: 1
@@ -197,43 +173,11 @@ MonoBehaviour:
     useable: 0
     stamina: 0
     rare: 0
-  - id: 23_Equip_Ring
-    sprite: {fileID: 21300000, guid: 5d7ae8c34da294df4aa8a82aa87ef793, type: 3}
-    width: 1
-    height: 1
-    type: 3
-    useable: 0
-    stamina: 0
-    rare: 0
-  - id: 24_Equip_Ring
+  - id: 20_Equip_Ring
     sprite: {fileID: 21300000, guid: 818bd2e07e7144ad7a52853c6f834ebd, type: 3}
     width: 1
     height: 1
     type: 3
-    useable: 0
-    stamina: 0
-    rare: 0
-  - id: 25_Equip_Helmet
-    sprite: {fileID: 21300000, guid: 167ce67675b07446faee2fba23138b7e, type: 3}
-    width: 1
-    height: 1
-    type: 1
-    useable: 0
-    stamina: 0
-    rare: 0
-  - id: 26_Equip_Helmet
-    sprite: {fileID: 21300000, guid: 36f3733fabf5d42fabef34ddb8c41625, type: 3}
-    width: 1
-    height: 1
-    type: 1
-    useable: 0
-    stamina: 0
-    rare: 0
-  - id: 27_Equip_Helmet
-    sprite: {fileID: 21300000, guid: 782177056360a4bd08c30de4802e3197, type: 3}
-    width: 1
-    height: 1
-    type: 1
     useable: 0
     stamina: 0
     rare: 0
@@ -298,92 +242,119 @@ MonoBehaviour:
     equipType: 1
     statistic: 0
     value: 7
-  - id: 3_Equip_Weapon_Axe
+  - id: 3_Equip_Weapon_Bow
     equipType: 1
     statistic: 0
-    value: 9
-  - id: 4_Equip_Weapon_Bow
-    equipType: 1
-    statistic: 0
-    value: 23
-  - id: 5_Equip_Weapon_Bow
-    equipType: 1
-    statistic: 0
-    value: 25
-  - id: 7_Equip_Shield
+    value: 21
+  - id: 5_Equip_Shield
     equipType: 2
     statistic: 1
     value: 3
-  - id: 8_Equip_Shield
+  - id: 6_Equip_Shield
     equipType: 2
     statistic: 1
     value: 5
-  - id: 9_Equip_Shield
+  - id: 7_Equip_Shield
     equipType: 2
     statistic: 1
     value: 7
-  - id: 10_Equip_Shield
-    equipType: 2
-    statistic: 1
-    value: 9
-  - id: 11_Equip_Shoe
-    equipType: 3
-    statistic: 0
-    value: 0.07
-  - id: 12_Equip_Shoe
-    equipType: 3
-    statistic: 0
-    value: 0.09
-  - id: 13_Equip_Shoe
-    equipType: 3
-    statistic: 0
-    value: 0.11
-  - id: 25_Equip_Helmet
-    equipType: 4
-    statistic: 0
-    value: 0.07
-  - id: 26_Equip_Helmet
-    equipType: 4
-    statistic: 0
-    value: 0.09
-  - id: 27_Equip_Helmet
-    equipType: 4
-    statistic: 0
-    value: 0.11
-  jewelries:
-  - ids:
-    - 14_Equip_Chain
-    - 19_Equip_Ring
+  - id: 8_Equip_Shoe
     equipType: 3
     statistic: 2
-    value: 0.05
-  - ids:
-    - 15_Equip_Chain
-    - 24_Equip_Ring
-    equipType: 1
-    statistic: 0
-    value: 3
-  - ids:
-    - 16_Equip_Chain
-    - 22_Equip_Ring
-    equipType: 2
-    statistic: 3
-    value: 0.05
-  - ids:
-    - 17_Equip_Chain
-    - 23_Equip_Ring
+    value: 0.07
+  - id: 9_Equip_Shoe
+    equipType: 3
+    statistic: 2
+    value: 0.09
+  - id: 10_Equip_Shoe
+    equipType: 3
+    statistic: 2
+    value: 0.11
+  - id: 11_Equip_Helmet
     equipType: 4
-    statistic: 1
-    value: 3
-  - ids:
-    - 18_Equip_Chain
-    - 21_Equip_Ring
-    equipType: 0
+    statistic: 3
+    value: 0.07
+  - id: 12_Equip_Helmet
+    equipType: 4
+    statistic: 3
+    value: 0.09
+  - id: 13_Equip_Helmet
+    equipType: 4
+    statistic: 3
+    value: 0.11
+  jewelries:
+  - chainId: 14_Equip_Chain
+    rings:
+    - ringId: 18_Equip_Ring
+      targetId: 8_Equip_Shoe
+      value: 0.03
+    - ringId: 19_Equip_Ring
+      targetId: 9_Equip_Shoe
+      value: 0.03
+    - ringId: 19_Equip_Ring
+      targetId: 10_Equip_Shoe
+      value: 0.03
+  - chainId: 15_Equip_Chain
+    rings:
+    - ringId: 18_Equip_Ring
+      targetId: 0_Equip_Weapon_Axe
+      value: 3
+    - ringId: 18_Equip_Ring
+      targetId: 1_Equip_Weapon_Axe
+      value: 3
+    - ringId: 18_Equip_Ring
+      targetId: 2_Equip_Weapon_Axe
+      value: 3
+  - chainId: 16_Equip_Chain
+    rings:
+    - ringId: 18_Equip_Ring
+      targetId: 5_Equip_Shield
+      value: 3
+    - ringId: 18_Equip_Ring
+      targetId: 6_Equip_Shield
+      value: 3
+    - ringId: 18_Equip_Ring
+      targetId: 7_Equip_Shield
+      value: 3
+  - chainId: 17_Equip_Chain
+    rings:
+    - ringId: 18_Equip_Ring
+      targetId: 11_Equip_Helmet
+      value: 0.03
+    - ringId: 18_Equip_Ring
+      targetId: 12_Equip_Helmet
+      value: 0.03
+    - ringId: 18_Equip_Ring
+      targetId: 13_Equip_Helmet
+      value: 0.03
+  supports:
+  - id: 0_Item_Heal_HP
     statistic: 4
     value: 9
-  supports:
-  - id: 
-    statistic: 0
+    statistic2: -1
+    value2: 0
+  - id: 1_Item_Heal_Stamina
+    statistic: 5
+    value: 3
+    statistic2: -1
+    value2: 0
+  - id: 2_Item_Strong
+    statistic: 4
+    value: 6
+    statistic2: 5
+    value2: 2
+  - id: 3_Item_Upgrade_Pet
+    statistic: -1
     value: 0
-    statistic2: 0
+    statistic2: -1
+    value2: 0
+  - id: 4_Item_Meat
+    statistic: 0
+    value: 3
+    statistic2: -1
+    value2: 0
+  - id: 5_Item_Coin
+    statistic: -1
+    value: 0
+    statistic2: -1
     value2: 0

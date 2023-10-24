@@ -43,13 +43,13 @@ public enum EquipType
 
 public enum StatisticType
 {
+    None = -1,
     Attack, //=> weapon
     Shield, //=> shield
     Avoid, //=> shoe
     Critical, //=> helmet
     HP,
-    Stamina,
-    Coin
+    Stamina
 }
 
 [System.Serializable]
@@ -64,9 +64,15 @@ public class EquipConfig
 [System.Serializable]
 public class JewelryConfig
 {
-    public List<string> ids;
-    public EquipType equipType;
-    public StatisticType statistic;
+    public string chainId;
+    public List<RingJewelryConfig> rings;
+}
+
+[System.Serializable]
+public class RingJewelryConfig
+{
+    public string ringId;
+    public string targetId;
     public float value;
 }
 
