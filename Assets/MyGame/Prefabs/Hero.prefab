@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7896887383462008269}
   - component: {fileID: 7896887383462008266}
   - component: {fileID: 7896887383462008267}
-  - component: {fileID: 7896887383462008271}
   - component: {fileID: 2870601798756823067}
+  - component: {fileID: 883864457734590183}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -121,35 +121,6 @@ MonoBehaviour:
   _animationName: idle_3
   loop: 1
   timeScale: 1
---- !u!114 &7896887383462008271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7896887383462008264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c8dbe41ebda7bf41bd652ceea3a4a1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Hero
-  damage: 10
-  buffShield: 0
-  currentShield: 5
-  initStamina: 5
-  currentStamina: 3
-  maxHP: 20
-  buffHP: 0
-  currentHP: 20
-  maxPow: 0
-  currentPow: 0
-  dodgeRate: 0
-  criticalRate: 0
-  armorPenetrationRate: 0
-  isPow: 0
-  isDead: 0
-  isCrit: 0
 --- !u!114 &2870601798756823067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +141,34 @@ MonoBehaviour:
   jumpAnimationName: jump
   hitAnimationName: hit
   deathAnimationName: dead
-  stunAnimationName: 
+  stunAnimationName: stun
   skillAnimationName_1: buff_1
   skillAnimationName_2: buff_2
   skillAnimationName_3: buff_3
+--- !u!114 &883864457734590183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7896887383462008264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867fd2669ba59c944bf33e43210e5026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Hero
+  damage: 0
+  shield: 0
+  buffShield: 0
+  maxHP: 20
+  buffHP: 0
+  currentHP: 20
+  dodgeRate: 0
+  criticalRate: 0
+  armorPenetrationRate: 0
+  isDead: 0
+  isCrit: 0
+  isStun: 0
+  initStamina: 3
+  currentStamina: 3

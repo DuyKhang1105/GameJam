@@ -21,25 +21,18 @@ public class EnemyBattleHUD : BattleHUD
     public TextMeshProUGUI tmpPow;
     public TextMeshProUGUI tmpValueNextAction;
 
-
     int maxPow;
-    public override void SetHUD(Unit unit)
+    public void SetEnemyHUD(EnemyUnit unit)
     {
-        base.SetHUD(unit);
+        maxHP = unit.maxHP;
+
+        tmpShield.SetText($"{unit.shield}");
+        SetHP(unit.currentHP);
+        SetShield(unit.shield);
 
         maxPow = unit.maxPow;
         SetPow(unit.currentPow);
         SetActiveNextAction(false);
-    }
-
-    public override void SetHP(int hp)
-    {
-        base.SetHP(hp);
-    }
-
-    public override void SetShield(int shi)
-    {
-        base.SetShield(shi);
     }
 
     public void SetPow(int pow)

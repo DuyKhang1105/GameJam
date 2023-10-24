@@ -152,7 +152,7 @@ public class InventoryItem : Drag
             if (battleSystem.state == BattleState.HEROTURN)
             {
                 var hero = FindObjectOfType<HeroControl>();
-                var unit = hero.GetComponent<Unit>();
+                var unit = hero.GetComponent<HeroUnit>();
 
                 if (unit.TakeStamina(itemConfig.stamina))
                 {

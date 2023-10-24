@@ -17,7 +17,8 @@ public class StageConfig
 {
     public StageType stageType;
     public bool isLevelUp;
-    //TODO list enemy
+    
+    public List<EnemyName> enemyNames;
 }
 
 [CreateAssetMenu(fileName = "StageConfigs", menuName = "Configs/StageConfigs")]

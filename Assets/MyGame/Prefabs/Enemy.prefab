@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5106567856535961002}
   - component: {fileID: 7230745518426371252}
   - component: {fileID: 1155139569353225046}
-  - component: {fileID: 5986599943386864300}
   - component: {fileID: 2749084589826065733}
+  - component: {fileID: 930983185947435263}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -131,34 +131,6 @@ MonoBehaviour:
   _animationName: action/idle/normal
   loop: 1
   timeScale: 1
---- !u!114 &5986599943386864300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347226599512414206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c8dbe41ebda7bf41bd652ceea3a4a1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Enemy
-  damage: 2
-  buffShield: 0
-  currentShield: 5
-  initStamina: 0
-  currentStamina: 0
-  maxHP: 40
-  buffHP: 0
-  currentHP: 30
-  maxPow: 15
-  currentPow: 0
-  dodgeRate: 0
-  criticalRate: 0
-  armorPenetrationRate: 0
-  isPow: 0
-  isDead: 0
 --- !u!114 &2749084589826065733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +155,30 @@ MonoBehaviour:
   skillAnimationName_1: battle/get-buff
   skillAnimationName_2: 
   skillAnimationName_3: 
+--- !u!114 &930983185947435263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347226599512414206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7796011bc20692046b9e6ec4658288f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Bear
+  damage: 5
+  buffShield: 5
+  currentShield: 5
+  maxHP: 20
+  buffHP: 5
+  currentHP: 10
+  dodgeRate: 0
+  criticalRate: 0
+  armorPenetrationRate: 0
+  isDead: 0
+  isCrit: 0
+  maxPow: 20
+  currentPow: 0
+  isPow: 0

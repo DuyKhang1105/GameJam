@@ -8,22 +8,12 @@ using UnityEngine.UI;
 
 public class BattleHUD : MonoBehaviour
 {
-
 	public Image imgHP;
 	public Image imgShield;
 	public TextMeshProUGUI tmpHP;
 	public TextMeshProUGUI tmpShield;
 
-	int maxHP;
-
-	public virtual void SetHUD(Unit unit)
-	{
-		maxHP = unit.maxHP;
-
-        tmpShield.SetText($"{unit.currentShield}");
-		SetHP(unit.currentHP);
-		SetShield(unit.currentShield);
-    }
+	protected int maxHP;
 
 	public virtual void SetHP(int hp)
 	{

@@ -30,10 +30,10 @@ public class BattleSystem : MonoBehaviour
 	public Transform heroBattleStation;
 	public List<Transform> enemyBattleStations;
 
-	Unit heroUnit;
-    public List<Unit> enemyUnits;
+    public HeroUnit heroUnit;
+    public List<EnemyUnit> enemyUnits;
 
-	HeroControl heroControl;
+    public HeroControl heroControl;
     public List<EnemyControl> enemyControls;
 
     public TextMeshProUGUI dialogueText;
@@ -98,10 +98,10 @@ public class BattleSystem : MonoBehaviour
         if (heroUnit == null)
         {
             GameObject heroGO = Instantiate(heroPrefab, heroBattleStation);
-            heroUnit = heroGO.GetComponent<Unit>();
+            heroUnit = heroGO.GetComponent<HeroUnit>();
             heroControl = heroGO.GetComponent<HeroControl>();
         }
-        heroHUD.SetHUD(heroUnit);
+        heroHUD.SetHeroHUD(heroUnit);
     }
 
 	private void SetupStage()
@@ -116,17 +116,31 @@ public class BattleSystem : MonoBehaviour
         GameUI.Instance.endTurnBtn.gameObject.SetActive(false);
 
         StageConfig stage = StageConfigs.Instance.GetStage(stageIndex);
+        List<EnemyConfig> enemyConfigs = new List<EnemyConfig>();
+
+        foreach (var name in stage.enemyNames)
+        {
+            EnemyConfig enemy = EnemyConfigs.Instance.GetEnemyConfig(name);
+            enemyConfigs.Add(enemy);
+        }
+
+        Debug.LogError("stage.stageType: " + stage.stageType);
+        Debug.LogError("count enemyConfigs: " + enemyConfigs.Count);
         switch (stage.stageType) {
             case StageType.Enemy:
             case StageType.MiniBoss:
             case StageType.Boss:
-                for (int i = 0; i < enemyPrefabs.Count; i++)
+                for (int i = 0; i < enemyConfigs.Count; i++)
                 {
-                    GameObject enemyGO = Instantiate(enemyPrefabs[i], enemyBattleStations[i]);
-                    enemyUnits.Add(enemyGO.GetComponent<Unit>());
+                    GameObject enemyGO = Instantiate(enemyConfigs[i].graphic, enemyBattleStations[i]);
+                    EnemyUnit enemyUnit = enemyGO.GetComponent<EnemyUnit>();
+                    enemyUnit.Parse(enemyConfigs[i]);
+                    enemyUnits.Add(enemyUnit);
+
                     enemyControls.Add(enemyGO.GetComponent<EnemyControl>());
+
                     enemyHUDs[i].gameObject.SetActive(true);
-                    enemyHUDs[i].SetHUD(enemyUnits[i]);
+                    enemyHUDs[i].SetEnemyHUD(enemyUnits[i]);
                 }
                 dialogueText.text = "A wild approaches...";
                 yield return new WaitForSeconds(2f);
@@ -182,8 +196,11 @@ public class BattleSystem : MonoBehaviour
 		s.Append(heroUnit.transform.DOMoveX(0f, 1f));
 		s.AppendCallback(() =>
 		{
+            
             if (heroUnit.isCrit)
+            {
                 heroControl.Critical();
+            }
             else
                 heroControl.OneAttack();
 
@@ -200,6 +217,11 @@ public class BattleSystem : MonoBehaviour
             }
             else
             {
+                if (heroUnit.isCrit)
+                    TextFx.Create(enemyControls[indexTarget].transform.position, heroUnit.GetDamage(), TypeText.CRIT);
+                else
+                    TextFx.Create(enemyControls[indexTarget].transform.position, heroUnit.GetDamage(), TypeText.HIT);
+
                 if (!isDead)
                 {
                     enemyControls[indexTarget].OneHit();
@@ -211,7 +233,7 @@ public class BattleSystem : MonoBehaviour
 
                 enemyHUDs[indexTarget].SetPow(enemyUnits[indexTarget].currentPow);
                 enemyHUDs[indexTarget].SetHP(enemyUnits[indexTarget].currentHP);
-                enemyHUDs[indexTarget].SetShield(enemyUnits[indexTarget].currentShield);
+                enemyHUDs[indexTarget].SetShield(enemyUnits[indexTarget].shield);
                 dialogueText.text = "The attack is successful!";
             }
             
@@ -306,6 +328,16 @@ public class BattleSystem : MonoBehaviour
 
 	void HeroTurn()
 	{
+        if (heroUnit.CheckStun())
+        {
+            DOVirtual.DelayedCall(1f, OnEndTurn);
+            return;
+        }
+        else
+        {
+            heroControl.Idle();
+        }
+
 		dialogueText.text = heroUnit.unitName + " Turn. Choose An Action";
         heroUnit.ResetStamina();
         heroHUD.SetStamina(heroUnit.currentStamina);
@@ -328,6 +360,7 @@ public class BattleSystem : MonoBehaviour
             case 2:
                 EnemyHeal(indexEnemy);
                 break;
+
             case 3:
                 EnemySkill(indexEnemy);
                 break;
@@ -404,6 +437,9 @@ public class BattleSystem : MonoBehaviour
             }
             else
             {
+                //Currently enemy dont has crit
+                TextFx.Create(heroControl.transform.position, enemyUnits[indexEnemy].damage, TypeText.HIT);
+
                 if (isDead)
                 {
                     heroControl.Dead();
@@ -413,7 +449,7 @@ public class BattleSystem : MonoBehaviour
                     heroControl.OneHit();
                 }
                 heroHUD.SetHP(heroUnit.currentHP);
-                heroHUD.SetShield(heroUnit.currentShield);
+                heroHUD.SetShield(heroUnit.shield);
             }
         });
         s.AppendInterval(0.4f);
@@ -426,29 +462,22 @@ public class BattleSystem : MonoBehaviour
 	{
         enemyUnits[indexEnemy].Shield(5);
         enemyControls[indexEnemy].Buff();
-
-        enemyHUDs[indexEnemy].SetShield(enemyUnits[indexEnemy].currentShield);
+        enemyHUDs[indexEnemy].SetShield(enemyUnits[indexEnemy].shield);
+        TextFx.Create(enemyUnits[indexEnemy].transform.position, 5, TypeText.SHIELD);
     }
 
     void EnemyHeal(int indexEnemy)
     {
         enemyUnits[indexEnemy].Heal(5);
         enemyControls[indexEnemy].Buff();
-
         enemyHUDs[indexEnemy].SetHP(enemyUnits[indexEnemy].currentHP);
+        TextFx.Create(enemyUnits[indexEnemy].transform.position, 5, TypeText.HEAL);
     }
 
     void EnemySkill(int indexEnemy)
     {
-        //Test skill heal all
-        for (int i = 0; i < enemyUnits.Count; i++)
-        {
-            enemyUnits[i].Heal(5);
-            enemyControls[i].Buff();
-            enemyHUDs[i].SetHP(enemyUnits[i].currentHP);
-        }
-
-        enemyUnits[indexEnemy].ResetPow();
+        enemyControls[indexEnemy].Buff();
+        enemyUnits[indexEnemy].Skill()?.Invoke();
         enemyHUDs[indexEnemy].SetPow(enemyUnits[indexEnemy].currentPow);
     }
         
@@ -561,6 +590,18 @@ public class BattleSystem : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public bool CheckWin()
+    {
+        for (int i = 0; i < enemyUnits.Count; i++)
+        {
+            if (enemyUnits[i].currentHP > 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     void EndBattle()

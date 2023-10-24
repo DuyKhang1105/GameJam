@@ -15,29 +15,43 @@ MonoBehaviour:
   stageConfigs:
   - stageType: 4
     isLevelUp: 0
+    enemyNames: 
   - stageType: 1
     isLevelUp: 0
+    enemyNames: 0100000001000000
   - stageType: 5
     isLevelUp: 0
+    enemyNames: 
   - stageType: 1
     isLevelUp: 0
+    enemyNames: 
   - stageType: 4
     isLevelUp: 0
+    enemyNames: 
   - stageType: 2
     isLevelUp: 1
+    enemyNames: 
   - stageType: 5
     isLevelUp: 0
+    enemyNames: 
   - stageType: 1
     isLevelUp: 0
+    enemyNames: 
   - stageType: 4
     isLevelUp: 0
+    enemyNames: 
   - stageType: 2
     isLevelUp: 1
+    enemyNames: 
   - stageType: 5
     isLevelUp: 0
+    enemyNames: 
   - stageType: 1
     isLevelUp: 0
+    enemyNames: 
   - stageType: 4
     isLevelUp: 0
+    enemyNames: 
   - stageType: 3
     isLevelUp: 0
+    enemyNames: 

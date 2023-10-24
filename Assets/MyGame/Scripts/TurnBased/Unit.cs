@@ -7,23 +7,18 @@ using Random = UnityEngine.Random;
 
 public class Unit : MonoBehaviour
 {
-
+    [Header("Base")]
 	public string unitName;
-
 	public int damage;
 
+	public int shield;
 	public int buffShield;
-	public int currentShield;
-
-	public int initStamina;
-	public int currentStamina;
 
 	public int maxHP;
 	public int buffHP;
 	public int currentHP;
 
-    public int maxPow;
-    public int currentPow;
+    public int turnStun;
 
     [Range(0f, 1f)]
 	public float dodgeRate;
@@ -32,50 +27,30 @@ public class Unit : MonoBehaviour
     [Range(0f, 1f)]
     public float armorPenetrationRate;
 
-	public bool isPow = false;
 	public bool isDead = false;
     public bool isCrit = false;
 
-    public bool TakeStamina(int sta)
+    public virtual int TakeShield(int dmg)
     {
-		int a = currentStamina;
-        a -= sta;
+        shield -= dmg;
 
-        if (a >= 0) //enough for action
-		{
-			currentStamina = a;
-            return true;
-        }
-        else
-            return false;
-    }
-
-	public void ResetStamina()
-	{
-        currentStamina = initStamina;
-    }
-
-    public int TakeShield(int dmg)
-    {
-        currentShield -= dmg;
-
-        if (currentShield >= 0)
+        if (shield >= 0)
             return 0;
         else
 		{
-			int newDmg = -currentShield;
-			currentShield = 0;
+			int newDmg = -shield;
+			shield = 0;
             return newDmg;
         }
     }
 
-    public bool TakeDamage(int dmg)
+    public virtual bool TakeDamage(int dmg)
 	{
 		float r = Random.Range(0, 1f);
 		Debug.LogError("r dodgeRate: " + r);
 		if (r <= dodgeRate)
             return true;
-
+        
         currentHP -= TakeShield(dmg);
 
 		if (currentHP <= 0)
@@ -90,7 +65,7 @@ public class Unit : MonoBehaviour
         return false;
     }
 
-    public int GetDamage()
+    public virtual int GetDamage()
     {
         //criticalRate
         float r = Random.Range(0, 1f);
@@ -105,35 +80,32 @@ public class Unit : MonoBehaviour
         return damage;
     }
 
-    public void TakePow(int dmg)
-	{
-        currentPow += dmg;
-        if (currentPow >= maxPow)
-        {
-            currentPow = maxPow;
-            isPow = true;
-        }else
-        {
-            isPow = false;
-        }
-    }
-
-    public void ResetPow()
-    {
-        currentPow = 0;
-        isPow = false;
-    }
-
-	public void Heal(int amount)
+    public virtual void Heal(int amount)
 	{
 		currentHP += amount;
 		if (currentHP > maxHP)
 			currentHP = maxHP;
 	}
 
-	public void Shield(int amount)
+    public virtual void Shield(int amount)
 	{
-		currentShield += amount;
+		shield += amount;
 	}
 
+    public virtual void Stun(int amount)
+    {
+        turnStun += amount;
+    }
+
+    public virtual bool CheckStun()
+    {
+        if (turnStun <= 0)
+        {
+            turnStun = 0;
+            return false;
+        }
+
+        turnStun--;
+        return true;
+    }
 }

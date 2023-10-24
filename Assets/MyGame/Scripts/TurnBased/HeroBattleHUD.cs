@@ -9,20 +9,15 @@ public class HeroBattleHUD : BattleHUD
     [Header("HeroBattleHUD")]
     public TextMeshProUGUI tmpStamina;
 
-    public override void SetHUD(Unit unit)
+    public void SetHeroHUD(HeroUnit unit)
     {
-        base.SetHUD(unit);
+        maxHP = unit.maxHP;
+
+        tmpShield.SetText($"{unit.shield}");
+        SetHP(unit.currentHP);
+        SetShield(unit.shield);
+
         SetStamina(unit.currentStamina);
-    }
-
-    public override void SetHP(int hp)
-    {
-        base.SetHP(hp);
-    }
-
-    public override void SetShield(int shi)
-    {
-        base.SetShield(shi);
     }
 
     public void SetStamina(int sta)
