@@ -49,7 +49,10 @@ public enum StatisticType
     Avoid, //=> shoe
     Critical, //=> helmet
     HP,
-    Stamina
+    Stamina,
+
+    Coin = 100,
+    UpgradePet = 101
 }
 
 [System.Serializable]
@@ -66,6 +69,29 @@ public class JewelryConfig
 {
     public string chainId;
     public List<RingJewelryConfig> rings;
+
+    public List<JewelrySetData> AllSets()
+    {
+        var sets = new List<JewelrySetData>();
+        foreach (var ring in rings)
+        {
+            var effect = new JewelrySetData();
+            effect.chainId = chainId;
+            effect.ringId = ring.ringId;
+            effect.targetId = ring.targetId;
+            effect.value = ring.value;
+            sets.Add(effect);
+        }
+        return sets;
+    }
+}
+
+public class JewelrySetData
+{
+    public string chainId;
+    public string ringId;
+    public string targetId;
+    public float value;
 }
 
 [System.Serializable]
@@ -130,5 +156,27 @@ public class ItemConfigs : ScriptableObject
     public ItemConfig GetItemConfig(string id)
     {
         return configs.Find(x=>x.id == id);
+    }
+
+    public List<JewelrySetData> GetAllJewelrySets(List<ItemConfig> currentJewelries)
+    {
+        var result = new List<JewelrySetData>();
+        foreach (var jewelry in currentJewelries)
+        {
+            foreach (var config in jewelries)
+            {
+                foreach (var set in config.AllSets())
+                {     
+                    if (result.Any(x=> x.chainId == set.chainId && x.ringId == set.ringId)) continue;
+                    //Debug.Log("Check set: " + set.chainId);
+                    if (set.chainId == jewelry.id && currentJewelries.Any(x => x.id == set.ringId)
+                        || (set.ringId == jewelry.id && currentJewelries.Any(x => x.id == set.chainId)))
+                    {
+                        result.Add(set);
+                    }
+                }
+            }
+        }
+        return result;
     }
 }

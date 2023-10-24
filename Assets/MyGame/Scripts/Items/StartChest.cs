@@ -23,6 +23,13 @@ public class StartChest : MonoBehaviour
         items.Add(ItemConfigs.Instance.GetItemConfig("0_Equip_Weapon_Axe"));
         items.Add(ItemConfigs.Instance.GetItemConfig("5_Equip_Shield"));
         items.Add(ItemConfigs.Instance.GetItemConfig("11_Equip_Helmet"));
+
+
+        //TEST
+        items = ItemConfigs.Instance.configs;
+
+
+
         FindObjectOfType<Inventory>().SpawnItems(items, transform);
         UpdateVirtual();
     }

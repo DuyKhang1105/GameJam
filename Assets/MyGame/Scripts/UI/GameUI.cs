@@ -30,6 +30,9 @@ public class GameUI : MonoBehaviour
     public GameObject nextBtn;
     public GameObject endTurnBtn;
 
+    [Header("Fx prerab")]
+    public GameObject bubbleFx;
+
     public static GameUI Instance;
 
     private void Awake()

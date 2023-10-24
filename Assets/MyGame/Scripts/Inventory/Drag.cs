@@ -48,7 +48,16 @@ public class Drag : MonoBehaviour
         var distance = Vector3.Distance(pointDown, pointUp);
         if (distance < 10f)
         {
-            OnClick();
+            PointerEventData pointerEventData = data as PointerEventData;
+            Debug.Log("Button " + pointerEventData.button);
+            if (pointerEventData.button == PointerEventData.InputButton.Left)
+            {
+                OnClick();
+            }
+            else if (pointerEventData.button == PointerEventData.InputButton.Right)
+            {
+                OnRightClick();
+            }
         }
     }
 
@@ -65,5 +74,10 @@ public class Drag : MonoBehaviour
     protected virtual void OnClick()
     {
         Debug.Log("Click");
+    }
+
+    protected virtual void OnRightClick()
+    {
+        Debug.Log("Right click");
     }
 }

@@ -257,11 +257,11 @@ public class BattleSystem : MonoBehaviour
         }
 	}
 
-	IEnumerator HeroHeal()
+	IEnumerator HeroHeal(int heal)
 	{
         state = BattleState.ACTING;
 
-        heroUnit.Heal(5);
+        heroUnit.Heal(heal);
 		heroControl.Heal();
 
 
@@ -272,6 +272,20 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.HEROTURN;
     }
 
+    IEnumerator HeroStamina(int stamina)
+    {
+        state = BattleState.ACTING;
+
+        heroUnit.GetStamina(stamina);
+        heroControl.Heal();
+
+
+        heroHUD.SetStamina(heroUnit.currentStamina);
+        dialogueText.text = "You feel renewed strength!";
+
+        yield return new WaitForSeconds(2f);
+        state = BattleState.HEROTURN;
+    }
 
 
     IEnumerator EnemyTurn()
@@ -295,7 +309,7 @@ public class BattleSystem : MonoBehaviour
 
 		bool isDead = ActionEnemy(indexEnemy);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
 		if(isDead)
 		{
@@ -630,9 +644,19 @@ public class BattleSystem : MonoBehaviour
 	public void OnHealButton()
 	{
         if (state != BattleState.HEROTURN)
-			return;
+            return;
+        OnHeroHeal(5);
+    }
 
+    public void OnHeroHeal(int heal)
+    {
         heroHUD.SetStamina(heroUnit.currentStamina);
-        StartCoroutine(HeroHeal());
-	}
+        StartCoroutine(HeroHeal(heal));
+    }
+
+    public void OnHeroStamina(int stamina)
+    {
+        heroHUD.SetStamina(heroUnit.currentStamina);
+        StartCoroutine(HeroStamina(stamina));
+    }
 }

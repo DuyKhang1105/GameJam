@@ -1,3 +1,4 @@
+using DG.Tweening.Plugins.Options;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,8 @@ public class ShopPopup : MonoBehaviour
     private List<GameObject> items;
     private List<ItemConfig> itemConfigs;
 
-    public Action onBuyed;
+    public Action<ItemConfig> onBuyed;
+    public Action onCanceled;
 
     private void Awake()
     {
@@ -56,17 +58,15 @@ public class ShopPopup : MonoBehaviour
     }
     private void Confirm()
     {
-        var inventory = FindObjectOfType<Inventory>();
-        var lst = new List<ItemConfig>();
-        lst.Add(itemConfigs[indexSelected]);
-        inventory.SpawnItems(lst, items[indexSelected].transform);
-        onBuyed?.Invoke();
+        var itemConfig = (itemConfigs[indexSelected]);
+        onBuyed?.Invoke(itemConfig);
         GameUI.Instance.bg.SetActive(false);
         gameObject.SetActive(false); 
     }
 
     private void Cancel()
     {
+        onCanceled?.Invoke();
         gameObject.SetActive(false);
     }
 }

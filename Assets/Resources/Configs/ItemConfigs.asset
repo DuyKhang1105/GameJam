@@ -37,22 +37,6 @@ MonoBehaviour:
     useable: 1
     stamina: 2
     rare: 0
-  - id: 3_Equip_Weapon_Bow
-    sprite: {fileID: 21300000, guid: 93a442ed8606246afafbf8ee374fcb5a, type: 3}
-    width: 1
-    height: 2
-    type: 1
-    useable: 1
-    stamina: 2
-    rare: 0
-  - id: 4_Equip_Arrow
-    sprite: {fileID: 21300000, guid: bba662dc9b67e7b4d8230163174058d0, type: 3}
-    width: 1
-    height: 2
-    type: 1
-    useable: 0
-    stamina: 0
-    rare: 0
   - id: 5_Equip_Shield
     sprite: {fileID: 21300000, guid: 81eb6727e3524462d88f4e09f58ff07e, type: 3}
     width: 2
@@ -213,14 +197,6 @@ MonoBehaviour:
     useable: 1
     stamina: 1
     rare: 0
-  - id: 4_Item_Meat
-    sprite: {fileID: 21300000, guid: 1db29915abb104f9bb0beb6f2d9f07e2, type: 3}
-    width: 1
-    height: 1
-    type: 2
-    useable: 1
-    stamina: 1
-    rare: 0
   - id: 5_Item_Coin
     sprite: {fileID: 21300000, guid: d381d389139094047bb99fd3b6da8e4a, type: 3}
     width: 1
@@ -242,10 +218,6 @@ MonoBehaviour:
     equipType: 1
     statistic: 0
     value: 7
-  - id: 3_Equip_Weapon_Bow
-    equipType: 1
-    statistic: 0
-    value: 21
   - id: 5_Equip_Shield
     equipType: 2
     statistic: 1
@@ -291,7 +263,7 @@ MonoBehaviour:
     - ringId: 19_Equip_Ring
       targetId: 9_Equip_Shoe
       value: 0.03
-    - ringId: 19_Equip_Ring
+    - ringId: 20_Equip_Ring
       targetId: 10_Equip_Shoe
       value: 0.03
   - chainId: 15_Equip_Chain
@@ -299,10 +271,10 @@ MonoBehaviour:
     - ringId: 18_Equip_Ring
       targetId: 0_Equip_Weapon_Axe
       value: 3
-    - ringId: 18_Equip_Ring
+    - ringId: 19_Equip_Ring
       targetId: 1_Equip_Weapon_Axe
       value: 3
-    - ringId: 18_Equip_Ring
+    - ringId: 20_Equip_Ring
       targetId: 2_Equip_Weapon_Axe
       value: 3
   - chainId: 16_Equip_Chain
@@ -310,10 +282,10 @@ MonoBehaviour:
     - ringId: 18_Equip_Ring
       targetId: 5_Equip_Shield
       value: 3
-    - ringId: 18_Equip_Ring
+    - ringId: 19_Equip_Ring
       targetId: 6_Equip_Shield
       value: 3
-    - ringId: 18_Equip_Ring
+    - ringId: 20_Equip_Ring
       targetId: 7_Equip_Shield
       value: 3
   - chainId: 17_Equip_Chain
@@ -321,10 +293,10 @@ MonoBehaviour:
     - ringId: 18_Equip_Ring
       targetId: 11_Equip_Helmet
       value: 0.03
-    - ringId: 18_Equip_Ring
+    - ringId: 19_Equip_Ring
       targetId: 12_Equip_Helmet
       value: 0.03
-    - ringId: 18_Equip_Ring
+    - ringId: 20_Equip_Ring
       targetId: 13_Equip_Helmet
       value: 0.03
   supports:
@@ -344,17 +316,12 @@ MonoBehaviour:
     statistic2: 5
     value2: 2
   - id: 3_Item_Upgrade_Pet
-    statistic: -1
-    value: 0
-    statistic2: -1
-    value2: 0
-  - id: 4_Item_Meat
-    statistic: 0
-    value: 3
+    statistic: 101
+    value: 1
     statistic2: -1
     value2: 0
   - id: 5_Item_Coin
-    statistic: -1
-    value: 0
+    statistic: 100
+    value: 1
     statistic2: -1
     value2: 0

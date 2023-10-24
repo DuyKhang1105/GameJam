@@ -53,8 +53,9 @@ public class InventoryItem : Drag
 
         var endDragPos = GetPoint(data);
         var deltaDrag = Vector3.Distance(startDragPos, endDragPos);
-        Debug.Log("deltaDrag " + deltaDrag);
-        if (deltaDrag > 10f) {
+        //Debug.Log("deltaDrag " + deltaDrag);
+        if (deltaDrag > 10f)
+        {
             if (placeds != null)
             {
                 placeds.ForEach(x => {
@@ -67,6 +68,7 @@ public class InventoryItem : Drag
             var inventory = FindObjectOfType<Inventory>();
             if (inventory.IsCanDrop(transform.position, width, height, out temp))
             {
+                isInInventory = true;
                 placeds = temp;
 
                 //set position
@@ -75,41 +77,63 @@ public class InventoryItem : Drag
                 Vector3 center = sumPos / placeds.Count;
                 transform.position = center;
 
-                if (placeds != null)
+                placeds?.ForEach((x) =>
                 {
-                    placeds.ForEach((x) => {
-                        x.isFree = false;
-                        x.GetComponent<Image>().color = itemConfig.useable? Color.green : Color.yellow;
-                    });
-                    isInInventory = true;
-                    onDropedToInventory?.Invoke();
-                }
+                    x.isFree = false;
+                });
 
+                switch (itemConfig.type)
+                {
+                    case ItemType.Equipment:
+                    case ItemType.Support:
+                        placeds?.ForEach((x) =>
+                        {
+                            x.GetComponent<Image>().color = itemConfig.useable ? Color.green : Color.yellow;
+                        });
+                        break;
+                    case ItemType.Jewelry:
+                        Debug.Log("Drop jewelry");
+                        UpdateJewelryVirtual();
+                        break;
+                }
                 transform.SetAsFirstSibling();
+                onDropedToInventory?.Invoke();
+                return;
             }
-            else if (placeds != null)
+            else
             {
+                placeds = null;
+                isInInventory = false;
+                UpdateJewelryVirtual();
                 transform.SetAsLastSibling();
                 onDropedOutInventory?.Invoke(gameObject);
             }
         }
-        else
-        {
-            if (placeds != null)
-            {
-                //set position
-                Vector3 sumPos = Vector3.zero;
-                placeds.ForEach(x => sumPos += x.transform.position);
-                Vector3 center = sumPos / placeds.Count;
-                transform.position = center;
-            }
-        } 
     }
 
+    private void UpdateJewelryVirtual()
+    {
+        Debug.Log("Upgrade jewelry Virtual");
+
+        var currentJewelries = FindObjectsOfType<InventoryItem>().ToList().FindAll(x => x.isInInventory && x.itemConfig.type == ItemType.Jewelry);
+        //Debug.Log("Jewelries: " + string.Join(", ", currentJewelries.Select(x => x.itemConfig.id)));
+        var allSets = ItemConfigs.Instance.GetAllJewelrySets(currentJewelries.Select(x => x.itemConfig).ToList());
+
+        Debug.Log("Sets: " + allSets.Count);
+
+        currentJewelries.ForEach(item => item.placeds?.ForEach(x => x.GetComponent<Image>().color = Color.gray));
+        foreach (var set in allSets)
+        {
+            var items = currentJewelries.FindAll(x => x.itemConfig.id == set.chainId || x.itemConfig.id == set.ringId);
+            items.ForEach(item => item.placeds?.ForEach((x) => x.GetComponent<Image>().color = Color.yellow));
+        }
+    }
+
+
     private void Update()
-    { 
+    {
         if (Input.GetMouseButtonDown(1) && onSelect)
-        { 
+        {
             ShowInfo();
         }
 
@@ -125,7 +149,7 @@ public class InventoryItem : Drag
         transform.localRotation = Quaternion.Euler(transform.eulerAngles - Vector3.forward * 90);
         int temp = width;
         width = height;
-        height = temp;   
+        height = temp;
     }
 
     private void ShowInfo()
@@ -137,7 +161,7 @@ public class InventoryItem : Drag
     {
         base.OnClick();
 
-        if (isInInventory && itemConfig!=null)
+        if (isInInventory && itemConfig != null)
         {
             transform.DOKill();
             transform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
@@ -165,14 +189,14 @@ public class InventoryItem : Drag
                                 switch (equip.statistic)
                                 {
                                     case StatisticType.Attack:
-                                        int damage = (int)equip.value;
-                                        unit.damage = damage; //TODO cal damage
+                                        int damage = (int)equip.value + (int)GetBonusValue();
+                                        unit.damage = damage;
                                         battleSystem.OnAttackButton();
                                         Debug.Log("Damage " + damage);
                                         Notification.Instance.ShowNoti($"Yee, Deal {damage} damages!!");
                                         break;
                                     case StatisticType.Shield:
-                                        int shield = (int)equip.value;
+                                        int shield = (int)equip.value + (int)GetBonusValue(); ;
                                         unit.Shield(shield);
                                         battleSystem.OnHealButton();
                                         Debug.Log("Shield " + shield);
@@ -183,23 +207,12 @@ public class InventoryItem : Drag
 
                             break;
                         case ItemType.Support:
+                            Debug.Log("Support " + itemConfig.id);
                             var support = ItemConfigs.Instance.supports.Find(x => x.id == itemConfig.id);
                             if (support != null)
                             {
-                                if (support.id.Contains("Coin"))
-                                {
-                                    //Open shop
-                                    return;
-                                }
-
-                                if (support.id.Contains("Upgrade_Pet"))
-                                {
-                                    //Select pet to upgrade
-                                    return;
-                                }
-
-                                //TODO add unit
-                                
+                                UseSupport(support.statistic, support.value);
+                                UseSupport(support.statistic2, support.value2); 
                             }
                             break;
                     }
@@ -211,7 +224,95 @@ public class InventoryItem : Drag
                     Notification.Instance.ShowNoti("Not enought stamina!!");
                 }
             }
-            
+
         }
+    }
+
+    private void DestroyItem()
+    {
+        placeds?.ForEach(x =>
+        {
+            x.isFree = true;
+            x.GetComponent<Image>().color = Color.white;
+        });
+        Destroy(gameObject);
+    }
+    private void UseSupport(StatisticType statistic, float value)
+    {
+        switch (statistic)
+        {
+            case StatisticType.HP:
+                BattleSystem.Instance.OnHeroHeal((int)value);
+                DestroyItem();
+                break;
+            case StatisticType.Stamina:
+                //TODO add starmina
+                BattleSystem.Instance.OnHeroStamina((int)value);
+                DestroyItem();
+                break;
+            case StatisticType.Coin:
+                GameUI.Instance.shopPopup.SetActive(true);
+                GameUI.Instance.shopPopup.GetComponent<ShopPopup>().onBuyed = (arg) =>
+                {
+                    ParseItem(arg);
+                };
+                break;
+            case StatisticType.UpgradePet:
+                //TODO upgrade pet
+                break;
+        }
+    }
+
+    private float GetBonusValue()
+    {
+        float bonusValue = 0f;
+        var currentJewelries = FindObjectsOfType<InventoryItem>().ToList().FindAll(x => x.isInInventory && x.itemConfig.type == ItemType.Jewelry);
+        //Debug.Log("Jewelries: " + string.Join(", ", currentJewelries.Select(x => x.itemConfig.id)));
+        var allSets = ItemConfigs.Instance.GetAllJewelrySets(currentJewelries.Select(x => x.itemConfig).ToList());
+        var set = allSets.Find(x => x.targetId == itemConfig.id);
+        if (set != null) bonusValue = set.value;
+        return bonusValue;
+    }
+
+    protected override void OnRightClick()
+    {
+        base.OnRightClick();
+
+        string bubbleText = "";
+        switch (itemConfig.type)
+        {
+            case ItemType.Equipment:
+                var equip = ItemConfigs.Instance.equips.Find(x=>x.id == itemConfig.id);
+                float bonusValue = GetBonusValue();            
+                bubbleText = $"{equip.statistic.ToString()} {equip.value}";
+                if (bonusValue>0) bubbleText += $" + {bonusValue}";
+                break;
+            case ItemType.Support:
+                var support = ItemConfigs.Instance.supports.Find(x=>x.id == itemConfig.id);
+                switch (support.statistic)
+                {
+                    case StatisticType.Coin:
+                        bubbleText = "Buy a item in shop";
+                        break;
+                    case StatisticType.UpgradePet:
+                        bubbleText = "Feed your pet";
+                        break;
+                    default:
+                        bubbleText = $"{support.statistic.ToString()} {support.value}";
+                        if (support.statistic2 != StatisticType.None)
+                        {
+                            bubbleText += $"\n{support.statistic2.ToString()} {support.value2}";
+                        }
+                        break;
+                }
+                break;
+            case ItemType.Jewelry:
+                bubbleText = "It's is a Jewelry";
+                break;
+        }
+
+        if (itemConfig.useable) bubbleText += $"\n <size=25>-Use ({itemConfig.stamina} stamina)-</size>";
+        else bubbleText += $"\n <size=25>-UnUseable-</size>";
+        BubbleFx.Show(transform.position, bubbleText);
     }
 }

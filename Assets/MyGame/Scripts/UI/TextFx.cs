@@ -30,26 +30,28 @@ public class TextFx : MonoBehaviour
 
     public void SetUp(int value, TypeText typeText)
     {
-        textMeshPro.SetText($"{value}");
-
         switch (typeText)
         {
             case TypeText.HIT:
+                textMeshPro.SetText($"- {value}");
                 textMeshPro.fontSize = 5;
                 textColor = new Color32(255, 238, 30, 255);
                 break;
 
             case TypeText.CRIT:
+                textMeshPro.SetText($"- {value}");
                 textMeshPro.fontSize = 6.5f;
                 textColor = new Color32(255, 0, 0, 255);
                 break;
 
             case TypeText.HEAL:
+                textMeshPro.SetText($"+ {value}");
                 textMeshPro.fontSize = 5;
                 textColor = new Color32(0, 255, 0, 255);
                 break;
 
             case TypeText.SHIELD:
+                textMeshPro.SetText($"+ {value}");
                 textMeshPro.fontSize = 5;
                 textColor = new Color32(0, 150, 255, 255);
                 break;

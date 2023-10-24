@@ -176,6 +176,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+
     public void SpawnItems(List<ItemConfig> lstItems, Transform from)
     {
         if (dragItems == null) dragItems = new List<GameObject>();

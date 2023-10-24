@@ -22,6 +22,11 @@ public class HeroUnit : Unit
             return false;
     }
 
+    public void GetStamina(int sta)
+    {
+        currentStamina += sta;
+    }
+
     public void ResetStamina()
     {
         currentStamina = initStamina;
