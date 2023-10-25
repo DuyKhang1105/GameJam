@@ -216,6 +216,8 @@ public class InventoryItem : Drag
                             }
                             break;
                     }
+                    //show stamina
+                    BattleSystem.Instance.heroHUD.SetStamina(BattleSystem.Instance.heroUnit.currentStamina);
                 }
                 else
                 {
@@ -256,12 +258,18 @@ public class InventoryItem : Drag
                 {
                     ParseItem(arg);
                 };
+                GameUI.Instance.shopPopup.GetComponent<ShopPopup>().onCanceled = () =>
+                {  
+                    BattleSystem.Instance.heroUnit.GetStamina(itemConfig.stamina); //return stamina
+                };
                 break;
             case StatisticType.UpgradePet:
                 //TODO upgrade pet
                 Debug.Log("Upgrade pet");
                 break;
         }
+        //show stamina
+        BattleSystem.Instance.heroHUD.SetStamina(BattleSystem.Instance.heroUnit.currentStamina);
     }
 
     private float GetBonusValue()
