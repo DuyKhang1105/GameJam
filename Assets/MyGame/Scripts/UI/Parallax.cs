@@ -46,6 +46,6 @@ public class Parallax : MonoBehaviour
     private void Update()
     {
         Scroll();
-        CheckReset();
+        //CheckReset();
     }
 }

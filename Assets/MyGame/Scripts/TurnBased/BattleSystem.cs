@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.MPE;
 using UnityEngine;
 using UnityEngine.UI;
 using Sequence = DG.Tweening.Sequence;
@@ -40,8 +41,10 @@ public class BattleSystem : MonoBehaviour
 
 	[Header("GUI")]
 	public BattleState state;
-    public Background BG;
     public TextMeshProUGUI dialogueText;
+
+    public Background BG;
+    public ProgressLevel progressLevel;
 
 	int indexEnemy;
     int indexTarget;
@@ -524,8 +527,10 @@ public class BattleSystem : MonoBehaviour
             inventory.UpgradeLevel(inventory.level);
             Notification.Instance.ShowNoti($"Congrat. Inventory upgrade to level {inventory.level}!!");
         }
-
         stageIndex += 1;
+
+        progressLevel.UpdateProgressLevel(stageIndex);
+
         state = BattleState.MOVETONEXT;
 
         //check end battle
