@@ -85,6 +85,29 @@ public class InventoryItem : Drag
                 switch (itemConfig.type)
                 {
                     case ItemType.Equipment:
+                        placeds?.ForEach((x) =>
+                        {
+                            x.GetComponent<Image>().color = itemConfig.useable ? Color.green : Color.yellow;
+                        });
+                        //update all equip
+                        float critRare = 0f;
+                        float avoidRare = 0f;
+                        var allEquips = FindObjectsOfType<InventoryItem>().Where(x => x.isInInventory).ToList();
+                        foreach (var equipItem in allEquips)
+                        {
+                            var equip = ItemConfigs.Instance.equips.Find(x=>x.id == equipItem.itemConfig.id);
+                            if (equip.equipType == EquipType.Shoe)
+                            {
+                                avoidRare += equip.value + GetBonusValue(equip.id);
+                            }
+                            else if (equip.equipType == EquipType.Helmet)
+                            {
+                                critRare += equip.value + GetBonusValue(equip.id);
+                            }
+                        }
+                        BattleSystem.Instance.heroUnit.criticalRate = critRare;
+                        BattleSystem.Instance.heroUnit.dodgeRate = avoidRare;
+                        break;
                     case ItemType.Support:
                         placeds?.ForEach((x) =>
                         {
@@ -97,7 +120,6 @@ public class InventoryItem : Drag
                         break;
                 }
                 transform.SetAsFirstSibling();
-                //onDropedToInventory?.Invoke();
                 return;
             }
             else
@@ -106,7 +128,6 @@ public class InventoryItem : Drag
                 isInInventory = false;
                 UpdateJewelryVirtual();
                 transform.SetAsLastSibling();
-                //onDropedOutInventory?.Invoke(gameObject);
             }
         }
     }
@@ -189,14 +210,14 @@ public class InventoryItem : Drag
                                 switch (equip.statistic)
                                 {
                                     case StatisticType.Attack:
-                                        int damage = (int)equip.value + (int)GetBonusValue();
+                                        int damage = (int)equip.value + (int)GetBonusValue(equip.id);
                                         unit.damage = damage;
                                         battleSystem.OnAttackButton();
                                         Debug.Log("Damage " + damage);
                                         Notification.Instance.ShowNoti($"Yee, Deal {damage} damages!!");
                                         break;
                                     case StatisticType.Shield:
-                                        int shield = (int)equip.value + (int)GetBonusValue(); ;
+                                        int shield = (int)equip.value + (int)GetBonusValue(equip.id); ;
                                         unit.Shield(shield);
                                         battleSystem.OnHealButton();
                                         Debug.Log("Shield " + shield);
@@ -282,13 +303,13 @@ public class InventoryItem : Drag
         BattleSystem.Instance.heroHUD.SetStamina(BattleSystem.Instance.heroUnit.currentStamina);
     }
 
-    private float GetBonusValue()
+    public static float GetBonusValue(string id)
     {
         float bonusValue = 0f;
-        var currentJewelries = FindObjectsOfType<InventoryItem>().ToList().FindAll(x => x.isInInventory && x.itemConfig.type == ItemType.Jewelry);
+        var currentJewelries = FindObjectsOfType<InventoryItem>().Where(x => x.isInInventory && x.itemConfig.type == ItemType.Jewelry);
         //Debug.Log("Jewelries: " + string.Join(", ", currentJewelries.Select(x => x.itemConfig.id)));
         var allSets = ItemConfigs.Instance.GetAllJewelrySets(currentJewelries.Select(x => x.itemConfig).ToList());
-        var set = allSets.Find(x => x.targetId == itemConfig.id);
+        var set = allSets.Find(x => x.targetId == id);
         if (set != null) bonusValue = set.value;
         return bonusValue;
     }
@@ -302,7 +323,7 @@ public class InventoryItem : Drag
         {
             case ItemType.Equipment:
                 var equip = ItemConfigs.Instance.equips.Find(x=>x.id == itemConfig.id);
-                float bonusValue = GetBonusValue();            
+                float bonusValue = GetBonusValue(equip.id);            
                 bubbleText = $"{equip.statistic.ToString()} {equip.value}";
                 if (bonusValue>0) bubbleText += $" + {bonusValue}";
                 break;
