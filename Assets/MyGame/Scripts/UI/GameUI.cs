@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
     public GameObject bg;
     public GameObject inventoryPopup;
     public GameObject axieChestPopup;
+    public GameObject feedAxiePopup;
     public GameObject shopPopup;
 
     [Header("Chest")]

@@ -84,10 +84,9 @@ public class AxieChestPopup : MonoBehaviour
             {
                 var axie = AxieConfigs.Instance.GetRandom(axiesIgnore);
                 slotTrans[i].gameObject.SetActive(true);
-                //2 is childcount by UI
-                if (slotTrans[i].childCount > 2) Destroy(slotTrans[i].GetChild(slotTrans[i].childCount-1).gameObject);
-                var axieGo = Instantiate(axie.graphicUI, slotTrans[i]);
-                axieGo.transform.localPosition = Vector3.up * 80f;
+
+                var axieSlot = slotTrans[i].GetComponentInChildren<AxieInventorySlot>();
+                axieSlot.ParseAxie(axie, 0f);
                 axies.Add(axie);
             }           
         }

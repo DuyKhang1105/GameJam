@@ -14,7 +14,7 @@ public class AxieInventorySlot : MonoBehaviour
 
     public void ParseAxie(AxieConfig config, float progress) //progress 0 =>1
     {
-        if (axieTran.childCount > 0) { Destroy(axieTran.GetChild(0)); };
+        if (axieTran.childCount > 0) { Destroy(axieTran.GetChild(0).gameObject); };
         var axieUI = Instantiate(config.graphicUI, axieTran);
         axieUI.transform.localScale = Vector3.one;
         axieUI.transform.localPosition = Vector3.zero;

@@ -226,7 +226,10 @@ public class InventoryItem : Drag
                     Notification.Instance.ShowNoti("Not enought stamina!!");
                 }
             }
-
+            else
+            {
+                Notification.Instance.ShowNoti("Just use at hero turn in combat!!");
+            }
         }
     }
 
@@ -264,8 +267,15 @@ public class InventoryItem : Drag
                 };
                 break;
             case StatisticType.UpgradePet:
-                //TODO upgrade pet
-                Debug.Log("Upgrade pet");
+                GameUI.Instance.feedAxiePopup.SetActive(true);
+                GameUI.Instance.feedAxiePopup.GetComponent<FeedAxiePopup>().onFeeded = () =>
+                {
+                    DestroyItem();
+                };
+                GameUI.Instance.feedAxiePopup.GetComponent<FeedAxiePopup>().onCanceled = () =>
+                {
+                    BattleSystem.Instance.heroUnit.GetStamina(itemConfig.stamina); //return stamina
+                };
                 break;
         }
         //show stamina
@@ -304,7 +314,7 @@ public class InventoryItem : Drag
                         bubbleText = "Buy a item in shop";
                         break;
                     case StatisticType.UpgradePet:
-                        bubbleText = "Feed your pet";
+                        bubbleText = "Feed to pet";
                         break;
                     default:
                         bubbleText = $"{support.statistic.ToString()} {support.value}";

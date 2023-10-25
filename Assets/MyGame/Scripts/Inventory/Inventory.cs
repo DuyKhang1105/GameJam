@@ -179,6 +179,7 @@ public class Inventory : MonoBehaviour
 
     public void SpawnItems(List<ItemConfig> lstItems, Transform from)
     {
+        BattleSystem.Instance.state = BattleState.LOOTITEM;
         if (dragItems == null) dragItems = new List<GameObject>();
         foreach (var item in lstItems)
         {
