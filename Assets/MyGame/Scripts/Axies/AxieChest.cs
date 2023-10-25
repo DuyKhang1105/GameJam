@@ -10,7 +10,7 @@ public class AxieChest : MonoBehaviour
     [SerializeField] private Sprite openedSpr;
     public bool isOpend;
 
-    private void Start()
+    private void OnEnable()
     {
         UpdateVirtual();
     }

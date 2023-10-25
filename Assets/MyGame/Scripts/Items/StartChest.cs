@@ -11,6 +11,11 @@ public class StartChest : MonoBehaviour
 
     public bool isOpened;
 
+    private void OnEnable()
+    {
+        UpdateVirtual();
+    }
+
     private void UpdateVirtual()
     {
         var chestImg = GetComponent<Image>();

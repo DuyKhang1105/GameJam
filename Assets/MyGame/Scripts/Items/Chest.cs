@@ -18,7 +18,7 @@ public class Chest : MonoBehaviour
 
     public bool isOpend;
 
-    private void Start()
+    private void OnEnable()
     {
         UpdateVirtual();
     }

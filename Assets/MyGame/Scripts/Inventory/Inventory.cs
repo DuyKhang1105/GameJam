@@ -184,15 +184,16 @@ public class Inventory : MonoBehaviour
         {
             int index = dragItems.Count;
             var goItem = Instantiate(itemPrefab, dragParent);
+            dragItems.Add(goItem);
             goItem.GetComponent<InventoryItem>().ParseItem(item);
-            goItem.GetComponent<InventoryItem>().onDropedToInventory = () =>
-            {
-                dragItems[index] = null;
-            };
-            goItem.GetComponent<InventoryItem>().onDropedOutInventory = (arg) =>
-            {
-                dragItems.Add(arg);
-            };
+            //goItem.GetComponent<InventoryItem>().onDropedToInventory = () =>
+            //{
+            //    dragItems[index] = null;
+            //};
+            //goItem.GetComponent<InventoryItem>().onDropedOutInventory = (arg) =>
+            //{
+            //    dragItems.Add(arg);
+            //};
             Vector3 startPos = from.position;
             Vector3 endPos = dropPos[UnityEngine.Random.Range(0, dropPos.Count)].position;
 
@@ -200,7 +201,6 @@ public class Inventory : MonoBehaviour
             goItem.transform.position = startPos;
             goItem.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
             goItem.transform.DOJump(endPos, 1, 1, 0.3f);
-            dragItems.Add(goItem);
         }
         confrimBtn.SetActive(true);
         GameUI.Instance.bg.SetActive(true);
@@ -211,8 +211,10 @@ public class Inventory : MonoBehaviour
         dragItems.ForEach(x=> {
             if (x != null)
             {
-                //TODO later effect confirm
-                Destroy(x);
+                if (!x.GetComponent<InventoryItem>().isInInventory)
+                {
+                    Destroy(x);
+                }
             }     
         });
         confrimBtn.SetActive(false);

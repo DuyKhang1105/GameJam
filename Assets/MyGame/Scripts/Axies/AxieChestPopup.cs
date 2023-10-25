@@ -36,7 +36,7 @@ public class AxieChestPopup : MonoBehaviour
         } 
     }
 
-    private void Start()
+    private void OnEnable()
     {
         OpenChest();
         SelectAxie(1); 
@@ -74,6 +74,7 @@ public class AxieChestPopup : MonoBehaviour
 
     private void OpenChest()
     {
+        isSelected = false;
         GameUI.Instance.bg.SetActive(true); 
         slotTrans.ForEach(t => { t.gameObject.SetActive(false); });
         {

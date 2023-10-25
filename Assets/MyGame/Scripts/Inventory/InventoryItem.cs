@@ -17,8 +17,8 @@ public class InventoryItem : Drag
 
     private List<InventorySlot> placeds;
 
-    public Action onDropedToInventory;
-    public Action<GameObject> onDropedOutInventory;
+    //public Action onDropedToInventory;
+    //public Action<GameObject> onDropedOutInventory;
 
     private ItemConfig itemConfig;
 
@@ -97,7 +97,7 @@ public class InventoryItem : Drag
                         break;
                 }
                 transform.SetAsFirstSibling();
-                onDropedToInventory?.Invoke();
+                //onDropedToInventory?.Invoke();
                 return;
             }
             else
@@ -106,7 +106,7 @@ public class InventoryItem : Drag
                 isInInventory = false;
                 UpdateJewelryVirtual();
                 transform.SetAsLastSibling();
-                onDropedOutInventory?.Invoke(gameObject);
+                //onDropedOutInventory?.Invoke(gameObject);
             }
         }
     }
@@ -246,7 +246,7 @@ public class InventoryItem : Drag
                 DestroyItem();
                 break;
             case StatisticType.Stamina:
-                //TODO add starmina
+                Debug.Log("Add stamina");
                 BattleSystem.Instance.OnHeroStamina((int)value);
                 DestroyItem();
                 break;
@@ -259,6 +259,7 @@ public class InventoryItem : Drag
                 break;
             case StatisticType.UpgradePet:
                 //TODO upgrade pet
+                Debug.Log("Upgrade pet");
                 break;
         }
     }
