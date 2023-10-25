@@ -50,6 +50,7 @@ public class AxieInventory : MonoBehaviour
                 slotTrans[index].GetComponent<AxieInventorySlot>().ParseAxie(axieUpgrade, progresses[index]);
             }
         }  
+        onChangeList?.Invoke();
         UpdateVirtual();
     }
 }
