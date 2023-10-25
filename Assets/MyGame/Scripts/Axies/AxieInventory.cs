@@ -40,8 +40,17 @@ public class AxieInventory : MonoBehaviour
 
     public void FeedAxie(int index)
     {
-        progresses[index] += 1f / 3f;
-        //TODO check upgrade axie
+        progresses[index] += 1f; // / 3f;
+        //upgrade axie
+        if (progresses[index] > 1f) {
+            var axieUpgrade = AxieConfigs.Instance.GetUpgrade(axies[index].axieId);
+            if (axieUpgrade != null)
+            {
+                axies[index] = axieUpgrade;
+                slotTrans[index].GetComponent<AxieInventorySlot>().ParseAxie(axieUpgrade, progresses[index]);
+            }
+        }  
+        onChangeList?.Invoke();
         UpdateVirtual();
     }
 }
