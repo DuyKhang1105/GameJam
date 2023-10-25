@@ -5,7 +5,26 @@ using UnityEngine;
 public enum EnemyName
 {
     None,
-    Bear,
+    BearDad,
+    BearMom,
+    DryadFighter,
+    DryadMage,
+    DryadRanger,
+    Slime,
+    SlimeAttack,
+    SlimeDefense,
+    SlimeForestA,
+    SlimeForestB,
+    SlimeFusion,
+    SlimeSupport,
+    Treant,
+    TreantFighter,
+    TreantFlowering,
+    WereWolf,
+    WolfAlpha,
+    WolfAquatic,
+    WolfAquaticAlpha,
+    WolfGray
 }
 
 public enum EnemySkillType

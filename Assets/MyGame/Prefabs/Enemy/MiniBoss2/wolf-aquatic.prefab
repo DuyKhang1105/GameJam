@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7896887383462008264
+--- !u!1 &1487345654406267983
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7896887383462008268}
-  - component: {fileID: 7896887383462008269}
-  - component: {fileID: 7896887383462008266}
-  - component: {fileID: 7896887383462008267}
-  - component: {fileID: 2870601798756823067}
-  - component: {fileID: 883864457734590183}
+  - component: {fileID: 1487345654406267979}
+  - component: {fileID: 1487345654406267978}
+  - component: {fileID: 1487345654406267981}
+  - component: {fileID: 1487345654406267980}
+  - component: {fileID: 1487345654406267977}
+  - component: {fileID: 1487345654406267976}
   m_Layer: 0
-  m_Name: Hero
+  m_Name: wolf-aquatic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7896887383462008268
+--- !u!4 &1487345654406267979
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7896887383462008264}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1487345654406267983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7896887383462008269
+--- !u!33 &1487345654406267978
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7896887383462008264}
+  m_GameObject: {fileID: 1487345654406267983}
   m_Mesh: {fileID: 0}
---- !u!23 &7896887383462008266
+--- !u!23 &1487345654406267981
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7896887383462008264}
+  m_GameObject: {fileID: 1487345654406267983}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4201d5b0ded31aa4bbc03347f05728c4, type: 2}
+  - {fileID: 2100000, guid: 4d8fa98c6acdf4bc3a07b7f70652c5d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,19 +84,19 @@ MeshRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7896887383462008267
+--- !u!114 &1487345654406267980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7896887383462008264}
+  m_GameObject: {fileID: 1487345654406267983}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: ab1d5dcafa2b0d7449c3709a4cb372c2, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: a6558d451ef484a2d891ed913afc9af8, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   zSpacing: 0
   useClipping: 1
   immutableTriangles: 0
-  pmaVertexColors: 1
+  pmaVertexColors: 0
   clearStateOnDisable: 0
   tintBlack: 0
   singleSubmesh: 0
@@ -118,57 +118,59 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: idle_3
+  _animationName: action/idle/normal
   loop: 1
   timeScale: 1
---- !u!114 &2870601798756823067
+--- !u!114 &1487345654406267977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7896887383462008264}
+  m_GameObject: {fileID: 1487345654406267983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bee41a2f080b92c469b03db3d8c49937, type: 3}
+  m_Script: {fileID: 11500000, guid: 7796011bc20692046b9e6ec4658288f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runAnimationName: run_shield
-  idleAnimationName: idle_3
-  walkAnimationName: 
-  atkAnimationName_1: sword_attack
-  atkAnimationName_2: shield_attack
-  jumpAnimationName: jump
-  hitAnimationName: hit
-  deathAnimationName: dead
-  stunAnimationName: stun
-  skillAnimationName_1: buff_1
-  skillAnimationName_2: buff_2
-  skillAnimationName_3: buff_3
---- !u!114 &883864457734590183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7896887383462008264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867fd2669ba59c944bf33e43210e5026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Hero
+  unitName: 
   damage: 0
   shield: 0
   buffShield: 0
-  maxHP: 20
+  maxHP: 0
   buffHP: 0
-  currentHP: 20
+  currentHP: 0
   turnStun: 0
   dodgeRate: 0
   criticalRate: 0
   armorPenetrationRate: 0
   isDead: 0
   isCrit: 0
-  initStamina: 20
-  currentStamina: 20
+  skillValue: 0
+  maxPow: 0
+  currentPow: 0
+  isPow: 0
+--- !u!114 &1487345654406267976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487345654406267983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce68f0a3cf30fc44bdc2e0b66f259e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runAnimationName: 
+  idleAnimationName: action/idle/normal
+  walkAnimationName: 
+  atkAnimationName_1: attack/melee/normal-attack
+  atkAnimationName_2: attack/ranged/cast-high
+  moveBackAnimationName: 
+  hitAnimationName: defense/hit-by-normal
+  deathAnimationName: defense/hit-die
+  stunAnimationName: battle/get-debuff
+  skillAnimationName_1: battle/get-buff
+  skillAnimationName_2: 
+  skillAnimationName_3: 

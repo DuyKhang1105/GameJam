@@ -24,7 +24,7 @@ public class EnemyUnit : Unit
         this.shield = enemyConfig.statistics.shield;
 
         currentHP = maxHP;
-        battleSystem = FindObjectOfType<BattleSystem>();
+        battleSystem = BattleSystem.Instance;
     }
 
     public void TakePow(int dmg)
@@ -56,7 +56,7 @@ public class EnemyUnit : Unit
                 return StunHero;
 
             case EnemySkillType.HealAll:
-                return StunHero;
+                return HealAll;
 
             case EnemySkillType.StunHero:
                 return StunHero;

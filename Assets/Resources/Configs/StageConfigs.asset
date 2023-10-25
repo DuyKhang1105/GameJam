@@ -18,40 +18,40 @@ MonoBehaviour:
     enemyNames: 
   - stageType: 1
     isLevelUp: 0
-    enemyNames: 0100000001000000
+    enemyNames: 070000000600000008000000
   - stageType: 5
     isLevelUp: 0
     enemyNames: 
   - stageType: 1
     isLevelUp: 0
-    enemyNames: 
+    enemyNames: 0f0000000d0000000e000000
   - stageType: 4
     isLevelUp: 0
     enemyNames: 
   - stageType: 2
     isLevelUp: 1
-    enemyNames: 
+    enemyNames: 050000000300000004000000
   - stageType: 5
     isLevelUp: 0
     enemyNames: 
   - stageType: 1
     isLevelUp: 0
-    enemyNames: 
+    enemyNames: 090000000a0000000b000000
   - stageType: 4
     isLevelUp: 0
     enemyNames: 
   - stageType: 2
     isLevelUp: 1
-    enemyNames: 
+    enemyNames: 100000000c000000
   - stageType: 5
     isLevelUp: 0
     enemyNames: 
   - stageType: 1
     isLevelUp: 0
-    enemyNames: 
+    enemyNames: 0100000002000000
   - stageType: 4
     isLevelUp: 0
     enemyNames: 
   - stageType: 3
     isLevelUp: 0
-    enemyNames: 
+    enemyNames: 1300000012000000

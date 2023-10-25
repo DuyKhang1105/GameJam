@@ -24,34 +24,29 @@ public class BattleSystem : MonoBehaviour
     public List<Transform> axieBattleStations;
     private Dictionary<string, GameObject> dicAxies;
 
+    [Header("Hero")]
     public GameObject heroPrefab;
-	public List<GameObject> enemyPrefabs;
-
-	public Transform heroBattleStation;
-	public List<Transform> enemyBattleStations;
 
     public HeroUnit heroUnit;
-    public List<EnemyUnit> enemyUnits;
-
-    public HeroControl heroControl;
-    public List<EnemyControl> enemyControls;
-
-    public TextMeshProUGUI dialogueText;
-
 	public HeroBattleHUD heroHUD;
-	public List<EnemyBattleHUD> enemyHUDs;
+    public HeroControl heroControl;
+	public Transform heroBattleStation;
 
-	public BattleState state;
+    [Header("Hero")]
+    public List<EnemyUnit> enemyUnits;
+	public List<EnemyBattleHUD> enemyHUDs;
+    public List<EnemyControl> enemyControls;
+    public List<Transform> enemyBattleStations;
 
 	[Header("GUI")]
+	public BattleState state;
     public Background BG;
-
+    public TextMeshProUGUI dialogueText;
 
 	int indexEnemy;
     int indexTarget;
 
 	List<int> indexActions = new List<int>();
-
     public static BattleSystem Instance;
 
     private void Awake()
