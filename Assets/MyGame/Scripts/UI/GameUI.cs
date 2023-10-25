@@ -30,6 +30,7 @@ public class GameUI : MonoBehaviour
     [Header("Game")]
     public GameObject nextBtn;
     public GameObject endTurnBtn;
+    public GameObject currentTurn;
 
     [Header("Fx prerab")]
     public GameObject bubbleFx;
