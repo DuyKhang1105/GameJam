@@ -14,6 +14,7 @@ public class GameUI : MonoBehaviour
     public GameObject axieChestPopup;
     public GameObject feedAxiePopup;
     public GameObject shopPopup;
+    public GameObject endGamePopup;
 
     [Header("Chest")]
     public GameObject startChest;

@@ -627,10 +627,17 @@ public class BattleSystem : MonoBehaviour
 		if(state == BattleState.WON)
 		{
 			dialogueText.text = "You won the battle!";
-		} else if (state == BattleState.LOST)
+            GameUI.Instance.endGamePopup.SetActive(true);
+            GameUI.Instance.endGamePopup.GetComponent<EndGamePopup>().Show(true);
+            return;
+		} 
+        else if (state == BattleState.LOST)
 		{
 			dialogueText.text = "You were defeated.";
-		}
+            GameUI.Instance.endGamePopup.SetActive(true);
+            GameUI.Instance.endGamePopup.GetComponent<EndGamePopup>().Show(false);
+            return;
+        }
         GameUI.Instance.endTurnBtn.SetActive(false);
         GameUI.Instance.nextBtn.SetActive(true);
     }
