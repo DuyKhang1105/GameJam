@@ -69,7 +69,7 @@ MonoBehaviour:
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: action/idle/normal
+  startingAnimation: attack/melee/normal-attack
   startingLoop: 1
   timeScale: 1
   freeze: 0

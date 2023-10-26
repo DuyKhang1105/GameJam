@@ -9,20 +9,23 @@ public class AxieConfig
     public GameObject graphic;
     public GameObject graphicUI;
 
-    public AxieEffectType effectType;
-    public float value;
+    public AxieSkillType skillType = AxieSkillType.BuffHP;
+    public float actionRate = 1f;
 }
 
-public enum AxieEffectType
+public enum AxieSkillType
 {
     None,
     ExpansionSlot, //+1 -> +3 slot
     ExpansionChest, //+1 cheast item -> +1 axie chest
-    DealDamage, //rate deal 1 damage -> 100%
     UpgradeItem, //all item +1 value -> all equipment +1 value
-    HealHP, //50% heal after be attacked -> 50% collect all damage 1 turn
-    HealStamina, //30% heal stamina after turn -> +1 stamina when on turn
 
+    AxieHit,
+    BuffHP,
+    BuffStamina,
+    Fightsback,
+    BloodSucking,
+    ArmorPenetration,
 }
 
 [System.Serializable]

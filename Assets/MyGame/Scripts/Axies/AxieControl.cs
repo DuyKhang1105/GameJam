@@ -12,7 +12,9 @@ public class AxieControl : MonoBehaviour
     //[SpineAnimation]
     public const string idleAnimationName = "action/idle/normal";
 
-    public const string buffAnimationName = "battle/get-buff";
+    public const string atkAnimationName = "attack/melee/normal-attack";
+
+    public const string buffAnimationName = "activity/victory-pose-back-flip";
 
     //[SpineAnimation]
     //public string walkAnimationName;
@@ -70,5 +72,11 @@ public class AxieControl : MonoBehaviour
     public void Idle()
     {
         spineAnimationState.SetAnimation(0, idleAnimationName, true);
+    }
+
+    public void Attack()
+    {
+        spineAnimationState.SetAnimation(0, atkAnimationName, false);
+        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
     }
 }

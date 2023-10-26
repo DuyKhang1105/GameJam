@@ -72,9 +72,12 @@ public class EnemyUnit : Unit
     {
         for (int i = 0; i < battleSystem.enemyUnits.Count; i++)
         {
-            battleSystem.enemyUnits[i].Heal(skillValue);
-            battleSystem.enemyHUDs[i].SetHP(battleSystem.enemyUnits[i].currentHP);
-            TextFx.Create(battleSystem.enemyUnits[i].transform.position, skillValue, TypeText.HEAL);
+            if (battleSystem.enemyUnits[i].currentHP > 0)
+            {
+                battleSystem.enemyUnits[i].Heal(skillValue);
+                battleSystem.enemyHUDs[i].SetHP(battleSystem.enemyUnits[i].currentHP);
+                TextFx.Create(battleSystem.enemyUnits[i].transform.position, skillValue, TypeText.HEAL);
+            }
         }
     }
 

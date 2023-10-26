@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4618905012973115461}
   - component: {fileID: 8999134290424386631}
   - component: {fileID: 2842290337686894107}
+  - component: {fileID: -1855805712830680046}
   m_Layer: 0
   m_Name: 11_dps-bug
   m_TagString: Untagged
@@ -132,15 +133,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed3071991bd1e04aab438f071dc1551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runAnimationName: action/run
-  idleAnimationName: action/idle/normal
-  walkAnimationName: 
-  atkAnimationName_1: 
-  atkAnimationName_2: 
-  moveBackAnimationName: 
-  hitAnimationName: 
-  deathAnimationName: 
-  stunAnimationName: 
-  skillAnimationName_1: 
-  skillAnimationName_2: 
-  skillAnimationName_3: 
+--- !u!114 &-1855805712830680046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242006166021285473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecca6508c02be524ebe3c52916e7a8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: 
+  damage: 0
+  shield: 0
+  maxHP: 0
+  currentHP: 0
+  turnStun: 0
+  dodgeRate: 0
+  criticalRate: 0
+  armorPenetrationRate: 0
+  isDead: 0
+  isCrit: 0
+  skillType: 0
+  actionRate: 0
