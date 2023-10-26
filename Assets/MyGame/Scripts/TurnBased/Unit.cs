@@ -10,14 +10,9 @@ public class Unit : MonoBehaviour
     [Header("Base")]
 	public string unitName;
 	public int damage;
-
 	public int shield;
-	public int buffShield;
-
 	public int maxHP;
-	public int buffHP;
 	public int currentHP;
-
     public int turnStun;
 
     [Range(0f, 1f)]
@@ -27,8 +22,15 @@ public class Unit : MonoBehaviour
     [Range(0f, 1f)]
     public float armorPenetrationRate;
 
+    public int bloodLost = 0;
 	public bool isDead = false;
     public bool isCrit = false;
+
+    [Header("AxieBuff")]
+
+    public bool isBuffAP = false;
+    public bool isFightsback = false;
+    public bool isBloodSucking = false;
 
     public virtual int TakeShield(int dmg)
     {
@@ -44,17 +46,28 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public virtual bool TakeDamage(int dmg)
+    public virtual bool TakeDamage(int dmg, bool isAP)
 	{
-		float r = Random.Range(0, 1f);
-		Debug.LogError("r dodgeRate: " + r);
-		if (r <= dodgeRate)
-            return true;
-        
-        currentHP -= TakeShield(dmg);
+        bloodLost = 0;
 
-		if (currentHP <= 0)
+        if (CheckDodge())
+            return true;
+
+        if (isAP)
+        {
+            bloodLost = dmg;
+            currentHP -= dmg;
+        }
+        else
+        {
+            int newDmg = TakeShield(dmg);
+            bloodLost = newDmg;
+            currentHP -= newDmg;
+        }
+
+        if (currentHP <= 0)
 		{
+            bloodLost += currentHP;
             currentHP = 0;
 			isDead = true;
         }
@@ -65,11 +78,32 @@ public class Unit : MonoBehaviour
         return false;
     }
 
+    public virtual bool CheckAP()
+    {
+        if (isBuffAP)
+        {
+            isBuffAP = false;
+            return true;
+        }
+
+        float r = Random.Range(0, 1f);
+        if (r <= armorPenetrationRate)
+            return true;
+        return false;
+    }
+
+    public virtual bool CheckDodge()
+    {
+        float r = Random.Range(0, 1f);
+        if (r <= dodgeRate)
+            return true;
+        return false;
+    }
+
     public virtual int GetDamage()
     {
         //criticalRate
         float r = Random.Range(0, 1f);
-        Debug.LogError("r criticalRate: " + r);
         if (r <= criticalRate)
         {
             isCrit = true;

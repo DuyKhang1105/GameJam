@@ -8,6 +8,8 @@ public class HeroUnit : Unit
     public int initStamina;
     public int currentStamina;
 
+    public AxieUnit axieBuff;
+
     public bool TakeStamina(int sta)
     {
         int a = currentStamina;
@@ -30,5 +32,22 @@ public class HeroUnit : Unit
     public void ResetStamina()
     {
         currentStamina = initStamina;
+    }
+
+    public void Fightsback(AxieUnit axieBuff)
+    {
+        isFightsback = true;
+        this.axieBuff = axieBuff;
+    }
+
+    public void ClearFightsback()
+    {
+        isFightsback = false;
+
+        if (axieBuff != null)
+        {
+            axieBuff.MoveBack();
+            this.axieBuff = null;
+        }
     }
 }

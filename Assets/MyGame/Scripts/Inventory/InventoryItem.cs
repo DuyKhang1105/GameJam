@@ -218,8 +218,7 @@ public class InventoryItem : Drag
                                         break;
                                     case StatisticType.Shield:
                                         int shield = (int)equip.value + (int)GetBonusValue(equip.id); ;
-                                        unit.Shield(shield);
-                                        battleSystem.OnHealButton();
+                                        battleSystem.OnShielButton(shield);
                                         Debug.Log("Shield " + shield);
                                         Notification.Instance.ShowNoti($"Oho, Shield {shield}");
                                         break;

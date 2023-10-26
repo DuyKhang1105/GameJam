@@ -23,7 +23,7 @@ public class BattleSystem : MonoBehaviour
 
     [Header("Pet")]
     public List<Transform> axieBattleStations;
-    private Dictionary<string, GameObject> dicAxies;
+    public Dictionary<string, GameObject> dicAxies;
 
     [Header("Hero")]
     public GameObject heroPrefab;
@@ -47,7 +47,7 @@ public class BattleSystem : MonoBehaviour
     public ProgressLevel progressLevel;
 
 	int indexEnemy;
-    int indexTarget;
+    public int indexTarget;
 
 	List<int> indexActions = new List<int>();
     public static BattleSystem Instance;
@@ -85,6 +85,8 @@ public class BattleSystem : MonoBehaviour
             axieGO.transform.localPosition = Vector3.zero;
             axieGO.transform.localScale = new Vector3(-0.8f, 0.8f, 0.8f);
             axieGO.GetComponent<AxieControl>().Idle();
+            axieGO.GetComponent<AxieUnit>().Parse(config);
+
             dicAxies.Add(config.axieId, axieGO);
         }
 
@@ -140,7 +142,6 @@ public class BattleSystem : MonoBehaviour
                     enemyHUDs[i].gameObject.SetActive(true);
                     enemyHUDs[i].SetEnemyHUD(enemyUnits[i]);
                 }
-                dialogueText.text = "A wild approaches...";
                 yield return new WaitForSeconds(2f);
 
                 ResetTarget();
@@ -149,8 +150,7 @@ public class BattleSystem : MonoBehaviour
                 indexTarget = 0;
                 NextActionEnemy();
 
-                state = BattleState.HEROTURN;
-                HeroTurn();
+                StartCoroutine(HeroTurn());
                 break;
             //case StageType.MiniBoss:
             //    //TODO 
@@ -181,7 +181,9 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator HeroAttack()
 	{
-        bool isMiss = enemyUnits[indexTarget].TakeDamage(heroUnit.GetDamage());
+        int damage = heroUnit.GetDamage();
+
+        bool isMiss = enemyUnits[indexTarget].TakeDamage(damage, heroUnit.CheckAP());
         bool isDead = enemyUnits[indexTarget].isDead;
         if (!isMiss && !isDead)
         {
@@ -211,14 +213,13 @@ public class BattleSystem : MonoBehaviour
             if (isMiss)
             {
                 //enemyControls[indexTarget].Dodge();
-                dialogueText.text = "The attack is failure!";
             }
             else
             {
                 if (heroUnit.isCrit)
-                    TextFx.Create(enemyControls[indexTarget].transform.position, heroUnit.GetDamage(), TypeText.CRIT);
+                    TextFx.Create(enemyControls[indexTarget].transform.position, damage, TypeText.CRIT);
                 else
-                    TextFx.Create(enemyControls[indexTarget].transform.position, heroUnit.GetDamage(), TypeText.HIT);
+                    TextFx.Create(enemyControls[indexTarget].transform.position, damage, TypeText.HIT);
 
                 if (!isDead)
                 {
@@ -229,10 +230,19 @@ public class BattleSystem : MonoBehaviour
                     enemyControls[indexTarget].Die();
                 }
 
+                Debug.LogError("heroUnit.isBloodSucking: " + heroUnit.isBloodSucking);
+                if (heroUnit.isBloodSucking)
+                {
+                    int bloodEnemyLost = enemyUnits[indexTarget].bloodLost;
+                    heroUnit.isBloodSucking = false;
+                    heroUnit.Heal(bloodEnemyLost);
+                    heroHUD.SetHP(heroUnit.currentHP);
+                    TextFx.Create(heroUnit.transform.position, bloodEnemyLost, TypeText.HEAL);
+                }
+
                 enemyHUDs[indexTarget].SetPow(enemyUnits[indexTarget].currentPow);
                 enemyHUDs[indexTarget].SetHP(enemyUnits[indexTarget].currentHP);
                 enemyHUDs[indexTarget].SetShield(enemyUnits[indexTarget].shield);
-                dialogueText.text = "The attack is successful!";
             }
             
         });
@@ -255,7 +265,21 @@ public class BattleSystem : MonoBehaviour
         }
 	}
 
-	IEnumerator HeroHeal(int heal)
+    IEnumerator HeroShiel(int shi)
+    {
+        state = BattleState.ACTING;
+
+        heroUnit.Shield(shi);
+        heroControl.Shield();
+
+        heroHUD.SetShield(heroUnit.shield);
+
+        TextFx.Create(heroUnit.transform.position, shi, TypeText.SHIELD);
+        yield return new WaitForSeconds(2f);
+        state = BattleState.HEROTURN;
+    }
+
+    IEnumerator HeroHeal(int heal)
 	{
         state = BattleState.ACTING;
 
@@ -264,9 +288,9 @@ public class BattleSystem : MonoBehaviour
 
 
         heroHUD.SetHP(heroUnit.currentHP);
-		dialogueText.text = "You feel renewed strength!";
+        TextFx.Create(heroUnit.transform.position, heal, TypeText.HEAL);
 
-		yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f);
         state = BattleState.HEROTURN;
     }
 
@@ -279,7 +303,6 @@ public class BattleSystem : MonoBehaviour
 
 
         heroHUD.SetStamina(heroUnit.currentStamina);
-        dialogueText.text = "You feel renewed strength!";
 
         yield return new WaitForSeconds(2f);
         state = BattleState.HEROTURN;
@@ -300,8 +323,6 @@ public class BattleSystem : MonoBehaviour
                 yield break;
             }
         }
-
-        dialogueText.text = enemyUnits[indexEnemy].unitName + " " + indexEnemy + " attacks!";
 
         yield return new WaitForSeconds(1f);
 
@@ -333,26 +354,41 @@ public class BattleSystem : MonoBehaviour
     {
         ResetTarget();
         indexEnemy = 0;
-        state = BattleState.HEROTURN;
+        
         NextActionEnemy();
-        HeroTurn();
+
+        heroUnit.ClearFightsback();
+        StartCoroutine(HeroTurn());    
     }
 
-	void HeroTurn()
+    IEnumerator HeroTurn()
 	{
+        heroUnit.ResetStamina();
+        heroHUD.SetStamina(heroUnit.currentStamina);
+
+        //Check action axie
+        foreach (var axie in dicAxies.Values)
+        {
+            if (axie.GetComponent<AxieUnit>().CheckBuff())
+            {
+                //TODO time wait for each axie
+                state = BattleState.ACTING;
+                yield return new WaitForSeconds(3f);
+            }
+        }
+
+        state = BattleState.HEROTURN;
+
         if (heroUnit.CheckStun())
         {
             DOVirtual.DelayedCall(1f, OnEndTurn);
-            return;
+            yield break;
         }
         else
         {
             heroControl.Idle();
         }
-
-		dialogueText.text = heroUnit.unitName + " Turn. Choose An Action";
-        heroUnit.ResetStamina();
-        heroHUD.SetStamina(heroUnit.currentStamina);
+        
 		GameUI.Instance.endTurnBtn.SetActive(true);
         GameUI.Instance.endTurnBtn.GetComponentInChildren<TurnClockUI>().StartTime(30f, OnEndTurn);
         //GameUI.Instance.currentTurn.SetActive(true);
@@ -425,9 +461,18 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    
+
     bool EnemyAttack(int indexEnemy)
 	{
-        bool isMiss = heroUnit.TakeDamage(enemyUnits[indexEnemy].damage);
+        int damage = enemyUnits[indexEnemy].damage;
+
+        if (heroUnit.isFightsback)
+        {
+            damage = 0;
+        }
+        
+        bool isMiss = heroUnit.TakeDamage(damage, enemyUnits[indexEnemy].CheckAP());
         bool isDead = heroUnit.isDead;
 
         Sequence s = DOTween.Sequence();
@@ -447,25 +492,33 @@ public class BattleSystem : MonoBehaviour
         s.AppendInterval(0.6f);
         s.AppendCallback(() =>
         {
-            if (isMiss)
+            if (heroUnit.isFightsback)
             {
-                //heroControl.Dodge();
+                heroUnit.axieBuff.GetComponent<AxieUnit>().Fightsback(enemyUnits[indexEnemy].damage);
+                TextFx.Create(heroControl.transform.position, 0, TypeText.HIT);
             }
             else
             {
-                //Currently enemy dont has crit
-                TextFx.Create(heroControl.transform.position, enemyUnits[indexEnemy].damage, TypeText.HIT);
-
-                if (isDead)
+                if (isMiss)
                 {
-                    heroControl.Dead();
+                    //heroControl.Dodge();
                 }
                 else
                 {
-                    heroControl.OneHit();
+                    //Currently enemy dont has crit
+                    TextFx.Create(heroControl.transform.position, enemyUnits[indexEnemy].damage, TypeText.HIT);
+
+                    if (isDead)
+                    {
+                        heroControl.Dead();
+                    }
+                    else
+                    {
+                        heroControl.OneHit();
+                    }
+                    heroHUD.SetHP(heroUnit.currentHP);
+                    heroHUD.SetShield(heroUnit.shield);
                 }
-                heroHUD.SetHP(heroUnit.currentHP);
-                heroHUD.SetShield(heroUnit.shield);
             }
         });
         s.AppendInterval(0.4f);
@@ -520,6 +573,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnNext()
     {
+        heroUnit.ClearFightsback();
         GameUI.Instance.nextBtn.SetActive(false);
 
         //check upgrade level
@@ -645,17 +699,30 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(HeroAttack());
 	}
 
-	public void OnHealButton()
+    public void OnHealButton(int heal)
 	{
         if (state != BattleState.HEROTURN)
             return;
-        OnHeroHeal(5);
+        OnHeroHeal(heal);
     }
 
     public void OnHeroHeal(int heal)
     {
         heroHUD.SetStamina(heroUnit.currentStamina);
         StartCoroutine(HeroHeal(heal));
+    }
+
+    public void OnShielButton(int shi)
+    {
+        if (state != BattleState.HEROTURN)
+            return;
+        OnHeroShiel(shi);
+    }
+
+    public void OnHeroShiel(int shi)
+    {
+        heroHUD.SetStamina(heroUnit.currentStamina);
+        StartCoroutine(HeroShiel(shi));
     }
 
     public void OnHeroStamina(int stamina)

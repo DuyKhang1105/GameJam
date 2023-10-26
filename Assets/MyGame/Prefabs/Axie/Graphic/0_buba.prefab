@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 567527737173399704}
   - component: {fileID: 567527737173399707}
   - component: {fileID: 7266287450823414957}
+  - component: {fileID: 1652197663706556312}
   m_Layer: 0
   m_Name: 0_buba
   m_TagString: Untagged
@@ -132,3 +133,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed3071991bd1e04aab438f071dc1551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1652197663706556312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567527737173399706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecca6508c02be524ebe3c52916e7a8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: 
+  damage: 0
+  shield: 0
+  maxHP: 0
+  currentHP: 0
+  turnStun: 0
+  dodgeRate: 0
+  criticalRate: 0
+  armorPenetrationRate: 0
+  isDead: 0
+  isCrit: 0
+  skillType: 0
+  actionRate: 0
