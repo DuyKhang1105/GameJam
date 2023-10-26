@@ -394,7 +394,6 @@ public class BattleSystem : MonoBehaviour
         }
         
 		GameUI.Instance.endTurnBtn.SetActive(true);
-        GameUI.Instance.endTurnBtn.GetComponentInChildren<TurnClockUI>().StartTime(30f, OnEndTurn);
         //GameUI.Instance.currentTurn.SetActive(true);
         //GameUI.Instance.currentTurn.GetComponentInChildren<TextMeshProUGUI>().text = "Hero Turn";
         //Notification.Instance.ShowNoti("Hero turn begin");
