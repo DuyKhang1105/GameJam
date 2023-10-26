@@ -24,6 +24,9 @@ public class InventoryItem : Drag
 
     private Vector3 startDragPos;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip lootSnd;
+
     public void ParseItem(ItemConfig config)
     {
         itemConfig = config;
@@ -44,6 +47,8 @@ public class InventoryItem : Drag
     public override void PointDownHandler(BaseEventData data)
     {
         base.PointDownHandler(data);
+
+        SoundManager.Instance.PlayButtonSound();
         startDragPos = GetPoint(data);
     }
 
@@ -71,6 +76,8 @@ public class InventoryItem : Drag
                 isInInventory = true;
                 placeds = temp;
 
+                SoundManager.Instance.PlayOneShot(lootSnd);
+
                 //set position
                 Vector3 sumPos = Vector3.zero;
                 placeds.ForEach(x => sumPos += x.transform.position);
@@ -96,14 +103,17 @@ public class InventoryItem : Drag
                         foreach (var equipItem in allEquips)
                         {
                             var equip = ItemConfigs.Instance.equips.Find(x=>x.id == equipItem.itemConfig.id);
-                            if (equip.equipType == EquipType.Shoe)
+                            if (equip != null)
                             {
-                                avoidRare += equip.value + GetBonusValue(equip.id);
-                            }
-                            else if (equip.equipType == EquipType.Helmet)
-                            {
-                                critRare += equip.value + GetBonusValue(equip.id);
-                            }
+                                if (equip.equipType == EquipType.Shoe)
+                                {
+                                    avoidRare += equip.value + GetBonusValue(equip.id);
+                                }
+                                else if (equip.equipType == EquipType.Helmet)
+                                {
+                                    critRare += equip.value + GetBonusValue(equip.id);
+                                }
+                            }                          
                         }
                         BattleSystem.Instance.heroUnit.criticalRate = critRare;
                         BattleSystem.Instance.heroUnit.dodgeRate = avoidRare;
@@ -171,6 +181,7 @@ public class InventoryItem : Drag
         int temp = width;
         width = height;
         height = temp;
+        SoundManager.Instance.PlayButtonSound();
     }
 
     private void ShowInfo()

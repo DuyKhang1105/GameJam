@@ -9,6 +9,9 @@ public class AxieChest : MonoBehaviour
     [SerializeField] private Sprite normalSpr;
     [SerializeField] private Sprite openedSpr;
     public bool isOpend;
+    public int count = 3; 
+
+    [SerializeField] private AudioClip openSnd;
 
     private void OnEnable()
     {
@@ -20,10 +23,12 @@ public class AxieChest : MonoBehaviour
         GetComponent<Image>().sprite = isOpend? openedSpr : normalSpr;
     }
 
+
     private void OpenChest()
     {
-        var gameUI = FindObjectOfType<GameUI>();
-        gameUI.axieChestPopup.gameObject.SetActive(true);
+        SoundManager.Instance.PlayOneShot(openSnd);
+        GameUI.Instance.axieChestPopup.gameObject.SetActive(true);
+        GameUI.Instance.axieChestPopup.GetComponent<AxieChestPopup>().OpenChest(count);
         UpdateVirtual();
     }
 

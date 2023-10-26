@@ -36,10 +36,12 @@ public class AxieChestPopup : MonoBehaviour
         } 
     }
 
-    private void OnEnable()
+
+    public void OpenChest(int c=3)
     {
-        OpenChest();
-        SelectAxie(1); 
+        count = c;
+        _OpenChest();
+        SelectAxie(1);
     }
 
     private void SelectAxie(int index)
@@ -72,7 +74,7 @@ public class AxieChestPopup : MonoBehaviour
         inventory.SpawnItems(lst, skipBtn.transform);
     }
 
-    private void OpenChest()
+    private void _OpenChest()
     {
         isSelected = false;
         GameUI.Instance.bg.SetActive(true); 

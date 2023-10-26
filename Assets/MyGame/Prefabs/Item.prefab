@@ -184,4 +184,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 1
   height: 1
-  inInventory: 0
+  isInInventory: 0
+  lootSnd: {fileID: 8300000, guid: 7c85bc0f07b20d74aadd60774f4b1c45, type: 3}

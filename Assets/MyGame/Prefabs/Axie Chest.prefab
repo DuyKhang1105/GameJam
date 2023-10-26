@@ -136,3 +136,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSpr: {fileID: 2465927689777707589, guid: f471cc81e14749c45afd39370bd4a58b, type: 3}
   openedSpr: {fileID: -457357489305184010, guid: f471cc81e14749c45afd39370bd4a58b, type: 3}
+  isOpend: 0
+  openSnd: {fileID: 8300000, guid: e9c236ce4a752e24bbdad3f241d6334f, type: 3}

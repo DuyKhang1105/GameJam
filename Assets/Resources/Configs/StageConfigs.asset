@@ -16,42 +16,102 @@ MonoBehaviour:
   - stageType: 4
     isLevelUp: 0
     enemyNames: 
+    chest:
+      rareMax: 0
+      count: 2
+      itemIds:
+      - 0_Equip_Weapon_Axe
+      - 5_Equip_Shield
   - stageType: 1
     isLevelUp: 0
     enemyNames: 070000000600000008000000
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []
   - stageType: 5
     isLevelUp: 0
     enemyNames: 
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []
   - stageType: 1
     isLevelUp: 0
     enemyNames: 0f0000000d0000000e000000
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []
   - stageType: 4
     isLevelUp: 0
     enemyNames: 
+    chest:
+      rareMax: 0.3
+      count: 4
+      itemIds:
+      - 0_Item_Heal_HP
   - stageType: 2
     isLevelUp: 1
     enemyNames: 050000000300000004000000
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []
   - stageType: 5
     isLevelUp: 0
     enemyNames: 
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []
   - stageType: 1
     isLevelUp: 0
     enemyNames: 090000000a0000000b000000
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []
   - stageType: 4
     isLevelUp: 0
     enemyNames: 
+    chest:
+      rareMax: 0.6
+      count: 5
+      itemIds:
+      - 3_Item_Upgrade_Pet
   - stageType: 2
     isLevelUp: 1
     enemyNames: 100000000c000000
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []
   - stageType: 5
     isLevelUp: 0
     enemyNames: 
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []
   - stageType: 1
     isLevelUp: 0
     enemyNames: 0100000002000000
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []
   - stageType: 4
     isLevelUp: 0
     enemyNames: 
+    chest:
+      rareMax: 0.9
+      count: 5
+      itemIds: []
   - stageType: 3
     isLevelUp: 0
     enemyNames: 1300000012000000
+    chest:
+      rareMax: 0
+      count: 0
+      itemIds: []

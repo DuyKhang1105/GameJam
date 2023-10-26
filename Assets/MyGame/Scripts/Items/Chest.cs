@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class ChestData
+{
+    public float rareMax;
+    public int count;
+    public List<string> itemIds;
+}
+
 public class Chest : MonoBehaviour
 {
     [SerializeField] private Sprite commonSpr;
@@ -13,8 +21,9 @@ public class Chest : MonoBehaviour
     [SerializeField] private Sprite legendSpr;
     [SerializeField] private Sprite legendOpenedSpr;
 
-    public float rareMax;
-    public int count;
+    [SerializeField] private AudioClip openSnd;
+
+    public ChestData chestData;
 
     public bool isOpend;
 
@@ -23,24 +32,34 @@ public class Chest : MonoBehaviour
         UpdateVirtual();
     }
 
-    public void InitChest(float _rareMax, int _count)
+    public void InitChest(float _rareMax, int _count, List<string> itemIds)
     {
-        rareMax = _rareMax;
-        count = _count;
+        chestData = new ChestData();
+        chestData.rareMax = _rareMax;
+        chestData.count = _count;
+        chestData.itemIds = new List<string>(itemIds);
         UpdateVirtual();
     }
 
     private void UpdateVirtual()
     {
         var chestImg = GetComponent<Image>();
-        if (rareMax <= 0.1f) chestImg.sprite = isOpend? commonOpenedSpr: commonSpr;
-        else if (rareMax <= 0.75f) chestImg.sprite = isOpend ? rareOpenedSpr: rareSpr;
+        if (chestData.rareMax <= 0.3f) chestImg.sprite = isOpend? commonOpenedSpr: commonSpr;
+        else if (chestData.rareMax <= 0.6f) chestImg.sprite = isOpend ? rareOpenedSpr: rareSpr;
         else chestImg.sprite = isOpend ? legendOpenedSpr : legendSpr;
     }
 
     private void OpenChest()
     {
-        var items = ItemConfigs.Instance.GetItemsInChests(rareMax, count);
+        SoundManager.Instance.PlayOneShot(openSnd);
+
+        int count = chestData.count - chestData.itemIds.Count;
+        var items = new List<ItemConfig>();
+        chestData.itemIds.ForEach(x=> items.Add(ItemConfigs.Instance.GetItemConfig(x)));
+        if (count > 0)
+        {
+            items.AddRange(ItemConfigs.Instance.GetItemsInChests(chestData.rareMax, count));
+        }       
         FindObjectOfType<Inventory>().SpawnItems(items, transform);
         UpdateVirtual();
     }

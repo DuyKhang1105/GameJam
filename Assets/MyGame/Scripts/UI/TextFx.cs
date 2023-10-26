@@ -11,7 +11,7 @@ public class TextFx : MonoBehaviour
     public static TextFx Create(Vector3 pos, int value, TypeText typeText)
     {
         Vector3 newPos = pos + new Vector3(0, 1, 0);
-        Transform textFxTransform = Instantiate(AssetsGame.Instance.TextFx, newPos, Quaternion.identity);
+        GameObject textFxTransform = Instantiate(GameUI.Instance.textFx, newPos, Quaternion.identity);
 
         TextFx textFx = textFxTransform.GetComponent<TextFx>();
         textFx.SetUp(value, typeText);

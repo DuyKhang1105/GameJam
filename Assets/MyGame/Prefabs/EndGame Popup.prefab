@@ -506,6 +506,8 @@ MonoBehaviour:
   decorLeft: {fileID: 7039765840883283347}
   decorRight: {fileID: 548402386007996524}
   replayBtn: {fileID: 4750270394668253545}
+  winSnd: {fileID: 8300000, guid: cf38cdfe10e504e4bb420147d1d3dce8, type: 3}
+  loseSnd: {fileID: 8300000, guid: a1603ed4ffd53c94d81cb2297ac10661, type: 3}
 --- !u!1 &5764901187951513373
 GameObject:
   m_ObjectHideFlags: 0

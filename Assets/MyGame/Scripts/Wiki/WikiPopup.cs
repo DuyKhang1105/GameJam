@@ -11,6 +11,8 @@ public class WikiPopup : MonoBehaviour
     [SerializeField] private List<GameObject> tabContents;
     [SerializeField] private ScrollRect scrollRect;
 
+    [SerializeField] private Button closeBtn;
+
     private int tabSelected;
 
     private void Awake()
@@ -23,6 +25,8 @@ public class WikiPopup : MonoBehaviour
                 OnSelectTab(index);
             });
         }
+
+        closeBtn.onClick.AddListener(OnClickClose);
     }
 
     private void OnSelectTab(int index)
@@ -46,5 +50,11 @@ public class WikiPopup : MonoBehaviour
         GameUI.Instance.bg.SetActive(true);
         //TODO wiki
         OnSelectTab(0);
+    }
+
+    private void OnClickClose()
+    {
+        SoundManager.Instance.PlayButtonSound();
+        gameObject.SetActive(false);
     }
 }

@@ -14,9 +14,13 @@ public class EndGamePopup : MonoBehaviour
     [SerializeField] private GameObject decorRight;
     [SerializeField] private GameObject replayBtn;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioClip winSnd;
+    [SerializeField] private AudioClip loseSnd;
+
     private void Awake()
     {
-        replayBtn.GetComponent<Button>().onClick.AddListener(Replay);
+        replayBtn.GetComponent<Button>().onClick.AddListener(OnClickReplay);
     }
 
     [ContextMenu("Test lose")]
@@ -56,10 +60,13 @@ public class EndGamePopup : MonoBehaviour
             seq.Join(decorLeft.transform.DOLocalMove(new Vector3(-710, 440), time/2f));
             seq.Join(decorRight.transform.DOLocalMove(new Vector3(710, 440), time/2f));
         }
+
+        SoundManager.Instance.PlayOneShot(isWin ? winSnd : loseSnd);
     }
 
-    private void Replay()
+    private void OnClickReplay()
     {
+        SoundManager.Instance.PlayButtonSound();
         SceneManager.LoadScene("MainScene");
     }
 }

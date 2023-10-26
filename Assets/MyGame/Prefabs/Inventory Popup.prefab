@@ -7832,6 +7832,7 @@ MonoBehaviour:
   - {fileID: 8868721843346133683}
   axies: []
   progresses: []
+  collectedSnd: {fileID: 8300000, guid: 110c66b3193cc7a4890f9419111f0490, type: 3}
 --- !u!1 &2887798813287796083
 GameObject:
   m_ObjectHideFlags: 0

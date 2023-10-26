@@ -10,7 +10,10 @@ public class TurnClockUI : MonoBehaviour
     [SerializeField] private Image circleImg;
     [SerializeField] private TextMeshProUGUI timeTmp;
 
+    [SerializeField] private AudioClip clockSnd;
+
     private bool isStart;
+    private int iTime;
     private float time;
     private float totalTime;
 
@@ -34,6 +37,11 @@ public class TurnClockUI : MonoBehaviour
                 isStart = false;
                 onEnded?.Invoke();
                 return;
+            }
+            if (time < 10 && iTime!= (int)time)
+            {
+                iTime = (int)time;
+                SoundManager.Instance.PlayOneShot(clockSnd);
             }
             timeTmp.text = ((int)time).ToString();
             circleImg.fillAmount = time / totalTime;

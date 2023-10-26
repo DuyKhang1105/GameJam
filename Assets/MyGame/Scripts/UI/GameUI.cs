@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameUI : MonoBehaviour
+public class GameUI : MonoSingleton<GameUI>
 {
     [Header("Inventory")]
     public GameObject inventory;
@@ -35,11 +35,13 @@ public class GameUI : MonoBehaviour
 
     [Header("Fx prerab")]
     public GameObject bubbleFx;
+    public GameObject textFx;
 
-    public static GameUI Instance;
+    [Header("Sound")]
+    [SerializeField] private AudioClip musicSnd;
 
-    private void Awake()
+    private void Start()
     {
-        Instance = this;
+        SoundManager.Instance.PlayLoop(musicSnd);
     }
 }

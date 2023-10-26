@@ -11,6 +11,8 @@ public class AxieInventory : MonoBehaviour
 
     public Action onChangeList;
 
+    [SerializeField] private AudioClip collectedSnd;
+
     private void Start()
     {
         axies = new List<AxieConfig>();
@@ -32,6 +34,7 @@ public class AxieInventory : MonoBehaviour
 
     public void AddAxie(AxieConfig axie)
     {
+        SoundManager.Instance.PlayOneShot(collectedSnd);
         axies.Add(axie);
         progresses.Add(0f);
         onChangeList?.Invoke();
@@ -48,6 +51,7 @@ public class AxieInventory : MonoBehaviour
             {
                 axies[index] = axieUpgrade;
                 slotTrans[index].GetComponent<AxieInventorySlot>().ParseAxie(axieUpgrade, progresses[index]);
+                SoundManager.Instance.PlayOneShot(collectedSnd);
             }
         }  
         onChangeList?.Invoke();

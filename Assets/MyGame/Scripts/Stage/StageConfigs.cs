@@ -17,8 +17,11 @@ public class StageConfig
 {
     public StageType stageType;
     public bool isLevelUp;
-    
+
+    [Header("Enemies")]
     public List<EnemyName> enemyNames;
+    [Header("Chest")]
+    public ChestData chest;
 }
 
 [CreateAssetMenu(fileName = "StageConfigs", menuName = "Configs/StageConfigs")]
