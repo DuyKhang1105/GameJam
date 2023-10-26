@@ -159,21 +159,25 @@ public class BattleSystem : MonoBehaviour
             //    //TODO
             //    break;
             case StageType.Chest:
-                if (stageIndex == 0)
-                {
-                    GameUI.Instance.startChest.GetComponent<StartChest>().isOpened = false;
-                    GameUI.Instance.startChest.SetActive(true);
-                }       
-                else
+                //if (stageIndex == 0)
+                //{
+                //    GameUI.Instance.startChest.GetComponent<StartChest>().isOpened = false;
+                //    GameUI.Instance.startChest.SetActive(true);
+                //}       
+                //else
                 {
                     GameUI.Instance.chest.GetComponent<Chest>().isOpend = false;
                     GameUI.Instance.chest.SetActive(true);
+                    //TODO check axie add item
+                    var chest = stage.chest;
+                    GameUI.Instance.chest.GetComponent<Chest>().InitChest(chest.rareMax, chest.count, chest.itemIds);
                 }
                 state = BattleState.LOOTITEM;
                 break;
             case StageType.AxieChest:
                 GameUI.Instance.axieChest.GetComponent<AxieChest>().isOpend = false;
                 GameUI.Instance.axieChest.SetActive(true);
+                GameUI.Instance.axieChest.GetComponent<AxieChest>().count = 3; //TODO check axie add count
                 state = BattleState.LOOTAXIE;
                 break;
         }
