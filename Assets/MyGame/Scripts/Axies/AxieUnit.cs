@@ -15,6 +15,7 @@ public class AxieUnit : Unit
 
     [Range(0f, 1f)]
     public float actionRate;
+    public float skillValue;
 
     string axieID;
     BattleSystem battleSystem;
@@ -24,6 +25,7 @@ public class AxieUnit : Unit
         this.axieID = axieConfig.axieId;
         this.actionRate = axieConfig.actionRate;
         this.skillType = axieConfig.skillType;
+        skillValue = axieConfig.skillValue;
 
         axieBattleStation = transform.position;
         battleSystem = BattleSystem.Instance;
@@ -46,10 +48,10 @@ public class AxieUnit : Unit
     {
         switch (skillType)
         {
-            case AxieSkillType.ExpansionSlot:
+            case AxieSkillType.ExtensionSlot:
                 break;
 
-            case AxieSkillType.ExpansionChest:
+            case AxieSkillType.ExtensionChest:
 
                 break;
 
@@ -58,15 +60,15 @@ public class AxieUnit : Unit
                 break;
 
             case AxieSkillType.AxieHit:
-                StartCoroutine(AxieHit(2));
+                StartCoroutine(AxieHit((int)skillValue));
                 break;
 
             case AxieSkillType.BuffHP:
-                BuffHP(5);
+                BuffHP((int)skillValue);
                 break;
 
             case AxieSkillType.BuffStamina:
-                BuffStamina(3);
+                BuffStamina((int)skillValue);
                 break;
 
             case AxieSkillType.Fightsback:

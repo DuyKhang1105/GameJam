@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,6 +41,8 @@ public class FeedAxiePopup : MonoBehaviour
             for (int i = 0; i < axies.Count; i++)
             {
                 slotTrans[i].gameObject.SetActive(true);
+
+                slotTrans[i].GetComponentInChildren<TextMeshProUGUI>().text = AxieConfigs.Instance.GetInfoAxie(axies[i].axieId);
 
                 var axieSlot = slotTrans[i].GetComponentInChildren<AxieInventorySlot>();
                 axieSlot.ParseAxie(axies[i], progresses[i]);

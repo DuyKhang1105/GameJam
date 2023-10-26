@@ -16,83 +16,99 @@ MonoBehaviour:
   - axieId: 0_buba
     graphic: {fileID: 567527737173399706, guid: 04a60e4ea07d0d540b3bf7675f16fb10, type: 3}
     graphicUI: {fileID: 2040169491040669554, guid: 4055ea4c9ecd14940afc81c68b824b33, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 1
+    skillValue: 1
+    actionRate: 1
   - axieId: 1_olek
     graphic: {fileID: 3241507626981268731, guid: 3e385743d52b4234eac1e21590dc343d, type: 3}
     graphicUI: {fileID: 8395278460560440481, guid: d81c230f97528a24591508534a1d0572, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 9
+    skillValue: 0
+    actionRate: 0.5
   - axieId: 2_puffy
     graphic: {fileID: 4230550480230221130, guid: 1ef95b973f1e36f4198e4890e3937aba, type: 3}
     graphicUI: {fileID: 6084218806849857021, guid: cc5db3c2c7394ab419e141f8b4e363fa, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 8
+    skillValue: 1
+    actionRate: 0.5
   - axieId: 3_ena
     graphic: {fileID: 9120296276262758008, guid: 83de47c28aa974f428eb5c10ba5642ce, type: 3}
     graphicUI: {fileID: 1662170277037821, guid: 1d1635a8938a45744b7f1362a93fc57e, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 2
+    skillValue: 1
+    actionRate: 1
   - axieId: 4_support-plant
     graphic: {fileID: 8601513841888329364, guid: e68316e790f05b243b5159aad281423a, type: 3}
     graphicUI: {fileID: 4109741093773595755, guid: e6ac30facc000a24795972be74441c03, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 9
+    skillValue: 0
+    actionRate: 0.3
   - axieId: 5_dps-beast
     graphic: {fileID: 5834138935758534320, guid: 11be92c35c8d2d8428f1028257da924d, type: 3}
     graphicUI: {fileID: 947425079260437950, guid: e9f9c3d21fbf7b4439ef1215ee6592aa, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 6
+    skillValue: 2
+    actionRate: 0.5
   - axieId: 6_pomodoro
     graphic: {fileID: 2649478021264835990, guid: a4a5349939c8846478f547dca9c774dc, type: 3}
     graphicUI: {fileID: 3183017159687755110, guid: 4714a6d93c6821349b6cafe2e45c91ad, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 4
+    skillValue: 1
+    actionRate: 1
   - axieId: 7_venoki
     graphic: {fileID: 6449026670678831439, guid: d70735a0f445016499174f3257060fc4, type: 3}
     graphicUI: {fileID: 3771646770041299321, guid: 3d06ff3eab5d4c34787b9175307ac238, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 11
+    skillValue: 0
+    actionRate: 0.3
   - axieId: 8_machito
     graphic: {fileID: 896284930802090787, guid: 7a320e0e4c94a754183b00fbee9fa105, type: 3}
     graphicUI: {fileID: 6089459053807806989, guid: 81b58642d13945345be946469d8c6179, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 11
+    skillValue: 0
+    actionRate: 0.5
   - axieId: 9_dps-aqua
     graphic: {fileID: 8494666376533048238, guid: 603d7cf6defc4a34db4059afd2cfddcb, type: 3}
     graphicUI: {fileID: 3018652009030773789, guid: 904f9c6bbd9168748b9bc939f56d1ade, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 8
+    skillValue: 1
+    actionRate: 1
   - axieId: 10_hybrid
     graphic: {fileID: 3319454358107987868, guid: 7275d0b8965a44b4c9f378212eb9158e, type: 3}
     graphicUI: {fileID: 1732492013610492492, guid: e66a6353578472f4e98f0c7e5b47cb41, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 1
+    skillValue: 1
+    actionRate: 1
   - axieId: 11_dps-bug
     graphic: {fileID: 242006166021285473, guid: d8705d71257538140b6918594c4f6fab, type: 3}
     graphicUI: {fileID: 676163914646178459, guid: e998890155649c34c8221cfec96b445d, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 5
+    skillValue: 1
+    actionRate: 1
   - axieId: 12_momo
     graphic: {fileID: 8401533735171167159, guid: 1ee892e4b8156b54b9921ca75bea296c, type: 3}
     graphicUI: {fileID: 1797289083974303833, guid: fae37134451e86944abf5d25c7d27885, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 3
+    skillValue: 1
+    actionRate: 1
   - axieId: 13_support-beast
     graphic: {fileID: 3463262922327511688, guid: 20d06debc48b8d74f94fc0b4cc0c9115, type: 3}
     graphicUI: {fileID: 5205339517076251422, guid: 38bfd0b269b75ea4ba1b39ef0e0786cc, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 6
+    skillValue: 2
+    actionRate: 1
   - axieId: 14_dps-bird
     graphic: {fileID: 3988695674934713885, guid: f22625d1c82ad56429c980a3d802ffcc, type: 3}
     graphicUI: {fileID: 7910530280980303507, guid: b0fa9b2b38af15c4d9252ced8f221925, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 10
+    skillValue: 0.5
+    actionRate: 0.3
   - axieId: 15_support-dusk
     graphic: {fileID: 2091135941429469377, guid: aa54abbeb4c2fe547b486ba3d39e7df4, type: 3}
     graphicUI: {fileID: 968711432678643527, guid: 7c0704f258c483240b0f1ee800c26560, type: 3}
-    skillType: 0
-    actionRate: 0
+    skillType: 10
+    skillValue: 0.5
+    actionRate: 0.5
   upgradeConfigs:
   - axieIds:
     - 10_hybrid

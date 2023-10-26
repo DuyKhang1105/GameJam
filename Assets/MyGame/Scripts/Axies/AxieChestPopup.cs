@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -86,6 +87,8 @@ public class AxieChestPopup : MonoBehaviour
             {
                 var axie = AxieConfigs.Instance.GetRandom(axiesIgnore);
                 slotTrans[i].gameObject.SetActive(true);
+
+                slotTrans[i].GetComponentInChildren<TextMeshProUGUI>().text = AxieConfigs.Instance.GetInfoAxie(axie.axieId);
 
                 var axieSlot = slotTrans[i].GetComponentInChildren<AxieInventorySlot>();
                 axieSlot.ParseAxie(axie, 0f);

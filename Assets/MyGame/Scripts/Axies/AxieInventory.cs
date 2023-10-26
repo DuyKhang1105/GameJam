@@ -45,16 +45,16 @@ public class AxieInventory : MonoBehaviour
     {
         progresses[index] += 1f; // / 3f;
         //upgrade axie
-        if (progresses[index] > 1f) {
+        if (progresses[index] >= 1f) {
             var axieUpgrade = AxieConfigs.Instance.GetUpgrade(axies[index].axieId);
             if (axieUpgrade != null)
             {
                 axies[index] = axieUpgrade;
                 slotTrans[index].GetComponent<AxieInventorySlot>().ParseAxie(axieUpgrade, progresses[index]);
                 SoundManager.Instance.PlayOneShot(collectedSnd);
+                onChangeList?.Invoke();
+                UpdateVirtual();
             }
         }  
-        onChangeList?.Invoke();
-        UpdateVirtual();
     }
 }

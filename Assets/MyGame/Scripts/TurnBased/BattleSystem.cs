@@ -84,7 +84,7 @@ public class BattleSystem : MonoBehaviour
             GameObject axieGO = Instantiate(config.graphic, axieBattleStations[i]);
             axieGO.transform.localPosition = Vector3.zero;
             axieGO.transform.localScale = new Vector3(-0.8f, 0.8f, 0.8f);
-            axieGO.GetComponent<AxieControl>().Idle();
+            axieGO.GetComponent<AxieControl>().Idle();      
             axieGO.GetComponent<AxieUnit>().Parse(config);
 
             dicAxies.Add(config.axieId, axieGO);
@@ -124,6 +124,8 @@ public class BattleSystem : MonoBehaviour
             enemyConfigs.Add(enemy);
         }
 
+        var axieInventory = FindObjectOfType<AxieInventory>();
+
         Debug.LogError("stage.stageType: " + stage.stageType);
         Debug.LogError("count enemyConfigs: " + enemyConfigs.Count);
         switch (stage.stageType) {
@@ -159,25 +161,19 @@ public class BattleSystem : MonoBehaviour
             //    //TODO
             //    break;
             case StageType.Chest:
-                //if (stageIndex == 0)
-                //{
-                //    GameUI.Instance.startChest.GetComponent<StartChest>().isOpened = false;
-                //    GameUI.Instance.startChest.SetActive(true);
-                //}       
-                //else
-                {
-                    GameUI.Instance.chest.GetComponent<Chest>().isOpend = false;
-                    GameUI.Instance.chest.SetActive(true);
-                    //TODO check axie add item
-                    var chest = stage.chest;
-                    GameUI.Instance.chest.GetComponent<Chest>().InitChest(chest.rareMax, chest.count, chest.itemIds);
-                }
+                GameUI.Instance.chest.GetComponent<Chest>().isOpend = false;
+                GameUI.Instance.chest.SetActive(true);
+                var chest = stage.chest;
+                var hasUpgradeChest = axieInventory.axies.Any(x => x.skillType == AxieSkillType.ExtensionChest);
+                var count = hasUpgradeChest? chest.count + 1 : chest.count;
+                GameUI.Instance.chest.GetComponent<Chest>().InitChest(chest.rareMax, count, chest.itemIds);
                 state = BattleState.LOOTITEM;
                 break;
             case StageType.AxieChest:
                 GameUI.Instance.axieChest.GetComponent<AxieChest>().isOpend = false;
                 GameUI.Instance.axieChest.SetActive(true);
-                GameUI.Instance.axieChest.GetComponent<AxieChest>().count = 3; //TODO check axie add count
+                var hasUpgradeAxieChest = axieInventory.axies.Any(x => x.skillType == AxieSkillType.ExtensionAxieChest);
+                GameUI.Instance.axieChest.GetComponent<AxieChest>().count = hasUpgradeAxieChest ? 4 : 3; 
                 state = BattleState.LOOTAXIE;
                 break;
         }

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
@@ -50,6 +51,25 @@ public class Inventory : MonoBehaviour
         slots = new InventorySlot[Width, Height];
         level = 1;
         UpgradeLevel(1);
+
+        var axieInventory = FindAnyObjectByType<AxieInventory>();
+        axieInventory.onChangeList += OnChangeAxieList;
+    }
+
+    [ContextMenu("Change axie list")]
+    private void OnChangeAxieList()
+    {
+        var axieInventory = FindAnyObjectByType<AxieInventory>();
+        var axieUpgradeChest = axieInventory.axies.Find(x => x.skillType == AxieSkillType.ExtensionChest);
+        if (axieUpgradeChest != null)
+        {
+            for (int i = 0; i < axieUpgradeChest.skillValue; i++)
+            {
+                int col = 0;
+                int row = i;
+                slotImages[i].ParseSlot(col, row, true, false);
+            }
+        }
     }
 
     public void UpgradeLevel(int level = 1)
@@ -60,8 +80,8 @@ public class Inventory : MonoBehaviour
             bool isLocked = false;
 
             if (i < 3) {
-                //Axie slot
-                isLocked = true;
+                //init
+                if (level == 1) isLocked = true;
             }
             else if (i < 12) {
                 isLocked = level < 1;
