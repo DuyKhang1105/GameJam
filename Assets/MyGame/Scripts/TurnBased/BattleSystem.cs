@@ -126,8 +126,6 @@ public class BattleSystem : MonoBehaviour
 
         var axieInventory = FindObjectOfType<AxieInventory>();
 
-        Debug.LogError("stage.stageType: " + stage.stageType);
-        Debug.LogError("count enemyConfigs: " + enemyConfigs.Count);
         switch (stage.stageType) {
             case StageType.Enemy:
             case StageType.MiniBoss:
@@ -551,10 +549,10 @@ public class BattleSystem : MonoBehaviour
         
 	public void OnEndTurn()
 	{
-        GameUI.Instance.endTurnBtn.SetActive(false);
-
         if (state != BattleState.HEROTURN)
             return;
+
+        GameUI.Instance.endTurnBtn.SetActive(false);
 
         bool isAllEnemiesDead = enemyUnits.All(e => e.isDead);
         if (isAllEnemiesDead)
@@ -565,10 +563,9 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
-            GameUI.Instance.endTurnBtn.SetActive(false);
         }
-        
     }
+
 
     public void OnNext()
     {
@@ -661,6 +658,9 @@ public class BattleSystem : MonoBehaviour
                 return;
             }
         }
+
+        Debug.LogError("AutoEndTurn");
+        OnEndTurn();  
     }
 
     public bool CheckWin()

@@ -59,7 +59,7 @@ public class Inventory : MonoBehaviour
     [ContextMenu("Change axie list")]
     private void OnChangeAxieList()
     {
-        var axieInventory = FindAnyObjectByType<AxieInventory>();
+        var axieInventory = FindObjectOfType<AxieInventory>();
         var axieUpgradeChest = axieInventory.axies.Find(x => x.skillType == AxieSkillType.ExtensionChest);
         if (axieUpgradeChest != null)
         {
