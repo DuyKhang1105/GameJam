@@ -18,7 +18,7 @@ public class WikiPetContent : MonoBehaviour
                 item.SetActive(true);
                 var axie = AxieConfigs.Instance.GetAxieConfig(axieId);
                 var axieGo = Instantiate(axie.graphicUI, item.transform.GetChild(0));
-                item.transform.GetChild(1).gameObject.SetActive(axieLevel.axieIds.IndexOf(axieId) != axieLevel.axieIds.Count - 1); //show upgrade icon
+                item.transform.GetChild(1).gameObject.SetActive(axieLevel.axieIds.IndexOf(axieId) == axieLevel.axieIds.Count - 1); //show upgrade icon
                 axieGo.transform.localPosition = new Vector3(0, -60, 0);
                 axieGo.transform.localScale = new Vector3(-1, 1, 1);
 
