@@ -17,7 +17,7 @@ MonoBehaviour:
     graphic: {fileID: 567527737173399706, guid: 04a60e4ea07d0d540b3bf7675f16fb10, type: 3}
     graphicUI: {fileID: 2040169491040669554, guid: 4055ea4c9ecd14940afc81c68b824b33, type: 3}
     skillType: 1
-    skillValue: 1
+    skillValue: 3
     actionRate: 1
   - axieId: 1_olek
     graphic: {fileID: 3241507626981268731, guid: 3e385743d52b4234eac1e21590dc343d, type: 3}

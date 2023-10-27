@@ -107,11 +107,11 @@ public class InventoryItem : Drag
                             {
                                 if (equip.equipType == EquipType.Shoe)
                                 {
-                                    avoidRare += equip.value + GetBonusValue(equip.id);
+                                    avoidRare += equip.value + GetBonusValue(equip.id) + GetAxieBonusEquip(equip.id);
                                 }
                                 else if (equip.equipType == EquipType.Helmet)
                                 {
-                                    critRare += equip.value + GetBonusValue(equip.id);
+                                    critRare += equip.value + GetBonusValue(equip.id) + GetAxieBonusEquip(equip.id);
                                 }
                             }                          
                         }
@@ -205,6 +205,7 @@ public class InventoryItem : Drag
             }
 
             var battleSystem = FindObjectOfType<BattleSystem>();
+            var axieInventory = FindObjectOfType<AxieInventory>();
             if (battleSystem.state == BattleState.HEROTURN)
             {
                 var hero = FindObjectOfType<HeroControl>();
@@ -217,18 +218,18 @@ public class InventoryItem : Drag
                         case ItemType.Equipment:
                             var equip = ItemConfigs.Instance.equips.Find(x => x.id == itemConfig.id);
                             if (equip != null)
-                            {
+                            {                                
                                 switch (equip.statistic)
                                 {
                                     case StatisticType.Attack:
-                                        int damage = (int)equip.value + (int)GetBonusValue(equip.id);
+                                        int damage = (int)equip.value + (int)GetBonusValue(equip.id) + (int)GetAxieBonusEquip(equip.id);
                                         unit.damage = damage;
                                         battleSystem.OnAttackButton();
                                         Debug.Log("Damage " + damage);
                                         Notification.Instance.ShowNoti($"Yee, Deal {damage} damages!!");
                                         break;
                                     case StatisticType.Shield:
-                                        int shield = (int)equip.value + (int)GetBonusValue(equip.id); ;
+                                        int shield = (int)equip.value + (int)GetBonusValue(equip.id) + (int)GetAxieBonusEquip(equip.id);
                                         battleSystem.OnShielButton(shield);
                                         Debug.Log("Shield " + shield);
                                         Notification.Instance.ShowNoti($"Oho, Shield {shield}");
@@ -242,8 +243,9 @@ public class InventoryItem : Drag
                             var support = ItemConfigs.Instance.supports.Find(x => x.id == itemConfig.id);
                             if (support != null)
                             {
-                                UseSupport(support.statistic, support.value);
-                                UseSupport(support.statistic2, support.value2); 
+                                float bonus = GetAxieBonusItem(support.id);
+                                UseSupport(support.statistic, support.value + bonus);
+                                UseSupport(support.statistic2, support.value2 + bonus); 
                             }
                             break;
                     }
@@ -324,10 +326,41 @@ public class InventoryItem : Drag
         return bonusValue;
     }
 
+    public static float GetAxieBonusEquip(string equipId)
+    {
+        var axieInventory = FindObjectOfType<AxieInventory>();
+        var eqyipBonus = 0f;
+        var equip = ItemConfigs.Instance.equips.Find(x => x.id == equipId);
+
+        var axieBuffEquip = axieInventory.axies.Find(x => x.skillType == AxieSkillType.UpgradeAllEquipAndItem);
+        if (axieBuffEquip != null && equip!=null)
+        {
+            if (equip.equipType == EquipType.Shoe || equip.equipType == EquipType.Helmet)
+                eqyipBonus = 0.01f * axieBuffEquip.skillValue;
+            else eqyipBonus = axieBuffEquip.skillValue;
+        }
+        return eqyipBonus;
+    }
+
+    public static float GetAxieBonusItem(string itemId)
+    {
+        var axieInventory = FindObjectOfType<AxieInventory>();
+        var itemBonus = 0f;
+        var item = ItemConfigs.Instance.supports.Find(x => x.id == itemId);
+
+        var axieBuffEquip = axieInventory.axies.Find(x => x.skillType == AxieSkillType.UpgradeItem || x.skillType == AxieSkillType.UpgradeAllEquipAndItem);
+        if (axieBuffEquip != null && item != null)
+        {
+            itemBonus = axieBuffEquip.skillValue;
+        }
+        return itemBonus;
+    }
+
     protected override void OnRightClick()
     {
         base.OnRightClick();
 
+        var axieInventory = FindObjectOfType<AxieInventory>();
         string bubbleText = "";
         switch (itemConfig.type)
         {
@@ -336,6 +369,13 @@ public class InventoryItem : Drag
                 float bonusValue = GetBonusValue(equip.id);            
                 bubbleText = $"{equip.statistic.ToString()} {equip.value}";
                 if (bonusValue>0) bubbleText += $" + {bonusValue}";
+
+                
+                float axieBonusEquip = GetAxieBonusEquip(equip.id);
+                if ( axieBonusEquip>0f)
+                {
+                    bubbleText += $" + {axieBonusEquip}";
+                }
                 break;
             case ItemType.Support:
                 var support = ItemConfigs.Instance.supports.Find(x=>x.id == itemConfig.id);
@@ -348,10 +388,18 @@ public class InventoryItem : Drag
                         bubbleText = "Feed to pet";
                         break;
                     default:
+                        float axieBonusItem = 0f;
+
+                        var axieBuffItem = axieInventory.axies.Find(x => x.skillType == AxieSkillType.UpgradeItem || x.skillType == AxieSkillType.UpgradeAllEquipAndItem);
+                        if (axieBuffItem != null) axieBonusItem = axieBuffItem.skillValue;
+
                         bubbleText = $"{support.statistic.ToString()} {support.value}";
+                        if (axieBonusItem > 0) bubbleText += $" + {axieBonusItem}";
+                        
                         if (support.statistic2 != StatisticType.None)
                         {
                             bubbleText += $"\n{support.statistic2.ToString()} {support.value2}";
+                            if (axieBonusItem > 0) bubbleText += $" + {axieBonusItem}";
                         }
                         break;
                 }
