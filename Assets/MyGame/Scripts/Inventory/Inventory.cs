@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
         level = 1;
         UpgradeLevel(1);
 
-        var axieInventory = FindAnyObjectByType<AxieInventory>();
+        var axieInventory = FindObjectOfType<AxieInventory>();
         axieInventory.onChangeList += OnChangeAxieList;
     }
 
