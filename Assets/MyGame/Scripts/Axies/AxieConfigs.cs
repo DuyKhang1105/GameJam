@@ -101,34 +101,34 @@ public class AxieConfigs : ScriptableObject
                 info = $"Extension {axie.skillValue} slot in inventory";
                 break;
             case AxieSkillType.ExtensionChest:
-                info = $"Bonus {axie.skillValue} item when open chest";
+                info = $"Bonus {axie.skillValue} item \nwhen open chest";
                 break;
             case AxieSkillType.ExtensionAxieChest:
-                info = $"Bonus {axie.skillValue} pet when open chest";
+                info = $"Bonus {axie.skillValue} pet \nwhen open chest";
                 break;
             case AxieSkillType.UpgradeItem:
-                info = $"Bonus {axie.skillValue} value of item in inventory";
+                info = $"Bonus {axie.skillValue} value of item\n in inventory";
                 break;
             case AxieSkillType.UpgradeAllEquipAndItem:
-                info = $"Bonus {axie.skillValue} value of all items and equipments in inventory";
+                info = $"Bonus {axie.skillValue} value of all\n items and equipments in inventory";
                 break;
             case AxieSkillType.AxieHit:
-                info = $"At start turn, pet has a {axie.actionRate * 100}% chance to attack for {axie.skillValue} damage";
+                info = $"At start turn, \npet has a {axie.actionRate * 100}% chance \nto attack for {axie.skillValue} damage";
                 break;
             case AxieSkillType.BuffHP:
-                info = $"At start turn, pet has a {axie.actionRate * 100}% chance to heal for {axie.skillValue} HP";
+                info = $"At start turn, \npet has a {axie.actionRate * 100}% chance \nto heal for {axie.skillValue} HP";
                 break;
             case AxieSkillType.BuffStamina:
-                info = $"At start turn, pet has a {axie.actionRate * 100}% chance to buff for {axie.skillValue} starmina";
+                info = $"At start turn, \npet has a {axie.actionRate * 100}% chance \nto buff for {axie.skillValue} starmina";
                 break;
             case AxieSkillType.Fightsback:
-                info = $"At start turn, pet has a {axie.actionRate * 100}% chance to move to front and fight back enemy's attack";
+                info = $"At start turn, \npet has a {axie.actionRate * 100}% chance \nto move to front and fight back\n enemy's attack";
                 break;
             case AxieSkillType.BloodSucking:
-                info = $"At every hero's attack, pet has a {axie.actionRate * 100}% chance to return 1/2 of enemy's lost HP";
+                info = $"At every hero's attack, \npet has a {axie.actionRate * 100}% chance \nto return 1/2 of enemy's lost HP";
                 break;
             case AxieSkillType.ArmorPenetration:
-                info = $"At every hero's attack, pet has a {axie.actionRate * 100}% chance to skip enemy's armor";
+                info = $"At every hero's attack, \npet has a {axie.actionRate * 100}% chance \nto skip enemy's armor";
                 break;
 
                 //ExtensionSlot, // + inventory slot

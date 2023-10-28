@@ -55,6 +55,7 @@ public class WikiPopup : MonoBehaviour
     private void OnClickClose()
     {
         SoundManager.Instance.PlayButtonSound();
+        GameUI.Instance.bg.SetActive(false);
         gameObject.SetActive(false);
     }
 }

@@ -43,7 +43,7 @@ public class AxieInventory : MonoBehaviour
 
     public void FeedAxie(int index)
     {
-        progresses[index] += 1f; // / 3f;
+        progresses[index] += 0.5f; // 2 leaf to upgrade axie
         //upgrade axie
         if (progresses[index] >= 1f) {
             var axieUpgrade = AxieConfigs.Instance.GetUpgrade(axies[index].axieId);
@@ -51,6 +51,7 @@ public class AxieInventory : MonoBehaviour
             {
                 axies[index] = axieUpgrade;
                 slotTrans[index].GetComponent<AxieInventorySlot>().ParseAxie(axieUpgrade, progresses[index]);
+                //TODO fx upgrade axie
                 SoundManager.Instance.PlayOneShot(collectedSnd);
                 onChangeList?.Invoke();
                 UpdateVirtual();

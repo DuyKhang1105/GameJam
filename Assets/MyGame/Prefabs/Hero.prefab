@@ -160,15 +160,18 @@ MonoBehaviour:
   unitName: Hero
   damage: 0
   shield: 0
-  buffShield: 0
   maxHP: 20
-  buffHP: 0
   currentHP: 20
   turnStun: 0
   dodgeRate: 0
   criticalRate: 0
   armorPenetrationRate: 0
+  bloodLost: 0
   isDead: 0
   isCrit: 0
-  initStamina: 20
-  currentStamina: 20
+  isBuffAP: 0
+  isFightsback: 0
+  isBloodSucking: 0
+  initStamina: 5
+  currentStamina: 5
+  axieBuff: {fileID: 0}
