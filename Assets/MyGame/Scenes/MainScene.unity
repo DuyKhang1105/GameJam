@@ -3222,8 +3222,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 241, y: -235.99995}
-  m_SizeDelta: {x: 187.72, y: 166.7}
+  m_AnchoredPosition: {x: 241, y: -185.65}
+  m_SizeDelta: {x: 187.72, y: 287.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &641656316
 MonoBehaviour:
@@ -4713,8 +4713,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 245, y: -236}
-  m_SizeDelta: {x: 187.72, y: 166.7}
+  m_AnchoredPosition: {x: 245, y: -187.61}
+  m_SizeDelta: {x: 187.72, y: 287.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863596843
 MonoBehaviour:
@@ -5725,6 +5725,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1028780693}
+  - component: {fileID: 1028780694}
   m_Layer: 0
   m_Name: TfEnemy (2)
   m_TagString: Untagged
@@ -5746,6 +5747,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1028780694
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028780692}
+  m_Enabled: 1
+  m_SortingLayerID: -773342681
+  m_SortingLayer: 8
+  m_SortingOrder: 4
 --- !u!1 &1069130704
 GameObject:
   m_ObjectHideFlags: 0
@@ -5755,6 +5767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1069130705}
+  - component: {fileID: 1069130706}
   m_Layer: 0
   m_Name: TfEnemy
   m_TagString: Untagged
@@ -5776,6 +5789,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1069130706
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069130704}
+  m_Enabled: 1
+  m_SortingLayerID: -773342681
+  m_SortingLayer: 8
+  m_SortingOrder: 4
 --- !u!1 &1142072234
 GameObject:
   m_ObjectHideFlags: 0
@@ -6761,7 +6785,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1408108735
 GameObject:
@@ -7075,6 +7099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1486920250}
+  - component: {fileID: 1486920251}
   m_Layer: 0
   m_Name: TfEnemy (1)
   m_TagString: Untagged
@@ -7096,6 +7121,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1486920251
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486920249}
+  m_Enabled: 1
+  m_SortingLayerID: -773342681
+  m_SortingLayer: 8
+  m_SortingOrder: 4
 --- !u!1 &1495779121
 GameObject:
   m_ObjectHideFlags: 0
@@ -7212,7 +7248,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -773342681
   m_SortingLayer: 8
-  m_SortingOrder: 2
+  m_SortingOrder: 3
 --- !u!1 &1559602109
 GameObject:
   m_ObjectHideFlags: 0
@@ -7813,6 +7849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1688257653}
+  - component: {fileID: 1688257654}
   m_Layer: 0
   m_Name: TfHero
   m_TagString: Untagged
@@ -7834,6 +7871,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1688257654
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688257652}
+  m_Enabled: 1
+  m_SortingLayerID: -773342681
+  m_SortingLayer: 8
+  m_SortingOrder: 2
 --- !u!1 &1730698364
 GameObject:
   m_ObjectHideFlags: 0
@@ -7869,8 +7917,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 245.00002, y: -236}
-  m_SizeDelta: {x: 187.72, y: 166.7}
+  m_AnchoredPosition: {x: 245.00002, y: -186.44}
+  m_SizeDelta: {x: 187.72, y: 287.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730698366
 MonoBehaviour:
@@ -14435,7 +14483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3361640916680527287, guid: fde2d92e0e2a1c84b8b32936abff1ba3, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3361640916680527287, guid: fde2d92e0e2a1c84b8b32936abff1ba3, type: 3}
       propertyPath: m_AnchorMax.x

@@ -15,7 +15,7 @@ MonoBehaviour:
   configs:
   - name: 1
     skillType: 1
-    skillValue: 2
+    skillValue: 3
     graphic: {fileID: 6211003790755361424, guid: c70a1cfb7b8382c408b2982641f5c600, type: 3}
     statistics:
       maxHP: 5
@@ -24,7 +24,7 @@ MonoBehaviour:
       shield: 2
   - name: 2
     skillType: 1
-    skillValue: 2
+    skillValue: 1
     graphic: {fileID: 7281921293100200639, guid: 42e562c5f12fb0b47853620c2ba19faf, type: 3}
     statistics:
       maxHP: 5
@@ -32,8 +32,8 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 3
-    skillType: 1
-    skillValue: 2
+    skillType: 2
+    skillValue: 1
     graphic: {fileID: 8498235608484763139, guid: b6418b37b51d501499904c0e4bb80e5c, type: 3}
     statistics:
       maxHP: 2
@@ -41,7 +41,7 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 4
-    skillType: 1
+    skillType: 3
     skillValue: 2
     graphic: {fileID: 3965531182826440107, guid: 5faeb56287af270448c598d10d46a51e, type: 3}
     statistics:
@@ -51,7 +51,7 @@ MonoBehaviour:
       shield: 2
   - name: 5
     skillType: 1
-    skillValue: 2
+    skillValue: 3
     graphic: {fileID: 5438201181911092081, guid: d98760df2bf6fdf44a5d4e0a6879e4ef, type: 3}
     statistics:
       maxHP: 5
@@ -59,8 +59,8 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 6
-    skillType: 4
-    skillValue: 2
+    skillType: 1
+    skillValue: 1
     graphic: {fileID: 9134395194065226233, guid: eea5b502b2d727a47b8af2e5701b947c, type: 3}
     statistics:
       maxHP: 5
@@ -68,8 +68,8 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 7
-    skillType: 5
-    skillValue: 2
+    skillType: 1
+    skillValue: 1
     graphic: {fileID: 2315777031725892060, guid: 98ce82b04e9553a44aa5a75da0df85ef, type: 3}
     statistics:
       maxHP: 5
@@ -78,7 +78,7 @@ MonoBehaviour:
       shield: 2
   - name: 8
     skillType: 1
-    skillValue: 2
+    skillValue: 1
     graphic: {fileID: 6650802551231027559, guid: e0d83cba943c75c49a04dc2df6af5a9e, type: 3}
     statistics:
       maxHP: 5
@@ -86,8 +86,8 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 9
-    skillType: 2
-    skillValue: 2
+    skillType: 1
+    skillValue: 1
     graphic: {fileID: 61022639683112096, guid: d3cbf7689c052ae4bb0e19d0b0c664e8, type: 3}
     statistics:
       maxHP: 5
@@ -95,8 +95,8 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 10
-    skillType: 1
-    skillValue: 2
+    skillType: 4
+    skillValue: 5
     graphic: {fileID: 1094129266235616370, guid: f951e2cd713dcb749ac29ea976fef1f2, type: 3}
     statistics:
       maxHP: 5
@@ -149,7 +149,7 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 16
-    skillType: 1
+    skillType: 5
     skillValue: 2
     graphic: {fileID: 336731191987442812, guid: 65a9b3fbc57ef764f82ec3bc83419ac1, type: 3}
     statistics:
@@ -168,7 +168,7 @@ MonoBehaviour:
       shield: 2
   - name: 18
     skillType: 1
-    skillValue: 2
+    skillValue: 3
     graphic: {fileID: 1487345654406267983, guid: 73414aa5dcdba204f9dc4f81bd0ed196, type: 3}
     statistics:
       maxHP: 5
@@ -185,7 +185,7 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 20
-    skillType: 1
+    skillType: 3
     skillValue: 2
     graphic: {fileID: 4133540646561155608, guid: bf258f964fa7ce94caef411c379ca41d, type: 3}
     statistics:

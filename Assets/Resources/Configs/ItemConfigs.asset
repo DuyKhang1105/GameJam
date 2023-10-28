@@ -209,7 +209,7 @@ MonoBehaviour:
   - id: 0_Equip_Weapon_Axe
     equipType: 1
     statistic: 0
-    value: 3
+    value: 30
   - id: 1_Equip_Weapon_Axe
     equipType: 1
     statistic: 0

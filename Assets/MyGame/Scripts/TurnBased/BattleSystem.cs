@@ -71,6 +71,7 @@ public class BattleSystem : MonoBehaviour
     private void OnChangePets()
     {
         var axieIds = dicAxies.Keys.ToList();
+
         foreach (var axieId in axieIds) {
             Destroy(dicAxies[axieId]);
             dicAxies.Remove(axieId);

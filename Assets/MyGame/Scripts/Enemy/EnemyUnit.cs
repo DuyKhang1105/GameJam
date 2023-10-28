@@ -100,7 +100,7 @@ public class EnemyUnit : Unit
     {
         battleSystem.heroControl.Stun();
         battleSystem.heroUnit.Stun(skillValue);
-        FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.MAGIC_STUN);
+        FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.TREE_SKILL);
     }
 
     void BuffPow()
@@ -218,7 +218,7 @@ public class EnemyUnit : Unit
 
     void Summon()
     {
-        EnemyConfig enemy = EnemyConfigs.Instance.GetEnemyConfig(EnemyName.Slime);
+        EnemyConfig enemy = EnemyConfigs.Instance.GetEnemyConfig(EnemyName.SlimeForestB);
 
         for (int i = 0; i < skillValue; i++)
         {

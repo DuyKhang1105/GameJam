@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2315777031725892060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,16 +136,18 @@ MonoBehaviour:
   unitName: 
   damage: 0
   shield: 0
-  buffShield: 0
   maxHP: 0
-  buffHP: 0
   currentHP: 0
   turnStun: 0
   dodgeRate: 0
   criticalRate: 0
   armorPenetrationRate: 0
+  bloodLost: 0
   isDead: 0
   isCrit: 0
+  isBuffAP: 0
+  isFightsback: 0
+  isBloodSucking: 0
   skillValue: 0
   maxPow: 0
   currentPow: 0

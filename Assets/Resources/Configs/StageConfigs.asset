@@ -24,7 +24,7 @@ MonoBehaviour:
       - 5_Equip_Shield
   - stageType: 1
     isLevelUp: 0
-    enemyNames: 11000000
+    enemyNames: 06000000
     chest:
       rareMax: 0
       count: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
       itemIds: []
   - stageType: 1
     isLevelUp: 0
-    enemyNames: 0f0000000d0000000e000000
+    enemyNames: 0e0000000f0000000d000000
     chest:
       rareMax: 0
       count: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
       itemIds: []
   - stageType: 1
     isLevelUp: 0
-    enemyNames: 090000000a0000000b000000
+    enemyNames: 09000000080000000b000000
     chest:
       rareMax: 0
       count: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
       - 3_Item_Upgrade_Pet
   - stageType: 2
     isLevelUp: 1
-    enemyNames: 100000000c000000
+    enemyNames: 100000000a000000
     chest:
       rareMax: 0
       count: 0
