@@ -509,7 +509,7 @@ public class BattleSystem : MonoBehaviour
             {
                 if (isMiss)
                 {
-                    //heroControl.Dodge();
+                    heroControl.Dodge();
                 }
                 else
                 {
@@ -689,7 +689,7 @@ public class BattleSystem : MonoBehaviour
         return true;
     }
 
-    void EndBattle()
+    public void EndBattle()
 	{
 		if(state == BattleState.WON)
 		{

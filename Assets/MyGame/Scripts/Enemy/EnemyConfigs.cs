@@ -34,6 +34,9 @@ public enum EnemySkillType
     StunHero,
     BuffPow,
     SelfDestruct,
+    Summon,
+    Evolution,
+    Assassinate,
 }
 
 [System.Serializable]

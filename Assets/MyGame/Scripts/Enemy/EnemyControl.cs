@@ -83,4 +83,16 @@ public class EnemyControl : MonoBehaviour
         spineAnimationState.SetAnimation(0, moveBackAnimationName, false);
         spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
     }
+
+    public void Combo1()
+    {
+        spineAnimationState.SetAnimation(0, skillAnimationName_2, false);
+        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
+    }
+
+    public void Combo2()
+    {
+        spineAnimationState.SetAnimation(0, skillAnimationName_3, false);
+        spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
+    }
 }

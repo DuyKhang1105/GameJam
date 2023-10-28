@@ -26,6 +26,7 @@ public enum TypeFx
     //ADD MORE
     PET_BUFF,
     BOMB,
+    SUMMON_2,
 }
 
 [System.Serializable]

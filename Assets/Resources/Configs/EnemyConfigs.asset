@@ -68,7 +68,7 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 7
-    skillType: 1
+    skillType: 5
     skillValue: 2
     graphic: {fileID: 2315777031725892060, guid: 98ce82b04e9553a44aa5a75da0df85ef, type: 3}
     statistics:
@@ -158,8 +158,8 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 17
-    skillType: 1
-    skillValue: 2
+    skillType: 7
+    skillValue: 3
     graphic: {fileID: 2439790147996913431, guid: 83336cf39bf051444ad92d544652c0ab, type: 3}
     statistics:
       maxHP: 5
@@ -176,7 +176,7 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 19
-    skillType: 1
+    skillType: 6
     skillValue: 2
     graphic: {fileID: 2763760611587319409, guid: 18a00392b6aaca74a95acce28ea15a1c, type: 3}
     statistics:
