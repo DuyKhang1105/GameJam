@@ -165,9 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runAnimationName: 
-  idleAnimationName: attack/ranged/cast-low
+  idleAnimationName: action/idle/normal
   walkAnimationName: 
-  atkAnimationName_1: attack/melee/normal-attack
+  atkAnimationName_1: attack/ranged/cast-low
   atkAnimationName_2: attack/ranged/cast-high
   moveBackAnimationName: 
   hitAnimationName: defense/hit-by-normal

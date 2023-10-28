@@ -449,11 +449,11 @@ public class BattleSystem : MonoBehaviour
                     break;
 
                 case 1:
-                    enemyHUDs[i].SetNextAction(ActionType.SHIELD, 5);
+                    enemyHUDs[i].SetNextAction(ActionType.SHIELD, enemyUnits[i].shieldBuff);
                     break;
 
                 case 2:
-                    enemyHUDs[i].SetNextAction(ActionType.HEAL, 5);
+                    enemyHUDs[i].SetNextAction(ActionType.HEAL, enemyUnits[i].hpBuff);
                     break;
 
                 case 3: 

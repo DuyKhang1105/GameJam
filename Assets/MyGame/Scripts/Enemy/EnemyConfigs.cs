@@ -46,6 +46,8 @@ public class EnemyStatistics
     public int maxPow;
     public int damage;
     public int shield;
+    public int hpBuff;
+    public int shieldBuff;
 }
 
 [System.Serializable]

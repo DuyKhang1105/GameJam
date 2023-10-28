@@ -13,6 +13,9 @@ public class EnemyUnit : Unit
     public int maxPow;
     public int currentPow;
 
+    public int hpBuff;
+    public int shieldBuff;
+
     public bool isPow = false;
     BattleSystem battleSystem;
 
@@ -24,6 +27,9 @@ public class EnemyUnit : Unit
         this.maxPow = enemyConfig.statistics.maxPow;
         this.damage = enemyConfig.statistics.damage;
         this.shield = enemyConfig.statistics.shield;
+
+        this.hpBuff = enemyConfig.statistics.hpBuff;
+        this.shieldBuff = enemyConfig.statistics.shieldBuff;
 
         currentHP = maxHP;
         battleSystem = BattleSystem.Instance;
