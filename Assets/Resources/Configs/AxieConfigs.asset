@@ -29,7 +29,7 @@ MonoBehaviour:
     graphic: {fileID: 4230550480230221130, guid: 1ef95b973f1e36f4198e4890e3937aba, type: 3}
     graphicUI: {fileID: 6084218806849857021, guid: cc5db3c2c7394ab419e141f8b4e363fa, type: 3}
     skillType: 8
-    skillValue: 1
+    skillValue: 2
     actionRate: 0.5
   - axieId: 3_ena
     graphic: {fileID: 9120296276262758008, guid: 83de47c28aa974f428eb5c10ba5642ce, type: 3}
@@ -71,7 +71,7 @@ MonoBehaviour:
     graphic: {fileID: 8494666376533048238, guid: 603d7cf6defc4a34db4059afd2cfddcb, type: 3}
     graphicUI: {fileID: 3018652009030773789, guid: 904f9c6bbd9168748b9bc939f56d1ade, type: 3}
     skillType: 8
-    skillValue: 1
+    skillValue: 2
     actionRate: 1
   - axieId: 10_hybrid
     graphic: {fileID: 3319454358107987868, guid: 7275d0b8965a44b4c9f378212eb9158e, type: 3}

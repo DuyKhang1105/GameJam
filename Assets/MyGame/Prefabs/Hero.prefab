@@ -172,6 +172,6 @@ MonoBehaviour:
   isBuffAP: 0
   isFightsback: 0
   isBloodSucking: 0
-  initStamina: 5
-  currentStamina: 5
+  initStamina: 4
+  currentStamina: 4
   axieBuff: {fileID: 0}
