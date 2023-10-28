@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -61,8 +62,11 @@ public class EnemyUnit : Unit
             case EnemySkillType.StunHero:
                 return StunHero;
 
-            case EnemySkillType.StunPet:
-                return StunHero;
+            case EnemySkillType.BuffPow:
+                return BuffPow;
+
+            case EnemySkillType.SelfDestruct:
+                return SelfDestruct;
         }
 
         return null;
@@ -77,6 +81,7 @@ public class EnemyUnit : Unit
                 battleSystem.enemyUnits[i].Heal(skillValue);
                 battleSystem.enemyHUDs[i].SetHP(battleSystem.enemyUnits[i].currentHP);
                 TextFx.Create(battleSystem.enemyUnits[i].transform.position, skillValue, TypeText.HEAL);
+                FxManager.Instance.Create(battleSystem.enemyUnits[i].transform.position, TypeFx.BUFF_ENEMY);
             }
         }
     }
@@ -85,16 +90,71 @@ public class EnemyUnit : Unit
     {
         battleSystem.heroControl.Stun();
         battleSystem.heroUnit.Stun(skillValue);
-    }   
-    
-    void StunPet()
-    {
-
+        FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.MAGIC_STUN);
     }
 
-    void HitCrit()
+    void BuffPow()
     {
-        float crit = criticalRate;
+        for (int i = 0; i < battleSystem.enemyUnits.Count; i++)
+        {
+            if (battleSystem.enemyUnits[i].currentHP > 0)
+            {
+                battleSystem.enemyUnits[i].TakePow(skillValue);
+                battleSystem.enemyHUDs[i].SetPow(battleSystem.enemyUnits[i].currentPow);
+                TextFx.Create(battleSystem.enemyUnits[i].transform.position, skillValue, TypeText.POW);
+                FxManager.Instance.Create(battleSystem.enemyUnits[i].transform.position, TypeFx.BUFF_POW);
+            }
+        }
     }
+
+    void SelfDestruct()
+    {
+        int damage = skillValue;
+        
+
+        bool isDead = battleSystem.heroUnit.isDead;
+
+        Sequence s = DOTween.Sequence();
+        s.Append(battleSystem.enemyUnits[battleSystem.indexEnemy].transform.DOMoveX(battleSystem.heroUnit.transform.position.x, 1f));//
+        s.AppendCallback(() =>
+        {
+            battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
+
+        });
+        s.AppendInterval(0.6f);
+        s.AppendCallback(() =>
+        {
+            //Currently enemy dont has crit
+            TextFx.Create(battleSystem.heroControl.transform.position, battleSystem.enemyUnits[battleSystem.indexEnemy].damage, TypeText.CRIT);
+            FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.BOMB);
+
+            if (isDead)
+            {
+                battleSystem.heroControl.Dead();
+            }
+            else
+            {
+                battleSystem.heroControl.OneHit();
+            }
+            battleSystem.heroHUD.SetHP(battleSystem.heroUnit.currentHP);
+            battleSystem.heroHUD.SetShield(battleSystem.heroUnit.shield);
+
+        });
+        s.AppendCallback(() =>
+        {
+            Debug.LogError("Boom");
+            var indexDie = battleSystem.indexEnemy;
+            battleSystem.ResetTarget();
+            battleSystem.enemyHUDs[indexDie].gameObject.SetActive(false);
+            battleSystem.enemyControls[indexDie].gameObject.SetActive(false);
+        });
+    }
+
+    void Evolution()
+    {
+
+    }    
+
+
 }
     

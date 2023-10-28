@@ -96,19 +96,23 @@ public class AxieUnit : Unit
         battleSystem.heroUnit.Fightsback(this);
         DOVirtual.DelayedCall(0.5f, () =>
         {
+            Vector3 pos = new Vector3(0, transform.position.y, transform.position.z);
             battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
+            FxManager.Instance.Create(pos, TypeFx.PET_BUFF);
         });
     }
 
     void BuffAP()
     {
         battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
+        FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.PET_BUFF);
         battleSystem.heroUnit.isBuffAP = true;
     }
 
     void BuffBS()
     {
         battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
+        FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.PET_BUFF);
         battleSystem.heroUnit.isBloodSucking = true;
     }
 
@@ -117,6 +121,7 @@ public class AxieUnit : Unit
         battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
         battleSystem.heroUnit.Heal(buffValue);
         battleSystem.heroHUD.SetHP(battleSystem.heroUnit.currentHP);
+        FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.PET_BUFF);
         TextFx.Create(battleSystem.heroUnit.transform.position, buffValue, TypeText.HEAL);
     }
 
@@ -125,6 +130,7 @@ public class AxieUnit : Unit
         battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
         battleSystem.heroUnit.GetStamina(buffValue);
         battleSystem.heroHUD.SetStamina(battleSystem.heroUnit.currentStamina);
+        FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.PET_BUFF);
         TextFx.Create(battleSystem.heroUnit.transform.position, buffValue, TypeText.STAMINA);
     }
 
@@ -160,6 +166,7 @@ public class AxieUnit : Unit
             }
             else
             {
+                FxManager.Instance.Create(enemyUnitTarget.transform.position, TypeFx.HIT);
                 TextFx.Create(enemyUnitTarget.transform.position, activeValue, TypeText.HIT);
 
                 if (!isDead)
@@ -232,6 +239,7 @@ public class AxieUnit : Unit
             }
             else
             {
+                FxManager.Instance.Create(enemyUnitTarget.transform.position, TypeFx.HIT);
                 TextFx.Create(enemyUnitTarget.transform.position, activeValue, TypeText.HIT);
 
                 if (!isDead)

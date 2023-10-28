@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum TypeText { HIT, CRIT, HEAL, SHIELD, STAMINA }
+public enum TypeText { HIT, CRIT, HEAL, SHIELD, STAMINA, POW }
 
 
 public class TextFx : MonoBehaviour
@@ -60,6 +60,12 @@ public class TextFx : MonoBehaviour
                 textMeshPro.SetText($"+ {value}");
                 textMeshPro.fontSize = 5;
                 textColor = new Color32(103, 43, 144, 255);
+                break;
+
+            case TypeText.POW:
+                textMeshPro.SetText($"+ {value}");
+                textMeshPro.fontSize = 5;
+                textColor = new Color32(255, 0, 0, 255);
                 break;
 
             default:

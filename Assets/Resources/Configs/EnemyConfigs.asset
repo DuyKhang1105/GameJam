@@ -59,7 +59,7 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 6
-    skillType: 1
+    skillType: 4
     skillValue: 2
     graphic: {fileID: 9134395194065226233, guid: eea5b502b2d727a47b8af2e5701b947c, type: 3}
     statistics:
@@ -86,7 +86,7 @@ MonoBehaviour:
       damage: 5
       shield: 2
   - name: 9
-    skillType: 1
+    skillType: 2
     skillValue: 2
     graphic: {fileID: 61022639683112096, guid: d3cbf7689c052ae4bb0e19d0b0c664e8, type: 3}
     statistics:

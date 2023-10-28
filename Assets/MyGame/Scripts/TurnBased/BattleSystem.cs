@@ -46,7 +46,7 @@ public class BattleSystem : MonoBehaviour
     public Background BG;
     public ProgressLevel progressLevel;
 
-	int indexEnemy;
+    public int indexEnemy;
     public int indexTarget;
 
 	List<int> indexActions = new List<int>();
@@ -88,6 +88,8 @@ public class BattleSystem : MonoBehaviour
             axieGO.GetComponent<AxieUnit>().Parse(config);
 
             dicAxies.Add(config.axieId, axieGO);
+
+            FxManager.Instance.Create(axieBattleStations[i].position, TypeFx.SPAWN_PET);
         }
 
         Debug.Log("Axies: " + string.Join(", ", axieInventory.axies));
@@ -106,10 +108,10 @@ public class BattleSystem : MonoBehaviour
 
 	private void SetupStage()
 	{
-        StartCoroutine(IeSetupStage());
-	}
+        IeSetupStage();
+    }
 
-    private IEnumerator IeSetupStage()
+    private void IeSetupStage()
     {
         enemyHUDs.ForEach(x=>x.gameObject.SetActive(false));
         GameUI.Instance.nextBtn.gameObject.SetActive(false);
@@ -142,7 +144,7 @@ public class BattleSystem : MonoBehaviour
                     enemyHUDs[i].gameObject.SetActive(true);
                     enemyHUDs[i].SetEnemyHUD(enemyUnits[i]);
                 }
-                yield return new WaitForSeconds(2f);
+                //yield return new WaitForSeconds(0.5f);
 
                 ResetTarget();
 
@@ -215,9 +217,15 @@ public class BattleSystem : MonoBehaviour
             else
             {
                 if (heroUnit.isCrit)
+                {
+                    FxManager.Instance.Create(enemyControls[indexTarget].transform.position, TypeFx.HIT_CRIT);
                     TextFx.Create(enemyControls[indexTarget].transform.position, damage, TypeText.CRIT);
+                }
                 else
+                {
+                    FxManager.Instance.Create(enemyControls[indexTarget].transform.position, TypeFx.HIT);
                     TextFx.Create(enemyControls[indexTarget].transform.position, damage, TypeText.HIT);
+                }
 
                 if (!isDead)
                 {
@@ -236,6 +244,7 @@ public class BattleSystem : MonoBehaviour
                     heroUnit.Heal(bloodEnemyLost);
                     heroHUD.SetHP(heroUnit.currentHP);
                     TextFx.Create(heroUnit.transform.position, bloodEnemyLost, TypeText.HEAL);
+                    FxManager.Instance.Create(enemyControls[indexTarget].transform.position, TypeFx.BLOOD);
                 }
 
                 enemyHUDs[indexTarget].SetPow(enemyUnits[indexTarget].currentPow);
@@ -273,6 +282,7 @@ public class BattleSystem : MonoBehaviour
         heroHUD.SetShield(heroUnit.shield);
 
         TextFx.Create(heroUnit.transform.position, shi, TypeText.SHIELD);
+        FxManager.Instance.Create(heroUnit.transform.position, TypeFx.BUFF_HERO);
         yield return new WaitForSeconds(2f);
         state = BattleState.HEROTURN;
     }
@@ -287,6 +297,7 @@ public class BattleSystem : MonoBehaviour
 
         heroHUD.SetHP(heroUnit.currentHP);
         TextFx.Create(heroUnit.transform.position, heal, TypeText.HEAL);
+        FxManager.Instance.Create(heroUnit.transform.position, TypeFx.BUFF_HERO);
 
         yield return new WaitForSeconds(2f);
         state = BattleState.HEROTURN;
@@ -299,8 +310,9 @@ public class BattleSystem : MonoBehaviour
         heroUnit.GetStamina(stamina);
         heroControl.Heal();
 
-
         heroHUD.SetStamina(heroUnit.currentStamina);
+        TextFx.Create(heroUnit.transform.position, stamina, TypeText.STAMINA);
+        FxManager.Instance.Create(heroUnit.transform.position, TypeFx.BUFF_HERO);
 
         yield return new WaitForSeconds(2f);
         state = BattleState.HEROTURN;
@@ -322,13 +334,11 @@ public class BattleSystem : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(1f);
-
 		bool isDead = ActionEnemy(indexEnemy);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
 
-		if(isDead)
+        if (isDead)
 		{
 			state = BattleState.LOST;
 			EndBattle();
@@ -371,7 +381,7 @@ public class BattleSystem : MonoBehaviour
             {
                 //TODO time wait for each axie
                 state = BattleState.ACTING;
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(2f);
             }
         }
 
@@ -492,6 +502,7 @@ public class BattleSystem : MonoBehaviour
             if (heroUnit.isFightsback)
             {
                 heroUnit.axieBuff.GetComponent<AxieUnit>().Fightsback(enemyUnits[indexEnemy].damage);
+                FxManager.Instance.Create(heroUnit.transform.position, TypeFx.HIT);
                 TextFx.Create(heroControl.transform.position, 0, TypeText.HIT);
             }
             else
@@ -504,6 +515,7 @@ public class BattleSystem : MonoBehaviour
                 {
                     //Currently enemy dont has crit
                     TextFx.Create(heroControl.transform.position, enemyUnits[indexEnemy].damage, TypeText.HIT);
+                    FxManager.Instance.Create(heroUnit.transform.position, TypeFx.HIT);
 
                     if (isDead)
                     {
@@ -530,6 +542,7 @@ public class BattleSystem : MonoBehaviour
         enemyControls[indexEnemy].Buff();
         enemyHUDs[indexEnemy].SetShield(enemyUnits[indexEnemy].shield);
         TextFx.Create(enemyUnits[indexEnemy].transform.position, 5, TypeText.SHIELD);
+        FxManager.Instance.Create(enemyUnits[indexEnemy].transform.position, TypeFx.BUFF_ENEMY);
     }
 
     void EnemyHeal(int indexEnemy)
@@ -538,6 +551,7 @@ public class BattleSystem : MonoBehaviour
         enemyControls[indexEnemy].Buff();
         enemyHUDs[indexEnemy].SetHP(enemyUnits[indexEnemy].currentHP);
         TextFx.Create(enemyUnits[indexEnemy].transform.position, 5, TypeText.HEAL);
+        FxManager.Instance.Create(enemyUnits[indexEnemy].transform.position, TypeFx.BUFF_ENEMY);
     }
 
     void EnemySkill(int indexEnemy)
@@ -557,7 +571,7 @@ public class BattleSystem : MonoBehaviour
         bool isAllEnemiesDead = enemyUnits.All(e => e.isDead);
         if (isAllEnemiesDead)
         {
-            OnNext();
+            DOVirtual.DelayedCall(1f, OnNext);
         }
         else
         {

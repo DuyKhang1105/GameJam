@@ -32,7 +32,8 @@ public enum EnemySkillType
     None,
     HealAll,
     StunHero,
-    StunPet,
+    BuffPow,
+    SelfDestruct,
 }
 
 [System.Serializable]
