@@ -457,7 +457,7 @@ public class BattleSystem : MonoBehaviour
                     break;
 
                 case 3: 
-                    enemyHUDs[i].SetNextAction(ActionType.POW, 5);
+                    enemyHUDs[i].SetNextAction(ActionType.POW, enemyUnits[i].maxPow);
                     break ;
 
                 default:
@@ -538,19 +538,19 @@ public class BattleSystem : MonoBehaviour
 		
 	void EnemyShield(int indexEnemy)
 	{
-        enemyUnits[indexEnemy].Shield(5);
+        enemyUnits[indexEnemy].Shield(enemyUnits[indexEnemy].shieldBuff);
         enemyControls[indexEnemy].Buff();
         enemyHUDs[indexEnemy].SetShield(enemyUnits[indexEnemy].shield);
-        TextFx.Create(enemyUnits[indexEnemy].transform.position, 5, TypeText.SHIELD);
+        TextFx.Create(enemyUnits[indexEnemy].transform.position, enemyUnits[indexEnemy].shieldBuff, TypeText.SHIELD);
         FxManager.Instance.Create(enemyUnits[indexEnemy].transform.position, TypeFx.BUFF_ENEMY);
     }
 
     void EnemyHeal(int indexEnemy)
     {
-        enemyUnits[indexEnemy].Heal(5);
+        enemyUnits[indexEnemy].Heal(enemyUnits[indexEnemy].hpBuff);
         enemyControls[indexEnemy].Buff();
         enemyHUDs[indexEnemy].SetHP(enemyUnits[indexEnemy].currentHP);
-        TextFx.Create(enemyUnits[indexEnemy].transform.position, 5, TypeText.HEAL);
+        TextFx.Create(enemyUnits[indexEnemy].transform.position, enemyUnits[indexEnemy].hpBuff, TypeText.HEAL);
         FxManager.Instance.Create(enemyUnits[indexEnemy].transform.position, TypeFx.BUFF_ENEMY);
     }
 

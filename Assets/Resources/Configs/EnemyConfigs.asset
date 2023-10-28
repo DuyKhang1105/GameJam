@@ -33,8 +33,8 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 3
-      hpBuff: 3
-      shieldBuff: 3
+      hpBuff: 1
+      shieldBuff: 1
   - name: 3
     skillType: 2
     skillValue: 1
@@ -88,8 +88,8 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 3
-      hpBuff: 3
-      shieldBuff: 3
+      hpBuff: 1
+      shieldBuff: 1
   - name: 8
     skillType: 1
     skillValue: 1
@@ -99,8 +99,8 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 3
-      hpBuff: 3
-      shieldBuff: 3
+      hpBuff: 1
+      shieldBuff: 1
   - name: 9
     skillType: 1
     skillValue: 1
@@ -110,8 +110,8 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 3
-      hpBuff: 3
-      shieldBuff: 3
+      hpBuff: 1
+      shieldBuff: 1
   - name: 10
     skillType: 4
     skillValue: 5
@@ -121,8 +121,8 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 3
-      hpBuff: 3
-      shieldBuff: 3
+      hpBuff: 1
+      shieldBuff: 1
   - name: 11
     skillType: 1
     skillValue: 2
@@ -132,8 +132,8 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 3
-      hpBuff: 3
-      shieldBuff: 3
+      hpBuff: 1
+      shieldBuff: 1
   - name: 12
     skillType: 1
     skillValue: 2
@@ -143,8 +143,8 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 3
-      hpBuff: 3
-      shieldBuff: 3
+      hpBuff: 1
+      shieldBuff: 1
   - name: 13
     skillType: 1
     skillValue: 2
@@ -154,7 +154,7 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 1
-      hpBuff: 3
+      hpBuff: 1
       shieldBuff: 1
   - name: 14
     skillType: 1
@@ -165,7 +165,7 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 1
-      hpBuff: 3
+      hpBuff: 1
       shieldBuff: 1
   - name: 15
     skillType: 1
@@ -176,8 +176,8 @@ MonoBehaviour:
       maxPow: 5
       damage: 3
       shield: 1
-      hpBuff: 0
-      shieldBuff: 0
+      hpBuff: 1
+      shieldBuff: 1
   - name: 16
     skillType: 5
     skillValue: 2
@@ -198,7 +198,7 @@ MonoBehaviour:
       maxPow: 9
       damage: 9
       shield: 5
-      hpBuff: 3
+      hpBuff: 5
       shieldBuff: 3
   - name: 18
     skillType: 1
@@ -221,7 +221,7 @@ MonoBehaviour:
       damage: 7
       shield: 5
       hpBuff: 5
-      shieldBuff: 5
+      shieldBuff: 3
   - name: 20
     skillType: 3
     skillValue: 2
