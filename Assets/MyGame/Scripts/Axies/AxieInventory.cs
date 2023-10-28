@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AxieInventory : MonoBehaviour
 {
@@ -51,11 +52,15 @@ public class AxieInventory : MonoBehaviour
             {
                 axies[index] = axieUpgrade;
                 slotTrans[index].GetComponent<AxieInventorySlot>().ParseAxie(axieUpgrade, progresses[index]);
-                //TODO fx upgrade axie
+                FxManager.Instance.Create(slotTrans[index].position, TypeFx.UP_PET);
                 SoundManager.Instance.PlayOneShot(collectedSnd);
                 onChangeList?.Invoke();
                 UpdateVirtual();
             }
-        }  
+        }
+        else
+        {
+            slotTrans[index].GetComponent<AxieInventorySlot>().ParseAxie(axies[index], progresses[index]);
+        }
     }
 }

@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
     [Header("Drop")]
     [SerializeField] private List<Transform> dropPos;
 
-    public const int Width = 6;
+    public const int Width = 7;
     public const int Height = 3;
     public const int SlotCount = Width * Height;
     public const float SlotSize = 120f;
@@ -60,6 +60,11 @@ public class Inventory : MonoBehaviour
     private void OnChangeAxieList()
     {
         Debug.Log("Change list axies");
+        CheckAxieUpgradeSlots();
+    }
+
+    private void CheckAxieUpgradeSlots()
+    {
         var axieInventory = FindObjectOfType<AxieInventory>();
         var axieUpgradeChest = axieInventory.axies.Find(x => x.skillType == AxieSkillType.ExtensionSlot);
         if (axieUpgradeChest != null)
@@ -71,6 +76,19 @@ public class Inventory : MonoBehaviour
                 slotImages[i].ParseSlot(col, row, true, false);
             }
         }
+        else
+        {
+            for (int i = 0; i < 3; i++) //just 3 slots
+            {
+                bool isFree = true;
+                bool isLocked = true;
+                int col = i / Height;
+                int row = i % Height;
+                slotImages[i].ParseSlot(col, row, isFree, isLocked);
+                slots[col, row] = slotImages[i];
+            }
+        }
+
     }
 
     public void UpgradeLevel(int level = 1)
@@ -81,8 +99,7 @@ public class Inventory : MonoBehaviour
             bool isLocked = false;
 
             if (i < 3) {
-                //init
-                if (level == 1) isLocked = true;
+                continue;
             }
             else if (i < 12) {
                 isLocked = level < 1;
@@ -90,8 +107,12 @@ public class Inventory : MonoBehaviour
             else if (i < 15) {
                 isLocked = level < 2;
             }
-            else {
+            else if (i < 18) {
                 isLocked = level < 3;
+            }
+            else
+            {
+                isLocked = level < 4;
             }
 
             int col = i / Height;
@@ -100,6 +121,8 @@ public class Inventory : MonoBehaviour
 
             slots[col, row] = slotImages[i];
         }
+
+        CheckAxieUpgradeSlots();
     }
 
     public InventorySlot DragToSlot(Vector3 pos)

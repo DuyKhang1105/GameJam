@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -61,7 +62,9 @@ public class AxieConfigs : ScriptableObject
 
     public AxieConfig GetRandom(List<AxieConfig> ignore, int level=0)
     {
+        var ignoreIds = ignore.Select(x => x.axieId).ToList();
         var listUpgrade = new List<AxieUpgradeConfig>(upgradeConfigs);
+        listUpgrade.RemoveAll(x => ignoreIds.Contains(x.axieIds[0]));
         if (listUpgrade != null && listUpgrade.Count > 0)
         {
             var lst = listUpgrade[Random.Range(0, upgradeConfigs.Count)];

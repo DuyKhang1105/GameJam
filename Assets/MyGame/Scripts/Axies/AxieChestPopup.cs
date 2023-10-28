@@ -82,7 +82,16 @@ public class AxieChestPopup : MonoBehaviour
         slotTrans.ForEach(t => { t.gameObject.SetActive(false); });
         {
             axies = new List<AxieConfig>();
-            var axiesIgnore = FindObjectOfType<AxieInventory>().axies;
+
+            var axiesIgnore = new List<AxieConfig>();
+            var axieInventory = FindObjectOfType<AxieInventory>();
+            axieInventory.axies.ForEach(x =>
+            {
+                var upgrade = AxieConfigs.Instance.upgradeConfigs.Find(y => y.axieIds.Contains(x.axieId));
+                if (upgrade != null)
+                    upgrade.axieIds.ForEach(z=> axiesIgnore.Add(AxieConfigs.Instance.GetAxieConfig(z)));
+            });
+
             for (int i = 0; i < count; i++)
             {
                 var axie = AxieConfigs.Instance.GetRandom(axiesIgnore);
