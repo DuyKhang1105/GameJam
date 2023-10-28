@@ -205,11 +205,12 @@ public class AxieUnit : Unit
 
     public void Fightsback(int dmg)
     {
-        StartCoroutine(ActionFightsback(dmg));
+        StartCoroutine(ActionFightsback(100));
     }
 
     IEnumerator ActionFightsback(int activeValue)
     {
+        var indexDie = battleSystem.indexTarget;
         var enemyHUDTarget = battleSystem.enemyHUDs[battleSystem.indexTarget];
         var enemyUnitTarget = battleSystem.enemyUnits[battleSystem.indexTarget];
         var enemyControlTarget = battleSystem.enemyControls[battleSystem.indexTarget];
@@ -268,7 +269,6 @@ public class AxieUnit : Unit
 
         if (isDead)
         {
-            var indexDie = battleSystem.indexTarget;
             battleSystem.ResetTarget();
             battleSystem.enemyHUDs[indexDie].gameObject.SetActive(false);
 
