@@ -59,8 +59,6 @@ public class EnemyUnit : Unit
 
     public Action Skill()
     {
-        battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
-
         ResetPow();
         switch (skillType)
         {

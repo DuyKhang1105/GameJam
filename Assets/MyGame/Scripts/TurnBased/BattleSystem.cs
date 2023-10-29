@@ -216,6 +216,8 @@ public class BattleSystem : MonoBehaviour
             }
             else
             {
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.hitEnemySnd);
+
                 if (heroUnit.isCrit)
                 {
                     FxManager.Instance.Create(enemyControls[indexTarget].transform.position, TypeFx.HIT_CRIT);
@@ -515,6 +517,8 @@ public class BattleSystem : MonoBehaviour
                 }
                 else
                 {
+                    SoundManager.Instance.PlayOneShot(GameUI.Instance.hitHeroSnd);
+
                     //Currently enemy dont has crit
                     TextFx.Create(heroControl.transform.position, enemyUnits[indexEnemy].damage, TypeText.HIT);
                     FxManager.Instance.Create(heroUnit.transform.position, TypeFx.HIT);
