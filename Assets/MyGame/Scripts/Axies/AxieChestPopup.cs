@@ -92,6 +92,8 @@ public class AxieChestPopup : MonoBehaviour
                     upgrade.axieIds.ForEach(z=> axiesIgnore.Add(AxieConfigs.Instance.GetAxieConfig(z)));
             });
 
+            axiesIgnore.Add(AxieConfigs.Instance.GetAxieConfig("5_dps-beast")); //Temp fix
+
             for (int i = 0; i < count; i++)
             {
                 var axie = AxieConfigs.Instance.GetRandom(axiesIgnore);
