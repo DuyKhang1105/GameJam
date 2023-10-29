@@ -66,7 +66,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         PlayOneShot(this.sndButton);
     }
 
-    public AudioSource PlayLoop(AudioClip clip)
+    public AudioSource PlayLoop(AudioClip clip, float volume=1f)
     {
         if (this.dicAudioLoops == null) this.dicAudioLoops = new Dictionary<string, AudioSource>();
         if (!this.dicAudioLoops.ContainsKey(clip.name))
@@ -81,7 +81,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         AudioSource audio = this.dicAudioLoops[clip.name];
         audio.loop = true;
         audio.clip = clip;
-        audio.volume = this.volume;
+        audio.volume = volume;
         audio.Play();
         return audio;
     }
