@@ -63,11 +63,12 @@ public class AxieConfigs : ScriptableObject
     public AxieConfig GetRandom(List<AxieConfig> ignore, int level=0)
     {
         var ignoreIds = ignore.Select(x => x.axieId).ToList();
+        Debug.Log("Ignore: " + string.Join(", ", ignoreIds));
         var listUpgrade = new List<AxieUpgradeConfig>(upgradeConfigs);
         listUpgrade.RemoveAll(x => ignoreIds.Contains(x.axieIds[0]));
         if (listUpgrade != null && listUpgrade.Count > 0)
         {
-            var lst = listUpgrade[Random.Range(0, upgradeConfigs.Count)];
+            var lst = listUpgrade[Random.Range(0, listUpgrade.Count)];
             if (lst.axieIds.Count > level)
             {
                 return GetAxieConfig(lst.axieIds[level]);
