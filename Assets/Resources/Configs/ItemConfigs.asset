@@ -307,7 +307,7 @@ MonoBehaviour:
     value2: 0
   - id: 1_Item_Heal_Stamina
     statistic: 5
-    value: 3
+    value: 4
     statistic2: -1
     value2: 0
   - id: 2_Item_Strong
