@@ -20,7 +20,7 @@ public class InventoryItem : Drag
     //public Action onDropedToInventory;
     //public Action<GameObject> onDropedOutInventory;
 
-    private ItemConfig itemConfig;
+    public ItemConfig itemConfig;
 
     private Vector3 startDragPos;
 

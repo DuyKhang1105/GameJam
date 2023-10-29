@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
@@ -253,6 +254,23 @@ public class Inventory : MonoBehaviour
 
     private void Confirm()
     {
+        SoundManager.Instance.PlayButtonSound();
+
+        bool hasWeapon = false;
+        if (items!=null && items.Count > 0)
+            hasWeapon = items.Any(x => x.isInInventory && x.itemConfig != null && x.itemConfig.id.Contains("Weapon"));
+        if (!hasWeapon)
+        {
+            if (dragItems != null && dragItems.Count > 0)
+                hasWeapon = dragItems.Any(x => x.GetComponent<InventoryItem>().isInInventory && x.GetComponent<InventoryItem>().itemConfig != null && x.GetComponent<InventoryItem>().itemConfig.id.Contains("Weapon"));
+        }
+        if (!hasWeapon)
+        {
+            Debug.Log("Inventory must contain at least a weapon");
+            Notification.Instance.ShowNoti("Inventory must contain at least a weapon");
+            return;
+        }
+
         dragItems.ForEach(x=> {
             if (x != null)
             {
@@ -267,9 +285,7 @@ public class Inventory : MonoBehaviour
         GameUI.Instance.nextBtn.SetActive(true);
         GameUI.Instance.chest.SetActive(false);
         GameUI.Instance.startChest.SetActive(false);
-        GameUI.Instance.axieChest.SetActive(false);
-
-        SoundManager.Instance.PlayButtonSound();
+        GameUI.Instance.axieChest.SetActive(false); 
     }
 
     //Test
