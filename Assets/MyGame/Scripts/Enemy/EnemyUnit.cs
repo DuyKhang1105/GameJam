@@ -19,6 +19,8 @@ public class EnemyUnit : Unit
     public bool isPow = false;
     BattleSystem battleSystem;
 
+    bool isSummon = false;
+
     public void Parse(EnemyConfig enemyConfig)
     {
         this.skillType = enemyConfig.skillType;
@@ -137,7 +139,8 @@ public class EnemyUnit : Unit
         }
     }
 
-    void SelfDestruct()
+
+    public void SelfDestruct()
     {
         int damage = skillValue;
 
@@ -175,6 +178,8 @@ public class EnemyUnit : Unit
             Debug.LogError("Boom");
             var indexDie = battleSystem.indexEnemy;
             battleSystem.ResetTarget();
+            battleSystem.enemyUnits[indexDie].currentHP = 0;
+            battleSystem.enemyUnits[indexDie].isDead = true;
             battleSystem.enemyHUDs[indexDie].gameObject.SetActive(false);
             battleSystem.enemyControls[indexDie].gameObject.SetActive(false);
 
@@ -199,7 +204,7 @@ public class EnemyUnit : Unit
 
         int currentHP = battleSystem.enemyUnits[0].currentHP; // Save hp
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < battleSystem.enemyUnits.Count; i++)
         {
             battleSystem.enemyHUDs[i].gameObject.SetActive(false);
             battleSystem.enemyUnits[i].gameObject.SetActive(false);
@@ -240,19 +245,26 @@ public class EnemyUnit : Unit
     {
         EnemyConfig enemy = EnemyConfigs.Instance.GetEnemyConfig(EnemyName.SlimeForestB);
 
-        for (int i = 0; i < skillValue; i++)
+        if (isSummon)
         {
-            GameObject enemyGO = Instantiate(enemy.graphic, battleSystem.enemyBattleStations[i+1]);
-            EnemyUnit enemyUnit = enemyGO.GetComponent<EnemyUnit>();
-            enemyUnit.Parse(enemy);
-            battleSystem.enemyUnits.Add(enemyUnit);
+            HealAll();
+        }
+        else
+        {
+            isSummon = true;
+            for (int i = 0; i < skillValue; i++)
+            {
+                GameObject enemyGO = Instantiate(enemy.graphic, battleSystem.enemyBattleStations[i + 1]);
+                EnemyUnit enemyUnit = enemyGO.GetComponent<EnemyUnit>();
+                enemyUnit.Parse(enemy);
+                battleSystem.enemyUnits.Add(enemyUnit);
 
-            battleSystem.enemyControls.Add(enemyGO.GetComponent<EnemyControl>());
+                battleSystem.enemyControls.Add(enemyGO.GetComponent<EnemyControl>());
 
-            battleSystem.enemyHUDs[i+1].gameObject.SetActive(true);
-            battleSystem.enemyHUDs[i+1].SetEnemyHUD(battleSystem.enemyUnits[i+1]);
-            FxManager.Instance.Create(battleSystem.enemyBattleStations[i + 1].position, TypeFx.SUMMON);
-
+                battleSystem.enemyHUDs[i + 1].gameObject.SetActive(true);
+                battleSystem.enemyHUDs[i + 1].SetEnemyHUD(battleSystem.enemyUnits[i + 1]);
+                FxManager.Instance.Create(battleSystem.enemyBattleStations[i + 1].position, TypeFx.SUMMON);
+            }
         }
     }
 
@@ -277,7 +289,7 @@ public class EnemyUnit : Unit
             yield return new WaitForSeconds(0.5f);
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.8f);
         battleSystem.enemyUnits[battleSystem.indexEnemy].transform.DOMoveX(battleSystem.enemyBattleStations[battleSystem.indexEnemy].position.x, 1f);
     }
 
@@ -287,7 +299,7 @@ public class EnemyUnit : Unit
         bool isDead = battleSystem.heroUnit.isDead;
 
         Sequence s = DOTween.Sequence();
-        s.Append(battleSystem.enemyUnits[battleSystem.indexEnemy].transform.DOMoveX(-3f, 1f));//
+        s.Append(battleSystem.enemyUnits[battleSystem.indexEnemy].transform.DOMoveX(-3f, 0.5f));//
         s.AppendCallback(() =>
         {
             for (int i = 0; i < 3; i++)

@@ -18,10 +18,10 @@ MonoBehaviour:
     skillValue: 3
     graphic: {fileID: 6211003790755361424, guid: c70a1cfb7b8382c408b2982641f5c600, type: 3}
     statistics:
-      maxHP: 7
-      maxPow: 7
-      damage: 5
-      shield: 3
+      maxHP: 9
+      maxPow: 5
+      damage: 3
+      shield: 5
       hpBuff: 3
       shieldBuff: 3
   - name: 2
@@ -31,7 +31,7 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 5
-      damage: 3
+      damage: 1
       shield: 3
       hpBuff: 1
       shieldBuff: 1
@@ -42,8 +42,8 @@ MonoBehaviour:
     statistics:
       maxHP: 7
       maxPow: 7
-      damage: 5
-      shield: 3
+      damage: 3
+      shield: 5
       hpBuff: 3
       shieldBuff: 1
   - name: 4
@@ -52,9 +52,9 @@ MonoBehaviour:
     graphic: {fileID: 3965531182826440107, guid: 5faeb56287af270448c598d10d46a51e, type: 3}
     statistics:
       maxHP: 7
-      maxPow: 7
-      damage: 5
-      shield: 3
+      maxPow: 3
+      damage: 1
+      shield: 5
       hpBuff: 3
       shieldBuff: 3
   - name: 5
@@ -64,9 +64,9 @@ MonoBehaviour:
     statistics:
       maxHP: 7
       maxPow: 7
-      damage: 5
-      shield: 3
-      hpBuff: 3
+      damage: 3
+      shield: 1
+      hpBuff: 1
       shieldBuff: 1
   - name: 6
     skillType: 1
@@ -86,9 +86,9 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 5
-      damage: 3
+      damage: 1
       shield: 3
-      hpBuff: 1
+      hpBuff: 3
       shieldBuff: 1
   - name: 8
     skillType: 1
@@ -97,10 +97,10 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 5
-      damage: 3
-      shield: 3
+      damage: 1
+      shield: 5
       hpBuff: 1
-      shieldBuff: 1
+      shieldBuff: 3
   - name: 9
     skillType: 1
     skillValue: 1
@@ -108,7 +108,7 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 5
-      damage: 3
+      damage: 1
       shield: 3
       hpBuff: 1
       shieldBuff: 1
@@ -117,10 +117,10 @@ MonoBehaviour:
     skillValue: 5
     graphic: {fileID: 1094129266235616370, guid: f951e2cd713dcb749ac29ea976fef1f2, type: 3}
     statistics:
-      maxHP: 5
+      maxHP: 10
       maxPow: 5
-      damage: 3
-      shield: 3
+      damage: 1
+      shield: 5
       hpBuff: 1
       shieldBuff: 1
   - name: 11
@@ -130,7 +130,7 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 5
-      damage: 3
+      damage: 1
       shield: 3
       hpBuff: 1
       shieldBuff: 1
@@ -152,7 +152,7 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 5
-      damage: 3
+      damage: 1
       shield: 1
       hpBuff: 1
       shieldBuff: 1
@@ -173,8 +173,8 @@ MonoBehaviour:
     graphic: {fileID: 1833014952942092448, guid: 3e77a34869894714d875ddcc79fe8624, type: 3}
     statistics:
       maxHP: 5
-      maxPow: 5
-      damage: 3
+      maxPow: 3
+      damage: 1
       shield: 1
       hpBuff: 1
       shieldBuff: 1
@@ -183,8 +183,8 @@ MonoBehaviour:
     skillValue: 2
     graphic: {fileID: 336731191987442812, guid: 65a9b3fbc57ef764f82ec3bc83419ac1, type: 3}
     statistics:
-      maxHP: 7
-      maxPow: 7
+      maxHP: 20
+      maxPow: 5
       damage: 5
       shield: 3
       hpBuff: 3
@@ -194,9 +194,9 @@ MonoBehaviour:
     skillValue: 3
     graphic: {fileID: 2439790147996913431, guid: 83336cf39bf051444ad92d544652c0ab, type: 3}
     statistics:
-      maxHP: 9
-      maxPow: 9
-      damage: 9
+      maxHP: 11
+      maxPow: 5
+      damage: 7
       shield: 5
       hpBuff: 5
       shieldBuff: 3
@@ -205,10 +205,10 @@ MonoBehaviour:
     skillValue: 3
     graphic: {fileID: 1487345654406267983, guid: 73414aa5dcdba204f9dc4f81bd0ed196, type: 3}
     statistics:
-      maxHP: 7
-      maxPow: 7
-      damage: 5
-      shield: 3
+      maxHP: 5
+      maxPow: 3
+      damage: 1
+      shield: 7
       hpBuff: 3
       shieldBuff: 3
   - name: 19
@@ -216,8 +216,8 @@ MonoBehaviour:
     skillValue: 2
     graphic: {fileID: 2763760611587319409, guid: 18a00392b6aaca74a95acce28ea15a1c, type: 3}
     statistics:
-      maxHP: 9
-      maxPow: 9
+      maxHP: 30
+      maxPow: 5
       damage: 7
       shield: 5
       hpBuff: 5
@@ -228,8 +228,8 @@ MonoBehaviour:
     graphic: {fileID: 4133540646561155608, guid: bf258f964fa7ce94caef411c379ca41d, type: 3}
     statistics:
       maxHP: 7
-      maxPow: 7
+      maxPow: 3
       damage: 5
-      shield: 3
-      hpBuff: 3
+      shield: 5
+      hpBuff: 1
       shieldBuff: 3
