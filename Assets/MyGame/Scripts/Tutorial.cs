@@ -45,6 +45,8 @@ public class Tutorial : MonoBehaviour
         }
 
         imgBG.sprite = sprTutorial[index];
+
+        SoundManager.Instance.PlayButtonSound();
     }
 
     public void OnPrev()
@@ -58,10 +60,12 @@ public class Tutorial : MonoBehaviour
         }
 
         imgBG.sprite = sprTutorial[index];
+        SoundManager.Instance.PlayButtonSound();
     }
 
     public void OnPlay()
     {
         transform.gameObject.SetActive(false);
+        SoundManager.Instance.PlayButtonSound();
     }
 }

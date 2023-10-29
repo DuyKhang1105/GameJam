@@ -55,6 +55,6 @@ public class GameUI : MonoSingleton<GameUI>
 
     private void Start()
     {
-        SoundManager.Instance.PlayLoop(musicSnd, 0.2f);
+        SoundManager.Instance.PlayLoop(musicSnd, 0.1f);
     }
 }

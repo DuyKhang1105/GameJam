@@ -268,6 +268,8 @@ public class Inventory : MonoBehaviour
         GameUI.Instance.chest.SetActive(false);
         GameUI.Instance.startChest.SetActive(false);
         GameUI.Instance.axieChest.SetActive(false);
+
+        SoundManager.Instance.PlayButtonSound();
     }
 
     //Test
