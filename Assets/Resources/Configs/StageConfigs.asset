@@ -24,7 +24,7 @@ MonoBehaviour:
       - 5_Equip_Shield
   - stageType: 1
     isLevelUp: 0
-    enemyNames: 0600000003000000
+    enemyNames: 06000000
     chest:
       rareMax: 0
       count: 0
