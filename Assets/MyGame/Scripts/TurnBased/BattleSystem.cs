@@ -564,6 +564,23 @@ public class BattleSystem : MonoBehaviour
         enemyUnits[indexEnemy].Skill()?.Invoke();
         enemyHUDs[indexEnemy].SetPow(enemyUnits[indexEnemy].currentPow);
     }
+
+    public void AutoEndTurn()
+    {
+        GameUI.Instance.endTurnBtn.SetActive(false);
+        heroHUD.SetActiveStamina(false);
+
+        bool isAllEnemiesDead = enemyUnits.All(e => e.isDead);
+        if (isAllEnemiesDead)
+        {
+            DOVirtual.DelayedCall(1f, OnNext);
+        }
+        else
+        {
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+    }    
         
 	public void OnEndTurn()
 	{

@@ -205,7 +205,7 @@ public class AxieUnit : Unit
 
     public void Fightsback(int dmg)
     {
-        StartCoroutine(ActionFightsback(100));
+        StartCoroutine(ActionFightsback(dmg));
     }
 
     IEnumerator ActionFightsback(int activeValue)

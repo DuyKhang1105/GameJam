@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,13 @@ public class HeroUnit : Unit
         if (a >= 0) //enough for action
         {
             currentStamina = a;
+
+            if (currentStamina == 0)
+            {
+                BattleSystem.Instance.heroHUD.SetActiveStamina(false);
+                DOVirtual.DelayedCall(1f, BattleSystem.Instance.AutoEndTurn);
+            }
+
             return true;
         }
         else
