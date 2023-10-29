@@ -48,7 +48,7 @@ MonoBehaviour:
     enemyNames: 
     chest:
       rareMax: 0.3
-      count: 7
+      count: 9
       itemIds:
       - 0_Item_Heal_HP
       - 6_Equip_Shield
@@ -78,7 +78,7 @@ MonoBehaviour:
     enemyNames: 
     chest:
       rareMax: 0.6
-      count: 9
+      count: 11
       itemIds:
       - 3_Item_Upgrade_Pet
       - 1_Equip_Weapon_Axe
@@ -108,7 +108,7 @@ MonoBehaviour:
     enemyNames: 
     chest:
       rareMax: 0.9
-      count: 11
+      count: 13
       itemIds: []
   - stageType: 3
     isLevelUp: 0
