@@ -45,7 +45,7 @@ MonoBehaviour:
       damage: 5
       shield: 3
       hpBuff: 3
-      shieldBuff: 3
+      shieldBuff: 1
   - name: 4
     skillType: 3
     skillValue: 2
@@ -67,7 +67,7 @@ MonoBehaviour:
       damage: 5
       shield: 3
       hpBuff: 3
-      shieldBuff: 3
+      shieldBuff: 1
   - name: 6
     skillType: 1
     skillValue: 1
