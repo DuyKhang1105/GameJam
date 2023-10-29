@@ -47,7 +47,7 @@ MonoBehaviour:
     isLevelUp: 0
     enemyNames: 
     chest:
-      rareMax: 0.3
+      rareMax: 0.6
       count: 5
       itemIds:
       - 0_Item_Heal_HP
@@ -76,7 +76,7 @@ MonoBehaviour:
     isLevelUp: 0
     enemyNames: 
     chest:
-      rareMax: 0.6
+      rareMax: 0.9
       count: 7
       itemIds:
       - 3_Item_Upgrade_Pet
