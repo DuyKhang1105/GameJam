@@ -136,19 +136,23 @@ MonoBehaviour:
   unitName: 
   damage: 0
   shield: 0
-  buffShield: 0
   maxHP: 0
-  buffHP: 0
   currentHP: 0
   turnStun: 0
   dodgeRate: 0
   criticalRate: 0
   armorPenetrationRate: 0
+  bloodLost: 0
   isDead: 0
   isCrit: 0
+  isBuffAP: 0
+  isFightsback: 0
+  isBloodSucking: 0
   skillValue: 0
   maxPow: 0
   currentPow: 0
+  hpBuff: 0
+  shieldBuff: 0
   isPow: 0
 --- !u!114 &8498235608484763142
 MonoBehaviour:
@@ -172,5 +176,5 @@ MonoBehaviour:
   deathAnimationName: defense/hit-die
   stunAnimationName: 
   skillAnimationName_1: battle/get-buff
-  skillAnimationName_2: 
+  skillAnimationName_2: attack/ranged/cast-high
   skillAnimationName_3: 

@@ -85,6 +85,12 @@ public class HeroControl : MonoBehaviour
         spineAnimationState.AddAnimation(0, idleAnimationName, true, 0);
     }
 
+    public void StunHit()
+    {
+        spineAnimationState.SetAnimation(0, hitAnimationName, false);
+        spineAnimationState.AddAnimation(0, stunAnimationName, true, 0);
+    }
+
     public void Dead()
     {
         spineAnimationState.SetAnimation(0, deathAnimationName, false);

@@ -394,6 +394,7 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
+            heroHUD.SetActiveStamina(true);
             heroControl.Idle();
         }
         
@@ -523,7 +524,10 @@ public class BattleSystem : MonoBehaviour
                     }
                     else
                     {
-                        heroControl.OneHit();
+                        if (heroUnit.turnStun != 0)
+                            heroControl.StunHit();
+                        else
+                            heroControl.OneHit();
                     }
                     heroHUD.SetHP(heroUnit.currentHP);
                     heroHUD.SetShield(heroUnit.shield);
@@ -556,7 +560,6 @@ public class BattleSystem : MonoBehaviour
 
     void EnemySkill(int indexEnemy)
     {
-        enemyControls[indexEnemy].Buff();
         enemyUnits[indexEnemy].Skill()?.Invoke();
         enemyHUDs[indexEnemy].SetPow(enemyUnits[indexEnemy].currentPow);
     }

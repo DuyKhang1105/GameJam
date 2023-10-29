@@ -24,4 +24,10 @@ public class HeroBattleHUD : BattleHUD
     {
         tmpStamina.SetText($"{sta}");
     }
+
+    public void SetActiveStamina(bool isActive)
+    {
+        tmpStamina.transform.parent.gameObject.SetActive(isActive);
+    }    
+
 }

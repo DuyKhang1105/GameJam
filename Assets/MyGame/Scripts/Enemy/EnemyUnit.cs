@@ -57,6 +57,8 @@ public class EnemyUnit : Unit
 
     public Action Skill()
     {
+        battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
+
         ResetPow();
         switch (skillType)
         {
@@ -64,24 +66,31 @@ public class EnemyUnit : Unit
                 return StunHero;
 
             case EnemySkillType.HealAll:
+                battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
                 return HealAll;
 
             case EnemySkillType.StunHero:
+                battleSystem.enemyControls[battleSystem.indexEnemy].Combo1();
                 return StunHero;
 
             case EnemySkillType.BuffPow:
+                battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
                 return BuffPow;
 
             case EnemySkillType.SelfDestruct:
+                battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
                 return SelfDestruct;
 
             case EnemySkillType.Summon:
+                battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
                 return Summon;
 
             case EnemySkillType.Evolution:
+                battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
                 return OnEvolution;
 
             case EnemySkillType.Assassinate:
+                battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
                 return OnAssassinate;
         }
 
@@ -104,9 +113,14 @@ public class EnemyUnit : Unit
 
     void StunHero()
     {
+        DOVirtual.DelayedCall(0.5f, () =>
+        {
+            FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.TREE_SKILL);
+        });
+
+        battleSystem.heroHUD.SetActiveStamina(false);
         battleSystem.heroControl.Stun();
         battleSystem.heroUnit.Stun(skillValue);
-        FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.TREE_SKILL);
     }
 
     void BuffPow()
