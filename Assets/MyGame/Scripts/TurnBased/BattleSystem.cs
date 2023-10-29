@@ -90,6 +90,7 @@ public class BattleSystem : MonoBehaviour
             dicAxies.Add(config.axieId, axieGO);
 
             FxManager.Instance.Create(axieBattleStations[i].position, TypeFx.SPAWN_PET);
+            SoundManager.Instance.PlayOneShot(GameUI.Instance.spawnSnd);
         }
 
         Debug.Log("Axies: " + string.Join(", ", axieInventory.axies));
@@ -285,6 +286,7 @@ public class BattleSystem : MonoBehaviour
 
         TextFx.Create(heroUnit.transform.position, shi, TypeText.SHIELD);
         FxManager.Instance.Create(heroUnit.transform.position, TypeFx.BUFF_HERO);
+        SoundManager.Instance.PlayOneShot(GameUI.Instance.buffSnd);
         yield return new WaitForSeconds(2f);
         state = BattleState.HEROTURN;
     }
@@ -300,6 +302,7 @@ public class BattleSystem : MonoBehaviour
         heroHUD.SetHP(heroUnit.currentHP);
         TextFx.Create(heroUnit.transform.position, heal, TypeText.HEAL);
         FxManager.Instance.Create(heroUnit.transform.position, TypeFx.BUFF_HERO);
+        SoundManager.Instance.PlayOneShot(GameUI.Instance.buffSnd);
 
         yield return new WaitForSeconds(2f);
         state = BattleState.HEROTURN;
@@ -315,6 +318,7 @@ public class BattleSystem : MonoBehaviour
         heroHUD.SetStamina(heroUnit.currentStamina);
         TextFx.Create(heroUnit.transform.position, stamina, TypeText.STAMINA);
         FxManager.Instance.Create(heroUnit.transform.position, TypeFx.BUFF_HERO);
+        SoundManager.Instance.PlayOneShot(GameUI.Instance.buffSnd);
 
         yield return new WaitForSeconds(2f);
         state = BattleState.HEROTURN;

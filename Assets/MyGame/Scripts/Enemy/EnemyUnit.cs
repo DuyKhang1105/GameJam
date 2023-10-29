@@ -78,7 +78,7 @@ public class EnemyUnit : Unit
                 return BuffPow;
 
             case EnemySkillType.SelfDestruct:
-                battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
+                //battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
                 return SelfDestruct;
 
             case EnemySkillType.Summon:
@@ -86,6 +86,7 @@ public class EnemyUnit : Unit
                 return Summon;
 
             case EnemySkillType.Evolution:
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.evolutionSnd);
                 battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
                 return OnEvolution;
 
@@ -107,6 +108,7 @@ public class EnemyUnit : Unit
                 battleSystem.enemyHUDs[i].SetHP(battleSystem.enemyUnits[i].currentHP);
                 TextFx.Create(battleSystem.enemyUnits[i].transform.position, skillValue, TypeText.HEAL);
                 FxManager.Instance.Create(battleSystem.enemyUnits[i].transform.position, TypeFx.BUFF_ENEMY);
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.buffEnemySnd);
             }
         }
     }
@@ -115,6 +117,7 @@ public class EnemyUnit : Unit
     {
         DOVirtual.DelayedCall(0.5f, () =>
         {
+            SoundManager.Instance.PlayOneShot(GameUI.Instance.stunSnd);
             FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.TREE_SKILL);
         });
 
@@ -133,6 +136,7 @@ public class EnemyUnit : Unit
                 battleSystem.enemyHUDs[i].SetPow(battleSystem.enemyUnits[i].currentPow);
                 TextFx.Create(battleSystem.enemyUnits[i].transform.position, skillValue, TypeText.POW);
                 FxManager.Instance.Create(battleSystem.enemyUnits[i].transform.position, TypeFx.BUFF_POW);
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.fireSnd);
             }
         }
     }
@@ -150,6 +154,7 @@ public class EnemyUnit : Unit
         s.AppendCallback(() =>
         {
             battleSystem.enemyControls[battleSystem.indexEnemy].Buff();
+            SoundManager.Instance.PlayOneShot(GameUI.Instance.bombSnd);
 
         });
         s.AppendInterval(0.6f);
@@ -252,6 +257,7 @@ public class EnemyUnit : Unit
             isSummon = true;
             for (int i = 0; i < skillValue; i++)
             {
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.summonSnd);
                 GameObject enemyGO = Instantiate(enemy.graphic, battleSystem.enemyBattleStations[i + 1]);
                 EnemyUnit enemyUnit = enemyGO.GetComponent<EnemyUnit>();
                 enemyUnit.Parse(enemy);
