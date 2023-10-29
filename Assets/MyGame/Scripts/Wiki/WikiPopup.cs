@@ -47,7 +47,7 @@ public class WikiPopup : MonoBehaviour
 
     private void OpenWiki()
     {
-        GameUI.Instance.bg.SetActive(true);
+        //GameUI.Instance.bg.SetActive(true);
         //TODO wiki
         OnSelectTab(0);
     }
@@ -55,7 +55,7 @@ public class WikiPopup : MonoBehaviour
     private void OnClickClose()
     {
         SoundManager.Instance.PlayButtonSound();
-        GameUI.Instance.bg.SetActive(false);
+        //GameUI.Instance.bg.SetActive(false);
         gameObject.SetActive(false);
     }
 }
