@@ -59,7 +59,7 @@ MonoBehaviour:
     height: 2
     type: 1
     useable: 1
-    stamina: 0
+    stamina: 2
     rare: 0.6
   - id: 8_Equip_Shoe
     sprite: {fileID: 21300000, guid: ab4f394251f394cbf9872d30cf017994, type: 3}
