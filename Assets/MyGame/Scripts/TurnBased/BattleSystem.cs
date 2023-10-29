@@ -557,6 +557,7 @@ public class BattleSystem : MonoBehaviour
         enemyHUDs[indexEnemy].SetShield(enemyUnits[indexEnemy].shield);
         TextFx.Create(enemyUnits[indexEnemy].transform.position, enemyUnits[indexEnemy].shieldBuff, TypeText.SHIELD);
         FxManager.Instance.Create(enemyUnits[indexEnemy].transform.position, TypeFx.BUFF_ENEMY);
+        SoundManager.Instance.PlayOneShot(GameUI.Instance.buffEnemySnd);
     }
 
     void EnemyHeal(int indexEnemy)
@@ -566,6 +567,7 @@ public class BattleSystem : MonoBehaviour
         enemyHUDs[indexEnemy].SetHP(enemyUnits[indexEnemy].currentHP);
         TextFx.Create(enemyUnits[indexEnemy].transform.position, enemyUnits[indexEnemy].hpBuff, TypeText.HEAL);
         FxManager.Instance.Create(enemyUnits[indexEnemy].transform.position, TypeFx.BUFF_ENEMY);
+        SoundManager.Instance.PlayOneShot(GameUI.Instance.buffEnemySnd);
     }
 
     void EnemySkill(int indexEnemy)
