@@ -98,6 +98,7 @@ public class AxieUnit : Unit
         {
             Vector3 pos = new Vector3(0, transform.position.y, transform.position.z);
             battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
+            SoundManager.Instance.PlayOneShot(GameUI.Instance.buffSnd);
             FxManager.Instance.Create(pos, TypeFx.PET_BUFF);
         });
     }
@@ -105,6 +106,7 @@ public class AxieUnit : Unit
     void BuffAP()
     {
         battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
+        SoundManager.Instance.PlayOneShot(GameUI.Instance.buffSnd);
         FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.PET_BUFF);
         battleSystem.heroUnit.isBuffAP = true;
     }
@@ -112,6 +114,7 @@ public class AxieUnit : Unit
     void BuffBS()
     {
         battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
+        SoundManager.Instance.PlayOneShot(GameUI.Instance.buffSnd);
         FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.PET_BUFF);
         battleSystem.heroUnit.isBloodSucking = true;
     }
@@ -119,6 +122,7 @@ public class AxieUnit : Unit
     void BuffHP(int buffValue)
     {
         battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
+        SoundManager.Instance.PlayOneShot(GameUI.Instance.buffSnd);
         battleSystem.heroUnit.Heal(buffValue);
         battleSystem.heroHUD.SetHP(battleSystem.heroUnit.currentHP);
         FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.PET_BUFF);
@@ -128,6 +132,7 @@ public class AxieUnit : Unit
     void BuffStamina(int buffValue)
     {
         battleSystem.dicAxies[axieID].GetComponent<AxieControl>().Buff();
+        SoundManager.Instance.PlayOneShot(GameUI.Instance.buffSnd);
         battleSystem.heroUnit.GetStamina(buffValue);
         battleSystem.heroHUD.SetStamina(battleSystem.heroUnit.currentStamina);
         FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.PET_BUFF);
@@ -168,6 +173,7 @@ public class AxieUnit : Unit
             {
                 FxManager.Instance.Create(enemyUnitTarget.transform.position, TypeFx.HIT);
                 TextFx.Create(enemyUnitTarget.transform.position, activeValue, TypeText.HIT);
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.hitEnemySnd);
 
                 if (!isDead)
                 {
@@ -242,6 +248,7 @@ public class AxieUnit : Unit
             {
                 FxManager.Instance.Create(enemyUnitTarget.transform.position, TypeFx.HIT);
                 TextFx.Create(enemyUnitTarget.transform.position, activeValue, TypeText.HIT);
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.hitEnemySnd);
 
                 if (!isDead)
                 {

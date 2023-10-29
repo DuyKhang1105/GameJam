@@ -280,15 +280,18 @@ public class InventoryItem : Drag
         switch (statistic)
         {
             case StatisticType.HP:
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.drinkSnd);
                 BattleSystem.Instance.OnHeroHeal((int)value);
                 DestroyItem();
                 break;
             case StatisticType.Stamina:
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.drinkSnd);
                 Debug.Log("Add stamina");
                 BattleSystem.Instance.OnHeroStamina((int)value);
                 DestroyItem();
                 break;
             case StatisticType.Coin:
+                SoundManager.Instance.PlayOneShot(GameUI.Instance.clickCoinSnd);
                 GameUI.Instance.shopPopup.SetActive(true);
                 GameUI.Instance.shopPopup.GetComponent<ShopPopup>().onBuyed = (arg) =>
                 {
