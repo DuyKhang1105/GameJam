@@ -22,6 +22,7 @@ public class HeroUnit : Unit
 
             if (currentStamina == 0)
             {
+                GameUI.Instance.endTurnBtn.SetActive(false);
                 BattleSystem.Instance.heroHUD.SetActiveStamina(false);
                 DOVirtual.DelayedCall(2.5f, BattleSystem.Instance.AutoEndTurn);
             }

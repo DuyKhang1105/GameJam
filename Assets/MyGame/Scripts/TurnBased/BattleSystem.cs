@@ -133,6 +133,7 @@ public class BattleSystem : MonoBehaviour
             case StageType.Enemy:
             case StageType.MiniBoss:
             case StageType.Boss:
+                Debug.LogError("enemyConfigs.Count: " + enemyConfigs.Count);
                 for (int i = 0; i < enemyConfigs.Count; i++)
                 {
                     GameObject enemyGO = Instantiate(enemyConfigs[i].graphic, enemyBattleStations[i]);
@@ -575,7 +576,21 @@ public class BattleSystem : MonoBehaviour
 
     public void AutoEndTurn()
     {
-        GameUI.Instance.endTurnBtn.SetActive(false);
+        bool isDeadAll = true;
+        for (int i = 0; i < enemyUnits.Count; i++)
+        {
+            if (enemyUnits[i].currentHP > 0)
+            {
+                isDeadAll = false;
+            }
+        }
+
+        if (isDeadAll)
+        {
+            return;
+        }
+
+        
         heroHUD.SetActiveStamina(false);
 
         bool isAllEnemiesDead = enemyUnits.All(e => e.isDead);
