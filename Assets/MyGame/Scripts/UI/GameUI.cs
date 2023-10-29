@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameUI : MonoSingleton<GameUI>
 {
@@ -56,5 +57,7 @@ public class GameUI : MonoSingleton<GameUI>
     private void Start()
     {
         SoundManager.Instance.PlayLoop(musicSnd, 0.2f);
+        nextBtn.GetComponent<Button>().onClick.AddListener(SoundManager.Instance.PlayButtonSound);
+        endTurnBtn.GetComponent<Button>().onClick.AddListener(SoundManager.Instance.PlayButtonSound);
     }
 }
