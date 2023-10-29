@@ -21,7 +21,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     protected override void Awake()
     {
         base.Awake();
-
+        Debug.LogError(gameObject.name);
 
         GameObject sound = new GameObject();
         sound.transform.parent = this.transform;

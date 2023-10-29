@@ -39,6 +39,19 @@ public class GameUI : MonoSingleton<GameUI>
 
     [Header("Sound")]
     [SerializeField] private AudioClip musicSnd;
+    [SerializeField] private AudioClip hitHeroSnd;
+    [SerializeField] private AudioClip hitEnemySnd;
+    [SerializeField] private AudioClip buffSnd;
+    [SerializeField] private AudioClip fireSnd;
+    [SerializeField] private AudioClip spawnSnd;
+    [SerializeField] private AudioClip stunSnd;
+    [SerializeField] private AudioClip evolutionSnd;
+    [SerializeField] private AudioClip drinkSnd;
+    [SerializeField] private AudioClip bombSnd;
+    [SerializeField] private AudioClip winSnd;
+    [SerializeField] private AudioClip clickCoinSnd;
+    [SerializeField] private AudioClip summonSnd;
+    [SerializeField] private AudioClip buffEnemySnd;
 
     private void Start()
     {
