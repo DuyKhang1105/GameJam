@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameUI : MonoSingleton<GameUI>
@@ -31,8 +32,11 @@ public class GameUI : MonoSingleton<GameUI>
 
     [Header("Game")]
     public GameObject nextBtn;
+    public GameObject replayBtn;
     public GameObject endTurnBtn;
     public GameObject currentTurn;
+    public GameObject showPanelReplay;
+    public GameObject hidePanelReplay;
 
     [Header("Fx prerab")]
     public GameObject bubbleFx;
@@ -59,5 +63,14 @@ public class GameUI : MonoSingleton<GameUI>
         SoundManager.Instance.PlayLoop(musicSnd, 0.2f);
         nextBtn.GetComponent<Button>().onClick.AddListener(SoundManager.Instance.PlayButtonSound);
         endTurnBtn.GetComponent<Button>().onClick.AddListener(SoundManager.Instance.PlayButtonSound);
+        replayBtn.GetComponent<Button>().onClick.AddListener(OnClickReplay);
+        showPanelReplay.GetComponent<Button>().onClick.AddListener(SoundManager.Instance.PlayButtonSound);
+        hidePanelReplay.GetComponent<Button>().onClick.AddListener(SoundManager.Instance.PlayButtonSound);
+    }
+
+    private void OnClickReplay()
+    {
+        SoundManager.Instance.PlayButtonSound();
+        SceneManager.LoadScene("MainScene");
     }
 }
