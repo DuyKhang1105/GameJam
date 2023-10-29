@@ -16766,7 +16766,7 @@ PrefabInstance:
     - target: {fileID: 3361640916680527275, guid: fde2d92e0e2a1c84b8b32936abff1ba3, type: 3}
       propertyPath: evolutionSnd
       value: 
-      objectReference: {fileID: 8300000, guid: 2578f96ecff092848a7967dfc799085b, type: 3}
+      objectReference: {fileID: 8300000, guid: 55301b6cf42c3fd43832918c42fa80b7, type: 3}
     - target: {fileID: 3361640916680527275, guid: fde2d92e0e2a1c84b8b32936abff1ba3, type: 3}
       propertyPath: hidePanelReplay
       value: 
@@ -16885,7 +16885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6785568554888084696, guid: fde2d92e0e2a1c84b8b32936abff1ba3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 112.27
       objectReference: {fileID: 0}
     - target: {fileID: 6785568554888084696, guid: fde2d92e0e2a1c84b8b32936abff1ba3, type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -233,7 +233,10 @@ public class EnemyUnit : Unit
             GameObject enemyGO = Instantiate(enemys[i].graphic, battleSystem.enemyBattleStations[i]);
             EnemyUnit enemyUnit = enemyGO.GetComponent<EnemyUnit>();
             enemyUnit.Parse(enemys[i]);
-            enemyUnit.currentHP = currentHP;
+            if (i == 0)
+            {
+                enemyUnit.currentHP = currentHP;
+            }
 
             battleSystem.enemyUnits.Add(enemyUnit);
 

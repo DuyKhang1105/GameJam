@@ -18,10 +18,10 @@ MonoBehaviour:
     skillValue: 3
     graphic: {fileID: 6211003790755361424, guid: c70a1cfb7b8382c408b2982641f5c600, type: 3}
     statistics:
-      maxHP: 9
+      maxHP: 15
       maxPow: 5
       damage: 3
-      shield: 5
+      shield: 7
       hpBuff: 3
       shieldBuff: 3
   - name: 2
@@ -29,9 +29,9 @@ MonoBehaviour:
     skillValue: 1
     graphic: {fileID: 7281921293100200639, guid: 42e562c5f12fb0b47853620c2ba19faf, type: 3}
     statistics:
-      maxHP: 5
+      maxHP: 7
       maxPow: 5
-      damage: 1
+      damage: 3
       shield: 3
       hpBuff: 1
       shieldBuff: 1
@@ -40,10 +40,10 @@ MonoBehaviour:
     skillValue: 1
     graphic: {fileID: 8498235608484763139, guid: b6418b37b51d501499904c0e4bb80e5c, type: 3}
     statistics:
-      maxHP: 7
+      maxHP: 15
       maxPow: 7
       damage: 3
-      shield: 5
+      shield: 11
       hpBuff: 3
       shieldBuff: 1
   - name: 4
@@ -51,10 +51,10 @@ MonoBehaviour:
     skillValue: 2
     graphic: {fileID: 3965531182826440107, guid: 5faeb56287af270448c598d10d46a51e, type: 3}
     statistics:
-      maxHP: 7
+      maxHP: 13
       maxPow: 3
       damage: 1
-      shield: 5
+      shield: 10
       hpBuff: 3
       shieldBuff: 3
   - name: 5
@@ -62,12 +62,12 @@ MonoBehaviour:
     skillValue: 3
     graphic: {fileID: 5438201181911092081, guid: d98760df2bf6fdf44a5d4e0a6879e4ef, type: 3}
     statistics:
-      maxHP: 7
-      maxPow: 7
+      maxHP: 15
+      maxPow: 5
       damage: 3
-      shield: 1
-      hpBuff: 1
-      shieldBuff: 1
+      shield: 7
+      hpBuff: 3
+      shieldBuff: 3
   - name: 6
     skillType: 1
     skillValue: 1
@@ -117,10 +117,10 @@ MonoBehaviour:
     skillValue: 5
     graphic: {fileID: 1094129266235616370, guid: f951e2cd713dcb749ac29ea976fef1f2, type: 3}
     statistics:
-      maxHP: 10
+      maxHP: 13
       maxPow: 5
       damage: 1
-      shield: 5
+      shield: 10
       hpBuff: 1
       shieldBuff: 1
   - name: 11
@@ -139,7 +139,7 @@ MonoBehaviour:
     skillValue: 2
     graphic: {fileID: 1249931249478483350, guid: 00cab28574880c14c9b2a89a87193981, type: 3}
     statistics:
-      maxHP: 5
+      maxHP: 7
       maxPow: 5
       damage: 3
       shield: 3
@@ -150,7 +150,7 @@ MonoBehaviour:
     skillValue: 2
     graphic: {fileID: 7987996130671278482, guid: f05d4650fe13b4d41a8b884024095807, type: 3}
     statistics:
-      maxHP: 5
+      maxHP: 7
       maxPow: 5
       damage: 1
       shield: 1
@@ -161,7 +161,7 @@ MonoBehaviour:
     skillValue: 2
     graphic: {fileID: 3020839686205928896, guid: 620369157236aed44b938dbc8a10e8e2, type: 3}
     statistics:
-      maxHP: 5
+      maxHP: 11
       maxPow: 5
       damage: 3
       shield: 1
@@ -174,19 +174,19 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 3
-      damage: 1
+      damage: 3
       shield: 1
-      hpBuff: 1
-      shieldBuff: 1
+      hpBuff: 3
+      shieldBuff: 3
   - name: 16
     skillType: 5
     skillValue: 2
     graphic: {fileID: 336731191987442812, guid: 65a9b3fbc57ef764f82ec3bc83419ac1, type: 3}
     statistics:
-      maxHP: 20
+      maxHP: 40
       maxPow: 5
       damage: 5
-      shield: 3
+      shield: 11
       hpBuff: 3
       shieldBuff: 3
   - name: 17
@@ -194,7 +194,7 @@ MonoBehaviour:
     skillValue: 3
     graphic: {fileID: 2439790147996913431, guid: 83336cf39bf051444ad92d544652c0ab, type: 3}
     statistics:
-      maxHP: 11
+      maxHP: 70
       maxPow: 5
       damage: 7
       shield: 5
@@ -205,31 +205,31 @@ MonoBehaviour:
     skillValue: 3
     graphic: {fileID: 1487345654406267983, guid: 73414aa5dcdba204f9dc4f81bd0ed196, type: 3}
     statistics:
-      maxHP: 5
+      maxHP: 11
       maxPow: 3
       damage: 1
       shield: 7
-      hpBuff: 3
-      shieldBuff: 3
+      hpBuff: 5
+      shieldBuff: 5
   - name: 19
     skillType: 6
     skillValue: 2
     graphic: {fileID: 2763760611587319409, guid: 18a00392b6aaca74a95acce28ea15a1c, type: 3}
     statistics:
-      maxHP: 30
-      maxPow: 5
-      damage: 7
-      shield: 5
-      hpBuff: 5
+      maxHP: 70
+      maxPow: 15
+      damage: 5
+      shield: 10
+      hpBuff: 3
       shieldBuff: 3
   - name: 20
     skillType: 3
     skillValue: 2
     graphic: {fileID: 4133540646561155608, guid: bf258f964fa7ce94caef411c379ca41d, type: 3}
     statistics:
-      maxHP: 7
+      maxHP: 13
       maxPow: 3
       damage: 5
-      shield: 5
+      shield: 10
       hpBuff: 1
-      shieldBuff: 3
+      shieldBuff: 1
