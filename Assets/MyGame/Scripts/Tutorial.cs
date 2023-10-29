@@ -16,11 +16,11 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        /*if (PlayerPrefs.GetInt("Tutorial") == 1)
+        if (PlayerPrefs.GetInt("Tutorial") == 1)
         {
             transform.gameObject.SetActive(false);
             return;
-        }*/
+        }
 
         PlayerPrefs.SetInt("Tutorial", 1);
 
