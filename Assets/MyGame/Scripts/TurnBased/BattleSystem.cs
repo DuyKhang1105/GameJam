@@ -389,6 +389,7 @@ public class BattleSystem : MonoBehaviour
 
         if (heroUnit.CheckStun())
         {
+            heroHUD.SetActiveStamina(false);
             DOVirtual.DelayedCall(1f, OnEndTurn);
             yield break;
         }
@@ -570,6 +571,7 @@ public class BattleSystem : MonoBehaviour
             return;
 
         GameUI.Instance.endTurnBtn.SetActive(false);
+        heroHUD.SetActiveStamina(false);
 
         bool isAllEnemiesDead = enemyUnits.All(e => e.isDead);
         if (isAllEnemiesDead)
