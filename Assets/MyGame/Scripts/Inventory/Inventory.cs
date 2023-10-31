@@ -257,12 +257,12 @@ public class Inventory : MonoBehaviour
         SoundManager.Instance.PlayButtonSound();
 
         bool hasWeapon = false;
-        if (items!=null && items.Count > 0)
-            hasWeapon = items.Any(x => x.isInInventory && x.itemConfig != null && x.itemConfig.id.Contains("Weapon"));
+        if (items != null && items.Count > 0)
+            hasWeapon = items.Any(x => x != null && x.isInInventory && x.itemConfig != null && x.itemConfig.id.Contains("Weapon"));
         if (!hasWeapon)
         {
             if (dragItems != null && dragItems.Count > 0)
-                hasWeapon = dragItems.Any(x => x.GetComponent<InventoryItem>().isInInventory && x.GetComponent<InventoryItem>().itemConfig != null && x.GetComponent<InventoryItem>().itemConfig.id.Contains("Weapon"));
+                hasWeapon = dragItems.Any(x => x != null && x.GetComponent<InventoryItem>().isInInventory && x.GetComponent<InventoryItem>().itemConfig != null && x.GetComponent<InventoryItem>().itemConfig.id.Contains("Weapon"));
         }
         if (!hasWeapon)
         {

@@ -161,7 +161,7 @@ public class EnemyUnit : Unit
         s.AppendCallback(() =>
         {
             //Currently enemy dont has crit
-            TextFx.Create(battleSystem.heroControl.transform.position, battleSystem.enemyUnits[battleSystem.indexEnemy].damage, TypeText.CRIT);
+            TextFx.Create(battleSystem.heroControl.transform.position, damage, TypeText.CRIT);
             FxManager.Instance.Create(battleSystem.heroUnit.transform.position, TypeFx.BOMB);
 
             if (isDead)
