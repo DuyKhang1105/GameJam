@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Spine;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
@@ -440,16 +441,56 @@ public class BattleSystem : MonoBehaviour
         return isDead;
     }
 
-	void NextActionEnemy()
+    bool CheckFullHP(int index)
+    {
+        float percentHP = (float)enemyUnits[index].currentHP/ enemyUnits[index].maxHP;
+
+        if (percentHP == 1f)
+            return true;
+        return false;
+    }    
+
+
+    void NextActionEnemy()
 	{
         indexActions.Clear();
 
         for (int i = 0; i < enemyUnits.Count; i++)
         {
-            int indexNext = Random.Range(0, 3);
+            int indexNext = 0;
+
+            float atkRate = 0.5f;
+            float buffHpRate = 0.3f;
+            float buffShiRate = 0.2f;
+
+            if (CheckFullHP(i))
+            {
+                atkRate = 0.7f;
+                buffHpRate = 0f;
+                buffShiRate = 0.3f;
+            }
+
+            float r = Random.Range(0, 1f);
+            Debug.LogError("r: " + r);
+
+            if (r <= atkRate)
+            {
+                indexNext = 0;
+            }
+            else if (r <= (atkRate + buffShiRate))
+            {
+                indexNext = 1;
+            }
+            else if (r <= (atkRate + buffShiRate + buffHpRate))
+            {
+                indexNext = 2;
+            }
 
             if (enemyUnits[i].isPow)
                 indexNext = 3;
+
+
+            Debug.LogError("indexNext: " + indexNext);
 
             switch (indexNext)
             {

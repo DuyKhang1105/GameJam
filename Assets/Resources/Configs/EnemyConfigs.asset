@@ -20,7 +20,7 @@ MonoBehaviour:
     statistics:
       maxHP: 19
       maxPow: 5
-      damage: 3
+      damage: 5
       shield: 11
       hpBuff: 3
       shieldBuff: 3
@@ -31,7 +31,7 @@ MonoBehaviour:
     statistics:
       maxHP: 13
       maxPow: 5
-      damage: 3
+      damage: 5
       shield: 5
       hpBuff: 1
       shieldBuff: 1
@@ -40,9 +40,9 @@ MonoBehaviour:
     skillValue: 1
     graphic: {fileID: 8498235608484763139, guid: b6418b37b51d501499904c0e4bb80e5c, type: 3}
     statistics:
-      maxHP: 21
+      maxHP: 19
       maxPow: 7
-      damage: 3
+      damage: 5
       shield: 11
       hpBuff: 3
       shieldBuff: 1
@@ -53,8 +53,8 @@ MonoBehaviour:
     statistics:
       maxHP: 17
       maxPow: 3
-      damage: 1
-      shield: 13
+      damage: 3
+      shield: 11
       hpBuff: 3
       shieldBuff: 3
   - name: 5
@@ -64,7 +64,7 @@ MonoBehaviour:
     statistics:
       maxHP: 17
       maxPow: 5
-      damage: 3
+      damage: 5
       shield: 7
       hpBuff: 3
       shieldBuff: 3
@@ -75,7 +75,7 @@ MonoBehaviour:
     statistics:
       maxHP: 3
       maxPow: 3
-      damage: 1
+      damage: 3
       shield: 1
       hpBuff: 1
       shieldBuff: 1
@@ -86,7 +86,7 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 5
-      damage: 1
+      damage: 3
       shield: 3
       hpBuff: 3
       shieldBuff: 1
@@ -108,7 +108,7 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 5
-      damage: 1
+      damage: 3
       shield: 3
       hpBuff: 1
       shieldBuff: 1
@@ -119,7 +119,7 @@ MonoBehaviour:
     statistics:
       maxHP: 11
       maxPow: 5
-      damage: 1
+      damage: 3
       shield: 17
       hpBuff: 1
       shieldBuff: 1
@@ -130,7 +130,7 @@ MonoBehaviour:
     statistics:
       maxHP: 5
       maxPow: 5
-      damage: 1
+      damage: 3
       shield: 3
       hpBuff: 1
       shieldBuff: 1
@@ -154,8 +154,8 @@ MonoBehaviour:
       maxPow: 5
       damage: 1
       shield: 1
-      hpBuff: 1
-      shieldBuff: 1
+      hpBuff: 3
+      shieldBuff: 3
   - name: 14
     skillType: 1
     skillValue: 2
@@ -185,7 +185,7 @@ MonoBehaviour:
     statistics:
       maxHP: 55
       maxPow: 5
-      damage: 5
+      damage: 7
       shield: 13
       hpBuff: 5
       shieldBuff: 5
@@ -196,7 +196,7 @@ MonoBehaviour:
     statistics:
       maxHP: 85
       maxPow: 5
-      damage: 7
+      damage: 9
       shield: 5
       hpBuff: 5
       shieldBuff: 3
@@ -207,7 +207,7 @@ MonoBehaviour:
     statistics:
       maxHP: 15
       maxPow: 3
-      damage: 1
+      damage: 3
       shield: 7
       hpBuff: 5
       shieldBuff: 5
@@ -228,8 +228,8 @@ MonoBehaviour:
     graphic: {fileID: 4133540646561155608, guid: bf258f964fa7ce94caef411c379ca41d, type: 3}
     statistics:
       maxHP: 21
-      maxPow: 3
-      damage: 5
+      maxPow: 5
+      damage: 7
       shield: 10
       hpBuff: 3
       shieldBuff: 3
